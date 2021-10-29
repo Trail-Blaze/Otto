@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <!-- Head -->
+  <head>
+    <title>About Otto Launcher | The Blaze Catalyst Launcher</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+
+    <script src="./src/assets/js/aboutOtto.js"></script>
+    <script src="./src/assets/js/navConfig.js" defer></script>
+    <!-- StandardUI CSS -->
+
+    <link rel="stylesheet" href="./src/assets/css/standardUI.css" />
+    <link rel="stylesheet" href="./dist/css/main.css" />
+    <script src="./src/assets/js/include.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css"
+    />
+    <style>
+      body {
+        font-family: "Manrope", sans-serif;
+      }
+      .preview_img_dk {
+        width: 50vw;
+      }
+    </style>
+  </head>
+  <body>
+    <header
+      includefile="./src/assets/partials/html/sidebar.html"
+      class="select-none w-56 bg-gray-800 text-white border-r border-blackblack fixed min-h-screen pt-8"
+    ></header>
+    <div class="main-div bg-gray-200 text-gray-900 flex-1 px-80 py-10">
+      <div
+        class="settings-header"
+        style="font-size: 2.5vw; padding-bottom: 1vh"
+      >
+        <b>About Otto Launcher</b>
+      </div>
+      <div class="settings-header" style="font-size: 1.5vw">
+        backend_version:
+        <b><div id="bac-ver">##bac-ver</div></b>
+      </div>
+      <div class="settings-header" style="font-size: 1.5vw">
+        client_version:
+        <b><div id="cli-ver">##cli-ver</div></b>
+      </div>
+      <div class="settings-header" style="font-size: 1.5vw">
+        os_type:
+        <b><div id="os-type">##os-type</div></b>
+      </div>
+      <div class="settings-header" style="font-size: 1.5vw">
+        client_type:
+        <b><div id="chrome-version">##chrome-version</div></b>
+        <b><div id="node-version">##node-version</div></b>
+        <b><div id="electron-version">##electron-version</div></b>
+      </div>
+      <div class="settings-header" style="font-size: 1.5vw">
+        Total Plugins Installed:
+        <b> <div id="tot-plugins">##tot-plugins</div></b>
+      </div>
+      <div class="settings-header" style="font-size: 1.5vw">
+        Total Plugins Available on Repository:
+        <b> <div id="rep-tot-able">##rep-tot-able</div></b>
+      </div>
+      <br />
+      <br />
+      <div class="settings-header" style="font-size: 1.85vw">
+        Made with ❤️ by BlazeOrg
+      </div>
+      <div class="settings-header" style="font-size: 1.5vw">
+        &copy 2021 The TrailBlaze Authors
+      </div>
+      <div class="settings-header" style="font-size: 1.5vw">
+        All Rights Reserved.
+      </div>
+    </div>
+
+    <script>
+      Include();
+    </script>
+    <!-- End Body -->
+  </body>
+</html>

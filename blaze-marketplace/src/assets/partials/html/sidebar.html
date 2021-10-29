@@ -1,0 +1,65 @@
+<div class="search-container text-center p-4 relative">
+  <input
+    type="text"
+    placeholder="Search"
+    class="select-all bg-gray-100 text-gray-600 text-xs w-full p-2 pl-8 border border-gray-600 rounded focus:ring-2 focus:ring-blue-600"
+  />
+  <div class="absolute top-0 py-5 px-2 text-gray-400">
+    <span style="font-size: 15px" class="text-gray-400">
+      <i class="fas fa-search">&nbsp;</i>
+    </span>
+  </div>
+</div>
+
+<div
+  id="iconContainer"
+  class="sidebar-icons flex content-center flex-col content-around"
+>
+  <a href="index.html">
+    <div
+      class="sidebar-icon flex items-center px-4 py-2 text-grey no-underline cursor-pointer hover:bg-grey-darker hover:bg-yellow-700"
+    >
+      <span style="font-size: 24px; color: currentColor">
+        <i class="fas fa-star">&nbsp;</i>
+      </span>
+      <div class="text-white">Discover</div>
+    </div></a
+  >
+  <!-- end sidebar-icon -->
+
+  <!-- end sidebar-icons -->
+
+  <div class="absolute bottom-0 w-full pb-4">
+    <div
+      class="sidebar-icon flex items-center px-4 py-2 text-grey no-underline cursor-pointer hover:bg-grey-darker"
+    >
+      <svg class="mr-3" width="34px" height="34px" viewBox="0 0 34 34">
+        <circle
+          fill="#D8D8D8"
+          fill-rule="nonzero"
+          cx="17"
+          cy="17"
+          r="17"
+        ></circle>
+        <text font-size="15" font-weight="300" fill="#2D2F31">
+          <tspan x="4.85714286" y="21.7857143">NA</tspan>
+        </text>
+      </svg>
+      <div class="text-white">Not Signed In</div>
+    </div>
+    <!-- end sidebar-icon -->
+  </div>
+</div>
+<script id="sideBarTemplate" class="hidden" type="text/html">
+  <!-- START-->
+  <div
+    class="sidebar-icon flex items-center px-4 py-2 text-grey no-underline cursor-pointer hover:bg-grey-darker hover:bg-yellow-700"
+  >
+    <span style="font-size: 24px; color: currentColor">
+      <i id="fa" class="fas fa-star">&nbsp;</i>
+    </span>
+    <div id="sideBarText" class="text-white">SIDEBAR_TEMPLATE_TEXT</div>
+  </div>
+  <!-- end sidebar-icon -->
+  <!-- END -->
+</script>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blaze Launcher | Resource Monitor</title>
+    <script src="./src/assets/js/res-mon.js" defer></script>
+    <script src="./src/assets/js/include.js"></script>
+    <script src="./src/assets/js/navConfig.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css"
+    />
+    <link rel="stylesheet" href="./src/assets/css/res-mon.css" />
+    <link rel="stylesheet" href="./dist/css/main.css" />
+  </head>
+  <style>
+    body {
+      font-family: "Manrope", sans-serif;
+    }
+  </style>
+  <body>
+    <div
+      includefile="./src/assets/partials/html/sidebar.html"
+      class="select-none w-56 bg-gray-800 text-white border-r border-blackblack fixed min-h-screen pt-8"
+    ></div>
+    <div class="wrapper mx-56 flex-wrap">
+      <div class="stats-container">
+        <div class="box">
+          <span class="label">CPU (%)</span>
+          <span id="cpu">--</span>
+        </div>
+
+        <div class="box">
+          <span class="label">Free Memory (%)</span>
+          <span id="mem">--</span>
+        </div>
+
+        <div class="box">
+          <span class="label">Total Memory (GB)</span>
+          <span id="total_mem">--</span>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    Include();
+  </script>
+</html>

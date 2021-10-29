@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blaze Launcher | View All</title>
+    <link rel="stylesheet" href="./dist/css/main.css" />
+    <script src="./src/assets/js/include.js"></script>
+    <script src="./src/assets/js/view_all.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css"
+    />
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+    />
+    <style>
+      body {
+        font-family: "Manrope", sans-serif;
+      }
+      .banner-test {
+        background: #14ce4228;
+        background: url("./src/assets/jpg/discover1.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 300px;
+      }
+      .carousel-cell {
+        width: 100%;
+        border-radius: 5px;
+      }
+    </style>
+    <script src="./src/assets/js/navConfig.js" defer></script>
+  </head>
+  <body class="bg-gray-300">
+    <div
+      includefile="./src/assets/partials/html/sidebar.html"
+      class="select-none w-56 bg-gray-800 text-white border-r border-blackblack fixed min-h-screen pt-8"
+    ></div>
+    <div class="main-div bg-gray-200 text-gray-900 flex-1 ml-56 px-20 pt-10">
+      <div class="text-5xl font-semibold pb-10">View All</div>
+      <div class="border-b border-gray-900 mb-10 pb-20"></div>
+      <div id="entryListAll" class="flex flex-wrap"></div>
+    </div>
+  </body>
+  <script>
+    Include();
+  </script>
+  <script id="entryTemplate" class="hidden" type="text/html">
+    <div class="w-24">
+      <img id="templateIcon" alt="icon" />
+    </div>
+    <div class="pl-6 flex-1 pr-6">
+      <div class="mb-1" id="templateTitle">APPLICATION_TEMPLATE</div>
+      <div class="text-gray text-xs mb-6" id="templateDesc">
+        TEMPLATE_DESCRIPTION
+      </div>
+      <div class="mb-8">
+        <span
+          id="TEMPLATE_GETID"
+          class="bg-white text-blue-400 rounded-full px-3 py-1 text-xs font-bold cursor-pointer select-none hover:bg-gray-300"
+          onclick="sendID(this.id)"
+        >
+          GET
+        </span>
+      </div>
+      <div class="border-b border-gray-900 mb-10"></div>
+    </div>
+  </script>
+</html>
