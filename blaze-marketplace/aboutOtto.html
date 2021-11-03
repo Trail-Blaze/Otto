@@ -12,7 +12,7 @@
     />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
-    <script src="./src/assets/js/aboutOtto.js"></script>
+    <script src="./src/assets/js/aboutOtto.js" defer></script>
     <script src="./src/assets/js/navConfig.js" defer></script>
     <!-- StandardUI CSS -->
 
@@ -51,8 +51,16 @@
         <b>About Otto Launcher</b>
       </div>
       <div class="settings-header" style="font-size: 1.5vw">
-        backend_version:
+        backend:
         <b><div id="bac-ver">##bac-ver</div></b>
+      </div>
+      <div class="settings-header" style="font-size: 1.5vw">
+        backend type:
+        <b><div id="bac-type">##bac-type</div></b>
+      </div>
+      <div class="settings-header" style="font-size: 1.5vw">
+        boot:
+        <code><div id="boot" style="text-transform: none; background: #000000; color: green; margin-right: 600px;">##boot</div></code>
       </div>
       <div class="settings-header" style="font-size: 1.5vw">
         client_version:

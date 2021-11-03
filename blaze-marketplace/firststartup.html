@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blaze Launcher | First Start</title>
+    <!--Please leave this meta tag untouched-->
+    <meta name="web_author" content="Alberto Hartzet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./src/assets/css/firststart.css" />
+    <script src="./src/assets/js/include.js"></script>
+    <script src="./src/assets/js/firststartup.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css"
+    />
+    <link rel="stylesheet" href="./dist/css/main.css" />
+  </head>
+  <style>
+    body {
+      font-family: "Manrope", sans-serif;
+    }
+  </style>
+  <body class="bg-gray-300">
+    <!-- <div
+      includefile="./src/assets/partials/html/sidebar.html"
+      class="select-none w-56 bg-gray-800 text-white border-r border-blackblack fixed min-h-screen pt-8"
+    ></div> -->
+
+    <!-- class="main-div bg-gray-200 text-gray-900 flex-1 ml-56 px-20 pt-10 pb-20" -->
+    <div class="main-div">
+      <!--  <div class="card-div">
+        <div class="bg-white dark:bg-gray-800 rounded-tl-xl sm:rounded-t-xl p-4 pb-6 sm:p-8 lg:p-4 lg:pb-6 xl:p-8 space-y-6 sm:space-y-8 lg:space-y-6 xl:space-y-8">
+          <div class="flex items-center space-x-3.5 sm:space-x-5 lg:space-x-3.5 xl:space-x-5">
+            <img src="src/assets/png/fortnite_lettermark_logo.png" alt="" width="160" height="160" class="flex-none w-20 h-20 rounded-lg bg-gray-100">
+            <div class="min-w-0 flex-auto space-y-0.5">
+              <p class="text-lime-600 dark:text-lime-400 text-sm sm:text-base lg:text-sm xl:text-base font-semibold uppercase">Entry #1</p>
+              <h2 class="text-black dark:text-white text-base sm:text-xl lg:text-base xl:text-xl font-semibold truncate">Fortnite 16</h2>
+              <p class="text-gray-500 dark:text-gray-400 text-base sm:text-lg lg:text-base xl:text-lg font-medium">Login As: <b>Joe<b></b></b></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white lg:rounded-b-xl py-4 px-1 sm:px-3 lg:px-1 xl:px-3"></div>
+      </div> -->
+
+      <div class="contenedor">
+        <form>
+          <input
+            type="radio"
+            id="Slide1"
+            name="slider"
+            title="Setup"
+            autofocus="autofocus"
+            checked="checked"
+          />
+          <input
+            type="radio"
+            id="Slide2"
+            name="slider"
+            title="Locate Fortnite"
+          />
+          <input type="radio" id="Slide3" name="slider" title="Add an Icon" />
+          <input type="radio" id="Slide4" name="slider" title="Finishing Up" />
+          <div class="labels">
+            <label class="Slide" for="Slide1" id="Slide1">
+              <div class="content">
+                <h1 class="normal-case text-4xl font-semibold">
+                  What's Your Name?
+                </h1>
+                <h1 class="normal-case text-md font-light">
+                  Hi! Nice to meet you! What's your name?
+                </h1>
+                <br />
+                <input
+                  type="text"
+                  id="selectLogin"
+                  style="
+                    all: inherit;
+                    position: initial;
+                    display: initial;
+                    cursor: initial;
+                    margin: 0;
+                    height: 2.5rem;
+                    width: 100%;
+                    background: #00000044;
+                    border-radius: 2.5px;
+                    border-bottom: 2.3px solid #006eff;
+                    font-size: 1.5rem;
+                    font-weight: 400;
+                  "
+                />
+              </div>
+              <div class="icon">
+                <span><i class="fa fa-keyboard-o"></i></span
+                ><span class="font-semibold">Use keyboard</span>
+              </div>
+            </label>
+            <label class="Slide" for="Slide2" id="Slide2">
+              <div class="content">
+                <h1 class="normal-case text-4xl font-semibold">
+                  Where's Your Fortnite Install?
+                </h1>
+                <h1 class="normal-case text-md font-light">
+                  Enter the path to the folder containing the Engine and
+                  FortniteGame folders.
+                </h1>
+                <br />
+                <div class="flex items-center justify-center">
+                  <input
+                    type="text"
+                    id="typePath"
+                    style="
+                      all: initial;
+                      position: initial;
+                      display: inline;
+                      cursor: initial;
+                      margin: 0;
+                      height: 3.1rem;
+                      font-family: inherit;
+                      color: white;
+                      width: 50%;
+                      background: #00000044;
+                      border-radius: 2.5px;
+                      border-bottom: 2px solid #ff0000;
+                      font-size: 1.5rem;
+                      font-weight: 400;
+                      margin-right: 5px;
+                    "
+                  />
+                  <div
+                    id="selectPath"
+                    style="
+                      display: inline;
+                      text-align: center;
+                      padding-top: 0.765rem;
+                      padding-bottom: 0.765rem;
+                      background: #00000044;
+                      border-radius: 2.5px;
+                      color: white;
+                      border-bottom: 2px solid #ff0000;
+                    "
+                    class="hover:opacity-70 text-black pl-5 pr-5 select-none"
+                  >
+                    Browse
+                  </div>
+                </div>
+              </div>
+            </label>
+            <label class="Slide" for="Slide3" id="Slide3">
+              <div class="card-div">
+                <div
+                  class="bg-white dark:bg-gray-800 rounded-tl-xl sm:rounded-t-xl p-4 pb-6 sm:p-8 lg:p-4 lg:pb-6 xl:p-8 space-y-6 sm:space-y-8 lg:space-y-6 xl:space-y-8"
+                >
+                  <div
+                    class="flex items-center space-x-3.5 sm:space-x-5 lg:space-x-3.5 xl:space-x-5"
+                  >
+                    <img
+                      src="src/assets/png/fortnite_lettermark_logo.png"
+                      id="changeableIcon"
+                      alt=""
+                      width="160"
+                      height="160"
+                      class="cursor-pointer hover:opacity-70 flex-none w-20 h-20 rounded-lg bg-gray-100"
+                    />
+                    <div class="min-w-0 flex-auto space-y-0.5">
+                      <input
+                        type="text"
+                        id="distName"
+                        placeholder="Fortnite 18"
+                        style="
+                          all: initial;
+                          position: initial;
+                          display: inline;
+                          cursor: initial;
+                          margin: 0;
+                          height: 3.1rem;
+                          font-family: inherit;
+                          color: black;
+                          width: 100%;
+                          background: #0000000c;
+                          border-radius: 2.5px;
+                          border-bottom: 2px solid #ff0000;
+                          font-size: 1.5rem;
+                          font-weight: 800;
+                          margin-right: 5px;
+                        "
+                      />
+                      <p
+                        style="position: initial; margin: 0; padding: 0"
+                        class="text-gray-500 dark:text-gray-400 text-base sm:text-lg lg:text-base xl:text-lg font-medium"
+                      >
+                        Login As:
+                        <b id="logonDisp">${InstallList[0].LogonAs}</b>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="bg-white lg:rounded-b-xl py-4 px-1 sm:px-3 lg:px-1 xl:px-3"
+                ></div>
+              </div>
+            </label>
+            <label class="Slide" for="Slide4" id="Slide4">
+              <div class="content">
+                <!-- Content Here -->
+                <h1>
+                  <div
+                    id="finishUp"
+                    style="
+                      display: inline;
+                      text-align: center;
+                      padding-top: 0.765rem;
+                      padding-bottom: 0.765rem;
+                      background: #008bfd52;
+                      border-radius: 2.5px;
+                      font-weight: 800;
+                      color: white;
+                    "
+                    class="cursor-pointer hover:opacity-70 text-black pl-5 pr-5 select-none"
+                  >
+                    Finish
+                  </div>
+                </h1>
+                <br />
+                <h2 class="text-red-600" id="err@Warn"></h2>
+              </div>
+            </label>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script>
+    Include();
+  </script>
+</html>

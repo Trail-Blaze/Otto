@@ -7,6 +7,84 @@ let blazeDir = path.join(__drivename, "/Blaze/");
 const configDir = path.join(blazeDir, "/Launcher/");
 let launcherConfig;
 
+// All the checkboxes in the settings window
+
+const darkTheme = document.getElementById("darkTheme");
+const lightTheme = document.getElementById("lightTheme");
+const backendOnline = document.getElementById("backendOnline");
+const backendOffline = document.getElementById("backendOffline");
+const backendDebug = document.getElementById("backendDebug");
+const backendUpdates = document.getElementById("backendUpdates");
+const splashDefault = document.getElementById("splashDefault");
+const splashBlaze = document.getElementById("splashBlaze");
+const errmsg = document.getElementById("errmsg");
+const sIP = document.getElementById("server-ip");
+
+lightTheme.addEventListener("change", function () {
+  if (this.checked) {
+    // Checkbox is checked..
+    darkTheme.checked = false;
+  } else {
+    // Checkbox is not checked..
+    darkTheme.checked = true;
+  }
+  saveSettings();
+});
+
+darkTheme.addEventListener("change", function () {
+  if (this.checked) {
+    // Checkbox is checked..
+    lightTheme.checked = false;
+  } else {
+    // Checkbox is not checked..
+    lightTheme.checked = true;
+  }
+  saveSettings();
+});
+
+backendOnline.addEventListener("change", function () {
+  if (this.checked) {
+    // Checkbox is checked..
+    backendOffline.checked = false;
+  } else {
+    // Checkbox is not checked..
+    backendOffline.checked = true;
+  }
+  saveSettings();
+});
+
+backendOffline.addEventListener("change", function () {
+  if (this.checked) {
+    // Checkbox is checked..
+    backendOnline.checked = false;
+  } else {
+    // Checkbox is not checked..
+    backendOnline.checked = true;
+  }
+  saveSettings();
+});
+
+/*
+splashDefault.addEventListener("change", function () {
+  if (this.checked) {
+    // Checkbox is checked..
+    splashBlaze.checked = false;
+  } else {
+    // Checkbox is not checked..
+    splashBlaze.checked = true;
+  }
+});
+
+splashBlaze.addEventListener("change", function () {
+  if (this.checked) {
+    // Checkbox is checked..
+    splashDefault.checked = false;
+  } else {
+    // Checkbox is not checked..
+    splashDefault.checked = true;
+  }
+});
+*/
 //TODO FSACCESS NAVJSON. IF NOT FOUND, CREATE FILE
 
 (function createConfig() {
@@ -60,11 +138,75 @@ let launcherConfig;
 })();
 
 function restoreSettings() {
-    const darkTheme = document.getElementById("darkTheme");
-    const lightTheme = document.getElementById("lightTheme");
-    const backendOnline = document.getElementById("backendOnline");
-    const backendOffline = document.getElementById("backendOffline");
-    const lightTheme = document.getElementById("lightTheme");
-    if (checkBox.checked== true){
+  // Restore all of the settings in the window
+  console.log(launcherConfig);
+  document.body.classList.remove("pointer-events-none");
+
+  if (launcherConfig.theme === "light") {
+    lightTheme.checked = true;
+  } else if (launcherConfig.theme === "dark") {
+    darkTheme.checked = true;
+  } else {
+    errmsg.classList.remove("hidden");
+  }
+
+  if (launcherConfig.online === false) {
+    backendOffline.checked = true;
+  } else if (launcherConfig.online === true) {
+    backendOnline.checked = true;
+  } else {
+    errmsg.classList.remove("hidden");
+  }
+
+  sIP.value = launcherConfig.server_ip;
+
+  if (launcherConfig.backend.debug === true) {
+    backendDebug.checked = true;
+  } else if (launcherConfig.backend.debug === false) {
+    backendDebug.checked = false;
+  } else {
+    errmsg.classList.remove("hidden");
+  }
+
+  if (launcherConfig.backend.auto_update === true) {
+    backendUpdates.checked = true;
+  } else if (launcherConfig.backend.auto_update === false) {
+    backendUpdates.checked = false;
+  } else {
+    errmsg.classList.remove("hidden");
+  }
+}
+
+function saveSettings() {
+  if (fs.existsSync(path.join(configDir, "settings.json"))) {
+    if (lightTheme.checked === false) {
+      launcherConfig.theme = "dark";
     }
+    if (lightTheme.checked) {
+      launcherConfig.theme = "light";
+    }
+
+    if (backendUpdates.checked) {
+      launcherConfig.backend.auto_update = true;
+    } else {
+      launcherConfig.backend.auto_update = false;
+    }
+
+    if (backendDebug.checked) {
+      launcherConfig.backend.debug = true;
+    } else {
+      launcherConfig.backend.debug = false;
+    }
+
+    if (backendOnline.checked) {
+      launcherConfig.online = true;
+    } else {
+      launcherConfig.online = false;
+    }
+
+    launcherConfig.server_ip = sIP.value;
+
+    let navjson = JSON.stringify(launcherConfig, null, 2);
+    fs.writeFileSync(path.join(configDir, "settings.json"), navjson, "utf-8");
+  }
 }

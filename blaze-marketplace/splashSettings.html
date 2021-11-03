@@ -1,0 +1,201 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./src/assets/js/splashSettings.js" defer></script>
+    <title>Blaze Launcher | Settings</title>
+
+    <!-- StandardUI CSS -->
+
+    <link rel="stylesheet" href="./src/assets/css/standardUI.css" />
+    <link rel="stylesheet" href="./dist/css/main.css" />
+    <script src="./src/assets/js/include.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css"
+    />
+    <style>
+      body {
+        font-family: "Manrope", sans-serif;
+      }
+      .preview_img_dk {
+        width: 50vw;
+      }
+    </style>
+    <script src="./src/assets/js/navConfig.js" defer></script>
+  </head>
+  <body class="bg-gray-300 pointer-events-none">
+    <div
+      includefile="./src/assets/partials/html/sidebar.html"
+      class="select-none w-56 bg-gray-800 text-white border-r border-blackblack fixed min-h-screen pt-8"
+    ></div>
+    <div class="main-div bg-gray-200 text-gray-900 flex-1 px-80 py-10">
+      <div
+        class="settings-header"
+        style="font-size: 2.5vw; padding-bottom: 1vh"
+      >
+        <b>SPLASH IMAGE SETTINGS</b>
+        <br/>
+        <b id="errmsg" class="hidden" style="color: red">INVALID CONFIG FILE! PLEASE REVIEW SETTINGS.JSON TO CORRECT!</b>
+      </div>
+      <label class="flex items-center">
+        <input
+          type="checkbox"
+          class="form-checkbox h-6 w-6 text-indigo-600"
+          id="splashDefault"
+        />
+        <span class="ml-3 border-none" style="font-size: 22px">Default</span>
+      </label>
+      <label class="flex items-center">
+        <input
+          type="checkbox"
+          class="form-checkbox h-6 w-6 text-indigo-600"
+          id="splashBlaze"
+        />
+        <span class="ml-3 border-none" style="font-size: 22px"
+          >Blaze Splash</span
+        >
+      </label>
+      <label class="flex items-center">
+        <input
+          type="checkbox"
+          class="form-checkbox h-6 w-6 text-indigo-600"
+          id="splashCustom"
+        />
+        <span id="splashCustomText" class="ml-3 border-none" style="font-size: 22px"
+          >Custom</span
+        >
+      </label>
+      <br />
+      <div class="settings-header"><b>CUSTOM SPLASH</b></div>
+      <br />
+      <div class="settings-header">PREVIEW (Gamesplash)</div>
+      <div
+        class="center-img"
+        style="
+          position: relative;
+          width: 50vw;
+          height: 50vh;
+          background: url('./src/assets/png/preview_with_desktop.png');
+          background-position: center;
+          background-size: cover;
+          vertical-align: middle;
+        "
+      >
+        <img
+          src="./src/assets/bmp/SplashBlaze.bmp"
+          style="
+            position: absolute;
+            left: 30%;
+            top: 15%;
+            width: 40%;
+            height: auto;
+            margin: auto;
+          "
+          alt="Custom Splash"
+          id="customSplash"
+        />
+      </div>
+    
+      <br />
+      <div class="settings-header">PREVIEW (EAC)</div>
+      <div
+        class="center-img"
+        style="
+          position: relative;
+          width: 50vw;
+          height: 50vh;
+          background: url('./src/assets/png/preview_with_desktop.png');
+          background-position: center;
+          background-size: cover;
+          vertical-align: middle;
+        "
+      >
+        <img
+          src="./src/assets/png/SplashScreenBlaze.png"
+          style="
+            position: absolute;
+            left: 30%;
+            top: 35%;
+            width: 40%;
+            height: auto;
+            margin: auto;
+          "
+          alt="Custom Splash"
+          id="customSplash"
+        />
+        <!--  style="
+              position: absolute;
+              width: 23.5%;
+              display: block;
+              top: 184%;
+              left: 16%;
+            "
+            alt="Custom Splash"
+            id="customSplash" -->
+        <img
+          src="./src/assets/png/eac.png"
+          style="
+            position: absolute;
+            left: 31%;
+            top: 37%;
+            width: 14%;
+            height: auto;
+            margin: auto;
+          "
+          alt="Custom Splash"
+          id="customSplash"
+        />
+        <!--
+    
+                style="
+            position: absolute;
+            width: 7%;
+            display: block;
+            top: 200%;
+            left: 16.5%;
+          "
+        -->
+        <!-- div
+          class="eac_loader"
+          style="
+            position: absolute;
+            left: 30%;
+            top: 33.167vh;
+            width: 40%;
+            height: 10px;
+            margin: auto;
+            background: #00000070;
+          "
+        ></div -->
+      </div>
+    
+      <!--- <div class="settings-header">LAUNCHER CONFIG</div>
+    <h3>Fortnite Path =</h3>
+    <input type="text" /><br />
+    
+    <label class="checkbox-container"
+    >Auto-updates
+    <input type="checkbox" />
+    <span class="checkmark"></span> 
+    </label> -->
+      <!-- <button class="button-sharp-red">Test</button>
+    <button class="button-round-blue">Test</button> -->
+      <div class="border-b border-gray-900 mt-20 mb-10"></div>
+      <div class="text-gray-900 text-xl">&copy; 2021 The Blaze Authors</div>
+    </div>
+  </body>
+  <script>
+    Include();
+  </script>
+</html>

@@ -3,6 +3,15 @@ const { ipcRenderer } = require("electron");
 require("v8-compile-cache");
 const ipc = ipcRenderer;
 const os_2 = require("os");
+const fs = require("fs");
+const path = require("path");
+const YAML = require('yaml');
+let __drivename =
+  os_2.platform == "win32" ? process.cwd().split(path.sep)[0] : "/";
+let blazeDir = path.join(__drivename, "/Blaze/");
+const configDir = path.join(blazeDir, "/Launcher/backend/");
+const bConfig = fs.readFileSync(path.join(configDir, "bak-release"), 'utf8')
+let backConfig = YAML.parse(bConfig);
 let repo;
 
 fetch("https://trail-blaze.github.io/scoop/scoop_repo.json")
@@ -29,13 +38,19 @@ window.addEventListener("DOMContentLoaded", () => {
 
   ipc.send("reqVer");
 
+  // Set backend version
+
+  replaceText("bac-ver", `${backConfig.dist_name} ${backConfig.rel}`);
+  replaceText("bac-type", `${backConfig.type}`);
+  replaceText("boot", `${backConfig.boot}`);
+
   // Recieve Version
 
   ipc.on("full_version", (event, data) => {
     try {
       document.getElementById("cli-ver").innerHTML = data;
     } catch (error) {
-      console.warn("Failed to set resource monitor vars! (MEM)");
+      console.warn("Failed to set some variables!");
     }
   });
   function matchRuleShort(str, rule) {
@@ -140,6 +155,7 @@ window.addEventListener("DOMContentLoaded", () => {
         return `SunOS ${os.release}`;
 
       case "android":
+        
         function android_mappings() {
           let androidver = os.release();
           if (matchRuleShort(`${androidver}`, "2.*")) {
