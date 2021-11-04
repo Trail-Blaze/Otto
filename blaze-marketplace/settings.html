@@ -34,7 +34,16 @@
   <body class="bg-gray-300 pointer-events-none">
     <div
       includefile="./src/assets/partials/html/sidebar.html"
-      class="select-none w-56 bg-gray-800 text-white border-r border-blackblack fixed min-h-screen pt-8"
+      class="
+        select-none
+        w-56
+        bg-gray-800
+        text-white
+        border-r border-blackblack
+        fixed
+        min-h-screen
+        pt-8
+      "
     ></div>
     <div class="main-div bg-gray-200 text-gray-900 flex-1 px-80 py-10">
       <div
@@ -42,8 +51,10 @@
         style="font-size: 2.5vw; padding-bottom: 1vh"
       >
         <b>SETTINGS</b>
-        <br/>
-        <b id="errmsg" class="hidden" style="color: red">INVALID CONFIG FILE! PLEASE REVIEW SETTINGS.JSON TO CORRECT!</b>
+        <br />
+        <b id="errmsg" class="hidden" style="color: red"
+          >INVALID CONFIG FILE! PLEASE REVIEW SETTINGS.JSON TO CORRECT!</b
+        >
       </div>
       <div class="settings-header">THEME</div>
       <label class="flex items-center">
@@ -66,13 +77,12 @@
       </label>
       <div class="settings-header">CONNECTION MODE</div>
       <label class="flex items-center">
-        <input type="checkbox" id="backendOnline" class="form-checkbox h-6 w-6 text-indigo-600" />
-        <span
-          class="ml-3 border-none"
-          style="font-size: 22px"
-        
-          >Online</span
-        >
+        <input
+          type="checkbox"
+          id="backendOnline"
+          class="form-checkbox h-6 w-6 text-indigo-600"
+        />
+        <span class="ml-3 border-none" style="font-size: 22px">Online</span>
       </label>
       <label class="flex items-center">
         <input
@@ -83,11 +93,67 @@
         <span class="ml-3 border-none" style="font-size: 22px">Offline</span>
       </label>
       <h3>Server IP =</h3>
-      <input type="text" onkeyup="saveSettings()" id="server-ip"/>
+      <input type="text" onkeyup="saveSettings()" id="server-ip" />
+      <div class="settings-header">BYPASS USED</div>
+      <label class="flex items-center">
+        <input
+          type="checkbox"
+          id="defaultBypass"
+          class="form-checkbox h-6 w-6 text-indigo-600"
+        />
+        <span class="ml-3 border-none" style="font-size: 22px"
+          >Blaze DLL</span
+        >
+      </label>
+      <label class="flex items-center">
+        <input
+          type="checkbox"
+          id="platinumBypass"
+          class="form-checkbox h-6 w-6 text-indigo-600"
+        />
+        <span class="ml-3 border-none" style="font-size: 22px">Platinum</span>
+      </label>
+
+      <label class="flex items-center">
+        <input
+          type="checkbox"
+          id="platinumv2Bypass"
+          class="form-checkbox h-6 w-6 text-indigo-600"
+        />
+        <span class="ml-3 border-none" style="font-size: 22px"
+          >Platinum v2</span
+        >
+      </label>
+      <label class="hidden flex items-center">
+        <input
+          type="checkbox"
+          id="riftBypass"
+          class="form-checkbox h-6 w-6 text-indigo-600"
+        />
+        <span class="ml-3 border-none" style="font-size: 22px">Rift</span>
+      </label>
+      <label class="flex items-center">
+        <input
+          type="checkbox"
+          id="otherBypass"
+          class="form-checkbox h-6 w-6 text-indigo-600"
+        />
+        <span class="ml-3 border-none" style="font-size: 22px">Other</span>
+        <input
+          type="text"
+          onkeyup="saveSettings()"
+          placeholder="Type filename of bypass used, example Rift.dll --> Rift"
+          id="otherBypassText"
+          size="50"
+          class="hidden ml-5"
+        />
+      </label>
+
       <div class="settings-header">BACKEND CONFIG</div>
       <label class="flex items-center">
         <input
-          type="checkbox" onchange="saveSettings()"
+          type="checkbox"
+          onchange="saveSettings()"
           class="form-checkbox h-6 w-6 text-indigo-600"
           id="backendDebug"
         />
@@ -95,7 +161,8 @@
       </label>
       <label class="flex items-center">
         <input
-          type="checkbox" onchange="saveSettings()"
+          type="checkbox"
+          onchange="saveSettings()"
           class="form-checkbox h-6 w-6 text-indigo-600"
           id="backendUpdates"
         />
@@ -103,8 +170,12 @@
           >Auto Update</span
         >
       </label>
-<br/>
-      <a href="splashSettings.html"><div class="settings-header text-blue-600"><b>SPLASH IMAGE SETTINGS >></b></div></a>
+      <br />
+      <a href="splashSettings.html"
+        ><div class="settings-header text-blue-600">
+          <b>SPLASH IMAGE SETTINGS >></b>
+        </div></a
+      >
 
       <div class="border-b border-gray-900 mt-20 mb-10"></div>
       <div class="text-gray-900 text-xl">&copy; 2021 The Blaze Authors</div>
