@@ -38,7 +38,7 @@ jobs:
       run: npm run build-linux
       env:
         testing: yes
-    - name: Commit Build to `build` Branch
+    - name: Commit Build to "build" Branch
       run: |
           git config --global user.name 'AlexDev404'
           git config --global user.email 'alexdev404@users.noreply.github.com'
