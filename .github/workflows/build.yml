@@ -50,6 +50,6 @@ jobs:
           git add .
           git commit -am "Build Files"
           git fetch origin build
-          git merge build
-          git push build
+          git merge origin build
+          git push origin build
           
