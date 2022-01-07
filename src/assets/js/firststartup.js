@@ -34,6 +34,7 @@ let installList = {
 
 if (fs.existsSync(path.join(userAssetsDir, "\\InstallList.json"))) {
   installList = require(path.join(userAssetsDir, "\\InstallList.json"));
+  document.getElementById("completionBack").classList.remove("hidden");
 }
 
 affirmCounter();

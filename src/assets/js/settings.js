@@ -13,12 +13,96 @@ const darkTheme = document.getElementById("darkTheme");
 const lightTheme = document.getElementById("lightTheme");
 const backendOnline = document.getElementById("backendOnline");
 const backendOffline = document.getElementById("backendOffline");
+
+// Bypasses
+
+const defaultBypass = document.getElementById("defaultBypass");
+const platinumBypass = document.getElementById("platinumBypass");
+const platinumv2Bypass = document.getElementById("platinumv2Bypass");
+const riftBypass = document.getElementById("riftBypass");
+const otherBypass = document.getElementById("otherBypass");
+const otherBypass__text = document.getElementById("otherBypassText");
+
 const backendDebug = document.getElementById("backendDebug");
 const backendUpdates = document.getElementById("backendUpdates");
 const splashDefault = document.getElementById("splashDefault");
 const splashBlaze = document.getElementById("splashBlaze");
 const errmsg = document.getElementById("errmsg");
 const sIP = document.getElementById("server-ip");
+
+defaultBypass.addEventListener("change", function () {
+  if (this.checked) {
+    // Checkbox is checked..
+    platinumBypass.checked = false;
+    platinumv2Bypass.checked = false;
+    riftBypass.checked = false;
+    otherBypass.checked = false;
+  } else {
+    // Checkbox is not checked..
+    defaultBypass.checked = true;
+  }
+  saveSettings();
+});
+
+platinumBypass.addEventListener("change", function () {
+  if (this.checked) {
+    // Checkbox is checked..
+    defaultBypass.checked = false;
+    platinumv2Bypass.checked = false;
+    riftBypass.checked = false;
+    otherBypass.checked = false;
+  } else {
+    // Checkbox is not checked..
+    platinumBypass.checked = true;
+  }
+  saveSettings();
+});
+
+platinumv2Bypass.addEventListener("change", function () {
+  if (this.checked) {
+    // Checkbox is checked..
+    defaultBypass.checked = false;
+    platinumBypass.checked = false;
+    otherBypass.checked = false;
+    riftBypass.checked = false;
+  } else {
+    // Checkbox is not checked..
+    platinumv2Bypass.checked = true;
+  }
+  saveSettings();
+});
+
+riftBypass.addEventListener("change", function () {
+  if (this.checked) {
+    // Checkbox is checked..
+    defaultBypass.checked = false;
+    platinumBypass.checked = false;
+    platinumv2Bypass.checked = false;
+    otherBypass.checked = false;
+  } else {
+    // Checkbox is not checked..
+    riftBypass.checked = true;
+  }
+  saveSettings();
+});
+
+otherBypass.addEventListener("change", function () {
+  if (this.checked) {
+    // Checkbox is checked..
+    defaultBypass.checked = false;
+    platinumv2Bypass.checked = false;
+    platinumBypass.checked = false;
+    riftBypass.checked = false;
+    otherBypass__text.classList.remove("hidden");
+  } else {
+    // Checkbox is not checked..
+    defaultBypass.checked = true;
+    otherBypass__text.classList.add("hidden");
+  }
+  saveSettings();
+});
+
+/////////////////////////////////////////////////////////////////
 
 lightTheme.addEventListener("change", function () {
   if (this.checked) {
@@ -142,6 +226,18 @@ function restoreSettings() {
   console.log(launcherConfig);
   document.body.classList.remove("pointer-events-none");
 
+  if (launcherConfig.bypassMethod === "platinum") {
+    platinumBypass.checked = true;
+  } else if (launcherConfig.bypassMethod === "platinum2") {
+    platinumv2Bypass.checked = true;
+  } else if (launcherConfig.bypassMethod === "rift") {
+    riftBypass.checked = true;
+  } else {
+    otherBypass.checked = true;
+    otherBypass__text.classList.remove("hidden");
+    otherBypass__text.value = launcherConfig.bypassMethod;
+  }
+
   if (launcherConfig.theme === "light") {
     lightTheme.checked = true;
   } else if (launcherConfig.theme === "dark") {
@@ -179,6 +275,36 @@ function restoreSettings() {
 
 function saveSettings() {
   if (fs.existsSync(path.join(configDir, "settings.json"))) {
+    // Could've used case statments for this but I totally forgot; if anyone would like to fix this I wouldn't mind a bit
+    // Go right ahead! :)
+    // platinum
+
+    if (defaultBypass.checked) {
+      launcherConfig.bypassMethod = "fortniteproject";
+    }
+
+    if (platinumBypass.checked) {
+      launcherConfig.bypassMethod = "platinum";
+    }
+
+    // platinumv2
+
+    if (platinumv2Bypass.checked) {
+      launcherConfig.bypassMethod = "platinum2";
+    }
+
+    // Rift
+
+    if (riftBypass.checked) {
+      launcherConfig.bypassMethod = "rift";
+    }
+
+    // Other bypass
+
+    if (otherBypass.checked) {
+      launcherConfig.bypassMethod = otherBypass__text.value;
+    }
+
     if (lightTheme.checked === false) {
       launcherConfig.theme = "dark";
     }

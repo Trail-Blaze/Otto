@@ -53,20 +53,26 @@ viewAll2.addEventListener("click", () => {
   ipc.send("reqPageSwitch", "view_all.html");
 });
 
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 function rand(min, max) {
   return Math.floor(Math.random() * (max - min)) + min; // You can remove the Math.floor if you don't want it to be an integer
 }
 fetch("https://trail-blaze.github.io/scoop/scoop_repo.json")
   .then((response) => response.json())
-  .then((data) => {
+  .then(async (data) => {
     repo = data;
+    await sleep(50); // Prevents race conditions
     setContent();
   })
   .catch((err) => console.error(err));
 fetch("https://trail-blaze.github.io/marketplace/catalog.json")
   .then((response) => response.json())
-  .then((data) => {
+  .then(async (data) => {
     catalog = data;
+    await sleep(50); // Prevents event nastier race conditions
     setCatalog();
   })
   .catch((err) => console.error(err));

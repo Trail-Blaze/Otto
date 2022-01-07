@@ -5,9 +5,12 @@ let __drivename =
   os.platform == "win32" ? process.cwd().split(path.sep)[0] : "/";
 let blazeDir = path.join(__drivename, "/Blaze/Launcher/");
 let userAssetsDir = path.join(blazeDir, "/userAssets/");
+let status = document.getElementById("reviewStatus");
 
 if (!fs.existsSync(path.join(userAssetsDir, "\\InstallList.json"))) {
+  status.innerText = "WELCOME TO BLAZE! HAVE FUN!";
   window.location.replace("firststartup.html");
 } else {
+  status.innerText = "ROUTING..."
   window.location.replace("boot.html");
 }
