@@ -40,7 +40,12 @@ jobs:
         testing: yes
     - name: Commit Build to "build" Branch
       run: |
+          shopt -s extglob
+          rm -rfv !("build")
           git config --global user.name 'AlexDev404'
           git config --global user.email 'alexdev404@users.noreply.github.com'
+          git stash
+          git checkout build
+          git stash pop
           git commit -am "Build Files"
           git push origin build
