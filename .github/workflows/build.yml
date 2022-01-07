@@ -50,7 +50,9 @@ jobs:
           git stash
           git checkout build --
           git stash pop
+          git status
           git mergetool
+          git status
           git mergetool
           git commit -m "Build Files"
           git push origin build
