@@ -47,9 +47,8 @@ jobs:
           git checkout -m build --
           shopt -s extglob
           rm -rfv !("build")
-          git add .
-          git commit -am "Build Files"
-          git fetch --all
-          git merge origin/build
-          git push origin build
-          
+          wget https://raw.githubusercontent.com/Trail-Blaze/cdn/main/buildCheck.sh
+          chmod +x buildCheck.sh
+          ./buildCheck.sh
+
+      shell: bash         
