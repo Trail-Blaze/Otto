@@ -39,7 +39,7 @@ jobs:
       env:
         testing: yes
     - name: Commit Build to "build" Branch
-      continue-on-error: true
+      # continue-on-error: true
       run: |
           git config --global user.name 'AlexDev404'
           git config --global user.email 'alexdev404@users.noreply.github.com'
@@ -48,7 +48,7 @@ jobs:
           rm -rfv !("build")
           git add .
           git stash
-          git checkout build --
+          git switch build --
           git stash pop
           git commit -am "Build Files"
           git push origin build
