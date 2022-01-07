@@ -207,7 +207,7 @@ exec(`StartMainServiceModule.lnk`, exec_options2,
 (error, stdout, stderr) => {
       if (error) {
         console.log(`error: ${error.message}`);
-        thisElement.innerText = "Backend Failed. 🥶";
+        thisElement.innerText = "Backend Failed. 😱";
         thisElement.classList.remove("bg-yellow-300");
         thisElement.classList.remove("color-black");
         thisElement.classList.add("bg-red-300"); 
@@ -216,7 +216,7 @@ exec(`StartMainServiceModule.lnk`, exec_options2,
       }
       if (stderr) {
         console.log(`stderr: ${stderr}`);
-        thisElement.innerText = "Backend Failed. 🥶";
+        thisElement.innerText = "Backend Failed. 😱";
         thisElement.classList.remove("bg-yellow-300");
         thisElement.classList.remove("color-black");
         thisElement.classList.add("bg-red-300");

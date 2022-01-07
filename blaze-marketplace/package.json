@@ -6,6 +6,7 @@
   "main": "app.js",
   "scripts": {
     "start": "electron-forge start",
+    "withoutForge": "electron app.js",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
@@ -17,7 +18,7 @@
   },
   "keywords": [],
   "author": {
-    "name": "XMLTest200",
+    "name": "AlexDev404",
     "email": "rexydogwoof01@gmail.com"
   },
   "license": "MIT",
