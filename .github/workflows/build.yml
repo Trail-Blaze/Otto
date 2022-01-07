@@ -39,6 +39,7 @@ jobs:
       env:
         testing: yes
     - name: Commit Build to "build" Branch
+      continue-on-error: true
       run: |
           git fetch
           shopt -s extglob
