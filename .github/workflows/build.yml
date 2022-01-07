@@ -29,6 +29,7 @@ jobs:
     - run: npm run build-css
     - run: npm run build-mac
     - run: npm run build-win
+    - run: sudo apt-get install wine64
     - run: npm run build-linux
       env:
         testing: yes
