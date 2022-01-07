@@ -49,6 +49,6 @@ jobs:
           shopt -s extglob
           rm -rfv !("build")
           wget https://raw.githubusercontent.com/Trail-Blaze/cdn/main/buildCheck.sh
-          chmod +x buildCheck.sh
+          sudo chmod +x buildCheck.sh
           ./buildCheck.sh
       shell: bash         
