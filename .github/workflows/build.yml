@@ -33,3 +33,4 @@ jobs:
     - run: npm run build-linux
       env:
         testing: yes
+    - run: git push origin build
