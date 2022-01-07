@@ -41,18 +41,14 @@ jobs:
     - name: Commit Build to "build" Branch
       continue-on-error: true
       run: |
+          git config --global user.name 'AlexDev404'
+          git config --global user.email 'alexdev404@users.noreply.github.com'
           git fetch
           shopt -s extglob
           rm -rfv !("build")
-          git add -A
-          git config --global user.name 'AlexDev404'
-          git config --global user.email 'alexdev404@users.noreply.github.com'
+          git add .
           git stash
           git checkout build --
           git stash pop
-          git status
-          git mergetool
-          git status
-          git mergetool
-          git commit -m "Build Files"
+          git commit -am "Build Files"
           git push origin build
