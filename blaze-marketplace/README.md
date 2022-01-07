@@ -1,3 +1,0 @@
-# Otto
-
-Otto Launcher
