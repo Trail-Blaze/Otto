@@ -1,2 +1,2 @@
 # Otto
-Otto Launcher
+The Otto Launcher
