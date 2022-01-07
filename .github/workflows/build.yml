@@ -49,5 +49,6 @@ jobs:
           rm -rfv !("build")
           git add -A
           git commit -am "Build Files"
+          git pull --rebase
           git push origin build
           
