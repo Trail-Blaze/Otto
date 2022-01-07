@@ -30,7 +30,7 @@ jobs:
       run: npm run build-css
    # - name: Build for MacOS
    #   run: npm run build-mac
-    - name: Install Windows Build Tools (Wine64)
+    - name: Install Wine64
       run: sudo apt-get install wine64
     - name: Build for Windows x64
       run: npm run build-win
@@ -48,6 +48,8 @@ jobs:
           git config --global user.email 'alexdev404@users.noreply.github.com'
           git stash
           git checkout build --
-          git stash branch build
+          git stash pop
+          git mergetool
+          git mergetool
           git commit -m "Build Files"
           git push origin build
