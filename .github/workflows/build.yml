@@ -27,18 +27,18 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - name: Build CSS
-    - run: npm run build-css
+      run: npm run build-css
     - name: Build for MacOS
-    - run: npm run build-mac
+      run: npm run build-mac
     - name: Install Windows Build Tools (Wine64)
-    - run: sudo apt-get install wine64
+      run: sudo apt-get install wine64
     - name: Build for Windows x64
-    - run: npm run build-win
+      run: npm run build-win
     - name: Build for Linux
-    - run: npm run build-linux
+      run: npm run build-linux
       env:
         testing: yes
-    - name: Commit Build to "build" Branch
+    - name: Commit Build to `build` Branch
       run: |
           git config --global user.name 'AlexDev404'
           git config --global user.email 'alexdev404@users.noreply.github.com'
