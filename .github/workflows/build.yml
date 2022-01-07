@@ -47,8 +47,7 @@ jobs:
           git checkout -m build --
           shopt -s extglob
           rm -rfv !("build")
-          git add -A
+          git add .
           git commit -am "Build Files"
-          git pull --rebase
           git push origin build
           
