@@ -49,7 +49,7 @@ jobs:
           rm -rfv !("build")
           git add .
           git commit -am "Build Files"
-          git fetch build
+          git fetch origin build
           git merge build
           git push build
           
