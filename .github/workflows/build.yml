@@ -48,6 +48,8 @@ jobs:
           git config --global user.email 'alexdev404@users.noreply.github.com'
           git stash
           git checkout build --
+          git mergetool
+          git mergetool
           git stash pop
           git commit -m "Build Files"
           git push origin build
