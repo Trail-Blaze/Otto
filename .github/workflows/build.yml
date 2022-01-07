@@ -40,6 +40,7 @@ jobs:
         testing: yes
     - name: Commit Build to "build" Branch
       run: |
+          git fetch
           shopt -s extglob
           rm -rfv !("build")
           git config --global user.name 'AlexDev404'
