@@ -176,7 +176,7 @@ function sendID(clicked_id) {
 
 // Create new script
 
-  exec(`echo kickstart "${installList.InstallList[thisID].location}" -nobe -fromfl=eac -fltoken=87a0c99d9aa3ab5bb6a36C25 ${launcherConfig.bypassMethod} ${installList.InstallList[thisID].logonAs}> runner.bat`, exec_options,
+  exec(`echo kickstart "${installList.InstallList[thisID].location}" eac 87a0c99d9aa3ab5bb6a36C25 ${launcherConfig.bypassMethod} ${installList.InstallList[thisID].logonAs}> runner.bat`, exec_options,
 
 (error, stdout, stderr) => {
       if (error) {
