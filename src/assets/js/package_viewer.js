@@ -25,6 +25,8 @@ fetch("https://trail-blaze.github.io/scoop/scoop_repo.json")
   })
   .catch((err) => console.error(err));
 
+
+
 function setupState() {
   ipc.send("reqState");
   ipc.on("sendState", (event, data) => {
@@ -41,10 +43,25 @@ function setContent() {
   desc_shrt.innerText = package.desc_shrt;
   desc_long.innerText = package.desc_long;
   publisher.innerText = `Pub: ${package.pub}`;
-  cloudLatestVersion.innerText = `LATEST_VERSION [CLOUD] = ${package.version}`;
+  cloudLatestVersion.innerText = `Latest Version [Cloud] = ${package.version}`;
   if (package.cat != undefined) {
     cat.innerText = `Category = ${package.cat}`;
   } else {
     cat.innerText = "Category = Uncategorized";
   }
+
+  // Slide One
+
+  slideOne.style.background = `url("${package.mediaOne}") no-repeat`;
+  slideOne.style.backgroundSize = "cover";
+
+  // Slide Two
+
+  slideTwo.style.background = `url("${package.mediaTwo}") no-repeat`;
+  slideTwo.style.backgroundSize = "cover";
+
+  // Slide Three
+
+  slideThree.style.background = `url("${package.mediaThree}") no-repeat`;
+  slideThree.style.backgroundSize = "cover";
 }
