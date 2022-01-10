@@ -1,5 +1,6 @@
 const { app, remote, electron, ipcRenderer } = require("electron");
 const ipc = ipcRenderer;
+const YAML = require("yaml");
 const icon = document.getElementById("icon");
 const pakname = document.getElementById("name");
 const desc_shrt = document.getElementById("desc_shrt");
@@ -12,6 +13,7 @@ const category = document.getElementById("cat");
 const slideOne = document.getElementById("1");
 const slideTwo = document.getElementById("2");
 const slideThree = document.getElementById("3");
+let setup;
 let repo;
 let state;
 
@@ -27,6 +29,7 @@ fetch("https://trail-blaze.github.io/scoop/scoop_repo.json")
 
 
 
+
 function setupState() {
   ipc.send("reqState");
   ipc.on("sendState", (event, data) => {
@@ -38,6 +41,17 @@ function setupState() {
 
 function setContent() {
   let package = repo.PackageList[state];
+
+  fetch(package.dl_setupLoc)
+  .then((response) => response.json())
+  .then((data) => {
+    setup = YAML.parse(data);
+    console.log(setup);
+  })
+  .catch((err) => console.error(err));
+
+
+  console.log(setup);
   icon.src = package.icon;
   pakname.innerText = package.name;
   desc_shrt.innerText = package.desc_shrt;
@@ -52,16 +66,16 @@ function setContent() {
 
   // Slide One
 
-  slideOne.style.background = `url("${package.mediaOne}") no-repeat`;
-  slideOne.style.backgroundSize = "cover";
+  slideOne.style.background = `url("${package.mediaOne}") no-repeat center`;
+  slideOne.style.backgroundSize = "contain";
 
   // Slide Two
 
-  slideTwo.style.background = `url("${package.mediaTwo}") no-repeat`;
-  slideTwo.style.backgroundSize = "cover";
+  slideTwo.style.background = `url("${package.mediaTwo}") no-repeat center`;
+  slideTwo.style.backgroundSize = "contain";
 
   // Slide Three
 
-  slideThree.style.background = `url("${package.mediaThree}") no-repeat`;
-  slideThree.style.backgroundSize = "cover";
+  slideThree.style.background = `url("${package.mediaThree}") no-repeat center`;
+  slideThree.style.backgroundSize = "contain";
 }
