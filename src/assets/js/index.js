@@ -135,7 +135,10 @@ function setCatalog() {
   sectionTwoTitle.innerText = catalog.CatalogConstants.sectionTwoTitle;
 
   populateCatalog(6, sectionOne, ["w-1/2", "flex", "pr-6"], "entryTemplate", 0);
+
+
   counter = 1;
+
   populateCatalog(
     6,
     sectionTwo,
@@ -144,6 +147,7 @@ function setCatalog() {
     1,
     true
   );
+
 }
 // w-1/2 pr-12
 
@@ -174,9 +178,9 @@ function populateCatalog(
   }
   if (listlength > repo.repoProps.total_packages) {
     console.error(
-      "ListLength must not be more than the *ACTUAL* repository list length!"
+      "ListLength must not be more than the *ACTUAL* repository list length! Continuing anyway and assuming that programmer wants to max out the list."
     );
-    return;
+    listlength = repo.repoProps.total_packages;
   }
 
   while (counter <= listlength) {

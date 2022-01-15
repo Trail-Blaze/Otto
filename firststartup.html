@@ -78,7 +78,6 @@
             title="Locate Fortnite"
           />
           <input type="radio" id="Slide3" name="slider" title="Add an Icon" />
-          <input type="radio" id="Slide4" name="slider" title="Finishing Up" />
           <div class="labels">
             <label class="Slide" for="Slide1" id="Slide1">
               <div class="content">
@@ -111,7 +110,13 @@
               <div class="icon">
                 <span><i class="fa fa-keyboard-o"></i></span
                 ><span class="font-semibold">Use Arrow Keys</span>
-                <a id="completionBack" href="#" onclick="window.history.back();" class="hidden text-blue-300 text-xl">Go Back</a>
+                <a
+                  id="completionBack"
+                  href="#"
+                  onclick="window.history.back();"
+                  class="hidden text-blue-300 text-xl"
+                  >Go Back</a
+                >
               </div>
             </label>
             <label class="Slide" for="Slide2" id="Slide2">
@@ -166,9 +171,17 @@
               </div>
             </label>
             <label class="Slide" for="Slide3" id="Slide3">
-              <div class="card-div">
+              <div
+                class="normal-case text-4xl font-semibold text-left pb-10 ml-56 mr-56"
+              >
+                Almost Done!
+                <h1 class="normal-case text-xl font-semibold text-left">
+                  Just type a name for your install and hit done when ready!
+                </h1>
+              </div>
+              <div class="card-div mb-10 w-6/12">
                 <div
-                  class="bg-white dark:bg-gray-800 rounded-tl-xl sm:rounded-t-xl p-4 pb-6 sm:p-8 lg:p-4 lg:pb-6 xl:p-8 space-y-6 sm:space-y-8 lg:space-y-6 xl:space-y-8"
+                  class="bg-white dark:bg-gray-800 rounded-tl-xl sm:rounded-t-xl p-5 pb-6 sm:p-8 lg:p-4 lg:pb-6 xl:p-8 space-y-6 sm:space-y-8 lg:space-y-6 xl:space-y-8"
                 >
                   <div
                     class="flex items-center space-x-3.5 sm:space-x-5 lg:space-x-3.5 xl:space-x-5"
@@ -185,7 +198,7 @@
                       <input
                         type="text"
                         id="distName"
-                        placeholder="Fortnite 18"
+                        placeholder="Fortnite 10.40"
                         style="
                           all: initial;
                           position: initial;
@@ -205,45 +218,39 @@
                         "
                       />
                       <p
-                        style="position: initial; margin: 0; padding: 0"
-                        class="text-gray-500 dark:text-gray-400 text-base sm:text-lg lg:text-base xl:text-lg font-medium"
+                        style="position: initial; padding: 0"
+                        class="text-gray-500 dark:text-gray-400 text-base sm:text-lg lg:text-base xl:text-lg font-medium text-left"
                       >
                         Login As:
                         <b id="logonDisp">Add a username</b>
                       </p>
                     </div>
                   </div>
+                  <h1>
+                    <div
+                      id="finishUp"
+                      style="
+                        display: inline;
+                        text-align: center;
+                        padding-top: 0.765rem;
+                        padding-bottom: 0.765rem;
+                        background: #008bfdee;
+                        border-radius: 2.5px;
+                        font-weight: 800;
+                        color: white;
+                      "
+                      class="cursor-pointer hover:opacity-70 text-black pl-5 pr-5 select-none"
+                    >
+                      Done!
+                    </div>
+                  </h1>
                 </div>
 
                 <div
                   class="bg-white lg:rounded-b-xl py-4 px-1 sm:px-3 lg:px-1 xl:px-3"
                 ></div>
               </div>
-            </label>
-            <label class="Slide" for="Slide4" id="Slide4">
-              <div class="content">
-                <!-- Content Here -->
-                <h1>
-                  <div
-                    id="finishUp"
-                    style="
-                      display: inline;
-                      text-align: center;
-                      padding-top: 0.765rem;
-                      padding-bottom: 0.765rem;
-                      background: #008bfd52;
-                      border-radius: 2.5px;
-                      font-weight: 800;
-                      color: white;
-                    "
-                    class="cursor-pointer hover:opacity-70 text-black pl-5 pr-5 select-none"
-                  >
-                    Finish
-                  </div>
-                </h1>
-                <br />
-                <h2 class="text-red-600" id="err@Warn"></h2>
-              </div>
+              <h2 class="text-red-600" id="err@Warn"></h2>
             </label>
           </div>
         </form>

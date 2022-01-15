@@ -6,7 +6,7 @@ let __drivename =
   os.platform == "win32" ? process.cwd().split(path.sep)[0] : "/";
 let blazeDir = path.join(__drivename, "/Blaze/Launcher/");
 let helpersDir = path.join(blazeDir, "/helpers/");
-let backendDir = path.join(blazeDir, "/backend/")
+let backendDir = path.join(blazeDir, "/backend/");
 let userAssetsDir = path.join(blazeDir, "/userAssets/");
 const launcherConfig = require(path.join(blazeDir, "settings.json")); // Opening settings file for readOnly
 let installLength;
@@ -29,17 +29,19 @@ const exec_options2 = {
   env: null,
 };
 
-if (fs.existsSync(path.join(userAssetsDir, "\\InstallList.json"))) {
-  installList = require(path.join(userAssetsDir, "\\InstallList.json"));
-  installLength = Object.keys(installList.InstallList).length - 1; // Set an offset otherwise it will cause some weird errors to appear
-  setContent();
-}
+setTimeout(function () {
+  if (fs.existsSync(path.join(userAssetsDir, "\\InstallList.json"))) {
+    installList = require(path.join(userAssetsDir, "\\InstallList.json"));
+    installLength = Object.keys(installList.InstallList).length - 1; // Set an offset otherwise it will cause some weird errors to appear
+    setContent();
+  }
+}, 2000); //wait 2 seconds
 
 function setContent() {
   populateCatalog(
     installLength,
     entryListAll,
-    ["flex", "pr-5", "justify-between"],
+    ["flex", "pr-5", "w-full"],
     "entryTemplate",
     0
   );
@@ -78,6 +80,9 @@ function populateCatalog(
     );
     return;
   }
+
+  // Clear DIV before adding anything
+  entry.innerHTML = "";
 
   while (counter <= listlength) {
     // console.log(counter);
@@ -152,17 +157,19 @@ function sendID(clicked_id) {
   console.log(clicked_id);
   let thisID = clicked_id;
   let thisElement = document.getElementById(thisID);
-  thisElement.classList.remove("bg-red-300"); 
+  thisElement.classList.remove("bg-red-300");
   thisElement.classList.remove("color-white");
   thisElement.classList.add("bg-yellow-300");
   thisElement.classList.add("color-black");
   thisElement.innerText = "Loading...";
 
-// Remove old script if any
+  // Remove old script if any
 
-  exec("del runner.bat", exec_options,
+  exec(
+    "del runner.bat",
+    exec_options,
 
-(error, stdout, stderr) => {
+    (error, stdout, stderr) => {
       if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -172,70 +179,22 @@ function sendID(clicked_id) {
         return;
       }
       console.log(`stdout: ${stdout}`);
-    });
+    }
+  );
 
-// Create new script
+  // Create new script
 
-  exec(`echo kickstart "${installList.InstallList[thisID].location}" eac 87a0c99d9aa3ab5bb6a36C25 ${launcherConfig.bypassMethod} ${installList.InstallList[thisID].logonAs}> runner.bat`, exec_options,
+  exec(
+    `echo kickstart "${installList.InstallList[thisID].location}" eac 87a0c99d9aa3ab5bb6a36C25 ${launcherConfig.bypassMethod} ${installList.InstallList[thisID].logonAs}> runner.bat`,
+    exec_options,
 
-(error, stdout, stderr) => {
-      if (error) {
-        console.log(`error: ${error.message}`);
-        thisElement.innerText = "Failed. 😢";
-        thisElement.classList.remove("bg-yellow-300");
-        thisElement.classList.remove("color-black");
-        thisElement.classList.add("bg-red-300"); 
-        thisElement.classList.add("color-white");
-        return;
-      }
-      if (stderr) {
-        console.log(`stderr: ${stderr}`);
-        thisElement.innerText = "Failed. 😢";
-        thisElement.classList.remove("bg-yellow-300");
-        thisElement.classList.remove("color-black");
-        thisElement.classList.add("bg-red-300");
-        thisElement.classList.add("color-white");
-        return;
-      }
-      console.log(`stdout: ${stdout}`);
-    });
-
-// Start the backend...
-
-exec(`StartMainServiceModule.lnk`, exec_options2,
-
-(error, stdout, stderr) => {
-      if (error) {
-        console.log(`error: ${error.message}`);
-        thisElement.innerText = "Backend Failed. 😱";
-        thisElement.classList.remove("bg-yellow-300");
-        thisElement.classList.remove("color-black");
-        thisElement.classList.add("bg-red-300"); 
-        thisElement.classList.add("color-white");
-        return;
-      }
-      if (stderr) {
-        console.log(`stderr: ${stderr}`);
-        thisElement.innerText = "Backend Failed. 😱";
-        thisElement.classList.remove("bg-yellow-300");
-        thisElement.classList.remove("color-black");
-        thisElement.classList.add("bg-red-300");
-        thisElement.classList.add("color-white");
-        return;
-      }
-      console.log(`stdout: ${stdout}`);
-    });
-
-// Run the thang...
-
-  exec("legacyBoot.lnk", exec_options,
     (error, stdout, stderr) => {
       if (error) {
         console.log(`error: ${error.message}`);
         thisElement.innerText = "Failed. 😢";
         thisElement.classList.remove("bg-yellow-300");
         thisElement.classList.remove("color-black");
-        thisElement.classList.add("bg-red-300"); 
+        thisElement.classList.add("bg-red-300");
         thisElement.classList.add("color-white");
         return;
       }
@@ -251,6 +210,59 @@ exec(`StartMainServiceModule.lnk`, exec_options2,
       console.log(`stdout: ${stdout}`);
     }
   );
+
+  // Start the backend...
+
+  exec(
+    `StartMainServiceModule.lnk`,
+    exec_options2,
+
+    (error, stdout, stderr) => {
+      if (error) {
+        console.log(`error: ${error.message}`);
+        thisElement.innerText = "Backend Failed. 😱";
+        thisElement.classList.remove("bg-yellow-300");
+        thisElement.classList.remove("color-black");
+        thisElement.classList.add("bg-red-300");
+        thisElement.classList.add("color-white");
+        return;
+      }
+      if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        thisElement.innerText = "Backend Failed. 😱";
+        thisElement.classList.remove("bg-yellow-300");
+        thisElement.classList.remove("color-black");
+        thisElement.classList.add("bg-red-300");
+        thisElement.classList.add("color-white");
+        return;
+      }
+      console.log(`stdout: ${stdout}`);
+    }
+  );
+
+  // Run the thang...
+
+  exec("legacyBoot.lnk", exec_options, (error, stdout, stderr) => {
+    if (error) {
+      console.log(`error: ${error.message}`);
+      thisElement.innerText = "Failed. 😢";
+      thisElement.classList.remove("bg-yellow-300");
+      thisElement.classList.remove("color-black");
+      thisElement.classList.add("bg-red-300");
+      thisElement.classList.add("color-white");
+      return;
+    }
+    if (stderr) {
+      console.log(`stderr: ${stderr}`);
+      thisElement.innerText = "Failed. 😢";
+      thisElement.classList.remove("bg-yellow-300");
+      thisElement.classList.remove("color-black");
+      thisElement.classList.add("bg-red-300");
+      thisElement.classList.add("color-white");
+      return;
+    }
+    console.log(`stdout: ${stdout}`);
+  });
   thisElement.innerText = "Running...";
   // ipc.send("sendState", clicked_id);
 }

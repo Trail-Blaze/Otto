@@ -1,3 +1,14 @@
+<style>
+.resizer {
+   width: 4px;
+   height: 45px;
+   background: #dddddd;
+   position: absolute;
+   right: 0;
+   top: 40%;
+   cursor: w-resize;
+}
+</style>
 <div class="search-container text-center p-4 relative">
   <input
     type="text"
@@ -29,6 +40,10 @@
 
   <!-- end sidebar-icons -->
 
+<!--- Disable sign in -->
+
+<!---
+
   <div class="absolute bottom-0 w-full pb-4">
     <div
       class="sidebar-icon flex items-center px-4 py-2 text-grey no-underline cursor-pointer hover:bg-grey-darker"
@@ -47,9 +62,11 @@
       </svg>
       <div class="text-white">Not Signed In</div>
     </div>
-    <!-- end sidebar-icon -->
+    <!-- end sidebar-icon ->
   </div>
 </div>
+
+--->
 <script id="sideBarTemplate" class="hidden" type="text/html">
   <!-- START-->
   <div
