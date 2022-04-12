@@ -8,7 +8,7 @@ let userAssetsDir = path.join(blazeDir, "/userAssets/");
 let status = document.getElementById("reviewStatus");
 
 if (!fs.existsSync(path.join(userAssetsDir, "\\InstallList.json"))) {
-  status.innerHTML = "WELCOME TO BLAZE! HAVE FUN!<br/><p>LIVE-BUILD_1 <code>[2022-04-12T08:29:06.726Z]</code></p>";
+  status.innerHTML = "WELCOME TO BLAZE! HAVE FUN!<br/><p>LIVE-BUILD_1<br/><code>[2022-04-12T08:29:06.726Z]</code></p>";
   setTimeout(window.location.replace("firststartup.html"), 3000);
 } else {
   status.innerText = "ROUTING..."
