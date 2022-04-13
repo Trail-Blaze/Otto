@@ -266,3 +266,22 @@ function sendID(clicked_id) {
   thisElement.innerText = "Running...";
   // ipc.send("sendState", clicked_id);
 }
+
+ranAlready = false;
+function changeBanner() {
+  getHTML(
+    "https://raw.githubusercontent.com/Trail-Blaze/marketplace/main/featuredContent/announcements/partials/letsgo.html",
+    "announcementBanner"
+  );
+
+  if (!ranAlready) {
+    setTimeout(() => {
+      getHTML(
+        "https://raw.githubusercontent.com/Trail-Blaze/marketplace/main/featuredContent/announcements/partials/announcement.html",
+        "announcementBanner"
+      );
+    }, 60000);
+  } else {
+    ranAlready = true;
+  }
+}

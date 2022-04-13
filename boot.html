@@ -51,7 +51,7 @@
       data-flickity='{ "wrapAround": true, "prevNextButtons": true,
     "pageDots": false }'
     >
-      <div class="carousel-cell" includefile="https://raw.githubusercontent.com/Trail-Blaze/marketplace/main/featuredContent/announcements/partials/announcement.html">
+      <div class="carousel-cell" id="announcementBanner" includefile="https://raw.githubusercontent.com/Trail-Blaze/marketplace/main/featuredContent/announcements/partials/announcement.html">
       
       </div>
     
@@ -83,7 +83,7 @@
   <script id="entryTemplate" class="hidden" type="text/html">
     <div class="card-div w-full">
       <div
-        class="bg-white dark:bg-gray-800 rounded-tl-xl sm:rounded-t-xl p-4 pb-6 sm:p-8 lg:p-4 lg:pb-6 xl:p-8 space-y-6 sm:space-y-8 lg:space-y-6 xl:space-y-8"
+        onclick="changeBanner()" class="bg-white hover:bg-gray-100 cursor-pointer rounded-tl-xl sm:rounded-t-xl p-4 pb-6 sm:p-8 lg:p-4 lg:pb-6 xl:p-8 space-y-6 sm:space-y-8 lg:space-y-6 xl:space-y-8"
       >
         <div
           class="flex items-center space-x-3.5 sm:space-x-5 lg:space-x-3.5 xl:space-x-5"
