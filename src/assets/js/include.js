@@ -15,7 +15,7 @@ function Include() {
             elmnt.innerHTML = this.responseText;
           }
           if (this.status == 404) {
-            elmnt.innerHTML = "Page not found.";
+            elmnt.innerHTML = `<div style="width: 100%; height: 250px; background: #000000ab; margin-bottom: 4vh;"><h1 style="position: relative; top: 35%; left: 8%; font-size: 20pt; color: white">Whoops! Something snapped while loading an asset.</h1></div>`;
           }
           /* Remove the attribute, and call this function once more: */
           elmnt.removeAttribute("includefile");
