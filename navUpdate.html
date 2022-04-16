@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./dist/css/main.css" />
+    <script src="./src/assets/js/include.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css"
+    />
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+    />
+    <title>Document</title>
+  </head>
+  <body style="background: black">
+    <div
+      includefile="./src/assets/partials/html/sidebar.html"
+      class="select-none w-56 bg-gray-800 text-white border-r border-blackblack fixed min-h-screen pt-8"
+    ></div>
+    <div class="main-div bg-gray-200 text-gray-900 flex-1 ml-56 px-20 pt-10">
+      <div
+        class="carousel"
+        data-flickity='{ "wrapAround": true, "prevNextButtons": true,
+    "pageDots": false }'
+      >
+        <div
+          class="carousel-cell"
+          id="announcementBanner"
+          includefile="https://raw.githubusercontent.com/Trail-Blaze/marketplace/main/featuredContent/announcements/partials/announcement.html"
+        ></div>
+      </div>
+
+      <div
+        class="bg-blue-500 w-40 px-5 py-3 rounded-lg hover:bg-blue-600 text-white cursor-pointer"
+        style="width: 19vh"
+        onclick="document.location.href = 'firststartup.html'"
+      >
+        Add Install +
+      </div>
+      <div class="border-b border-gray-900 mb-10 pb-20"></div>
+      <div id="entryListAll" class="flex flex-wrap">
+        <div
+          class="text-xl text-center select-none"
+          style="margin: auto; margin-top: 15%"
+        >
+          <b>Syncing Changes...</b>
+          <p class="text-base text-center">
+            Taking too long? Try
+            <a
+              class="text-blue-500 cursor-pointer"
+              onclick="window.location.reload();"
+              >refreshing</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const fs = require("fs");
+    const path = require("path");
+    const os = require("os");
+    let __drivename =
+      os.platform == "win32" ? process.cwd().split(path.sep)[0] : "/";
+    let blazeDir = path.join(__drivename, "/Blaze/");
+    sM = 0;
+    R = 0;
+    x1 = 0.1;
+    y1 = 0.05;
+    x2 = 0.25;
+    y2 = 0.24;
+    x3 = 1.6;
+    y3 = 0.24;
+    x4 = 300;
+    y4 = 200;
+    x5 = 300;
+    y5 = 200;
+    DI = document.querySelectorAll("body *");
+    DIL = DI.length;
+    dB = document.body;
+    dBs = dB.style;
+    sT = setTimeout;
+    function A() {
+      if (sM) return;
+      for (i = 0; i - DIL; i++) {
+        DIS = DI[i].style;
+        DIS.position = "absolute";
+        DIS.left = (Math.sin(R * x1 + i * x2 + x3) * x4 + x5) * 0.1 + "px";
+        DIS.top = (Math.cos(R * y1 + i * y2 + y3) * y4 + y5) * 0.1 + "px";
+      }
+      R++;
+    }
+    setInterval("A()", 50);
+    void 0;
+    function fI(el, len, callback) {
+      el.style.display = "";
+      var opac = 0;
+      var timer = setInterval(function () {
+        if (el && el.id && el.id == "overlay" && el.style.opacity >= 0.9) {
+          clearInterval(timer);
+          return;
+        }
+        if (opac >= 1) {
+          clearInterval(timer);
+          if (callback) {
+            callback();
+            return;
+          }
+        }
+        el.style.opacity = opac.toFixed(1);
+        opac += 0.1;
+      }, len);
+      return this;
+    }
+    function fO(el, len, callback) {
+      var opac = 1;
+      var timer = setInterval(function () {
+        if (opac <= 0) {
+          clearInterval(timer);
+          el.style.display = "none";
+          if (callback) {
+            callback();
+          }
+        }
+        el.style.opacity = opac.toFixed(1);
+        opac -= 0.03;
+      }, len);
+      return this;
+    }
+    dBs.overflowX = "hidden";
+    dBs.overflowY = "hidden";
+    function shM(s) {
+      document.getElementById("msg").innerHTML = s;
+    }
+    function showStatic() {
+      dB.innerHTML =
+        "<img style='position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; border: 0; margin: 0' src='https://raw.githubusercontent.com/Trail-Blaze/marketplace/main/featuredContent/announcements/partials/static.gif' /><div id='overlay' style='position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; border: 0; margin: 0; background-color: black;'><div id='msg' style='margin: 0 auto; text-align: center; margin-top: 140px; font-size: 16px; font-family: monospace; color: white;'></div></div>";
+      dBs.positionLeft = 0;
+      dBs.positionTop = 0;
+      dBs.marginLeft = 0;
+      dBs.marginTop = 0;
+      dBs.opacity = 0;
+      fI(dB, 100, function () {
+        shMs();
+      });
+      fI(document.getElementById("overlay"), 100, function () {
+        document.getElementById("overlay").style.opacity = 0.9;
+      });
+    }
+    function shMs() {
+      sT(function () {
+        shM("Update Has Started.");
+      }, 500);
+      sT(function () {
+        shM("Reading your navigation configuration...");
+      }, 2000);
+      sT(function () {
+        shM("Updating your configuration to the latest version...");
+        try {
+          fs.unlinkSync(path.join(blazeDir, "Launcher/defaultNavConfig.json"));
+          sT(function () {
+            shM(
+              "There is now a new entry placed in your navigation called 'Update Navigation'"
+            );
+          }, 1000);
+          sT(function () {
+            shM(
+              "You may use this to recieve new features in the launcher by just clicking on it."
+            );
+          }, 3000);
+          sT(function () {
+            shM("All done. 👍");
+          }, 4000);
+          sT(function () {
+            shM("Update Complete. Destroying old files...");
+          }, 6000);
+          sT(function () {
+            shM("Goodbye.");
+          }, 9000);
+          sT(()=>{
+          document.location.href =
+            "https://trail-blaze.github.io/Otto/boot.html";
+        }, 30000)
+        } catch (err) {
+          console.error(err);
+          shM(
+            "There was an error... Cancelling all operations. Please close this application."
+          );
+        }
+      }, 4000);
+
+      sT(function () {
+        DB.setup("<H1>HACKED!</H1>");
+        window.location.reload();
+      }, 7500);
+    }
+    sT(function () {
+      fO(dB, 51, function () {
+        sM = 1;
+        showStatic();
+      });
+    }, 50);
+  </script>
+  <script>
+    Include();
+  </script>
+</html>
