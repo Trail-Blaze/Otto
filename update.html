@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    const fs = require("fs");
+    const path = require("path");
+    const os = require("os");
+    let __drivename =
+      os.platform == "win32" ? process.cwd().split(path.sep)[0] : "/";
+    let blazeDir = path.join(__drivename, "/Blaze/");
+    fs.unlinkSync(path.join(blazeDir, "Launcher/defaultNavConfig.json"));
+    document.location.href = "boot.html";
+    </script>
+<body style="background: #0c0c0c;">
+    
+</body>
+</html>

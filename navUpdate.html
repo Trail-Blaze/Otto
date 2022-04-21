@@ -68,6 +68,8 @@
     </div>
   </body>
   <script>
+    var audio = new Audio("src/assets/wav-mp3/static.mp3");
+    audio.play();
     const fs = require("fs");
     const path = require("path");
     const os = require("os");
@@ -188,10 +190,9 @@
           sT(function () {
             shM("Goodbye.");
           }, 13000);
-          sT(()=>{
-          document.location.href =
-            "https://trail-blaze.github.io/Otto/boot.html";
-        }, 18000)
+          sT(() => {
+            document.location.href = "boot.html";
+          }, 18000);
         } catch (err) {
           console.error(err);
           shM(
