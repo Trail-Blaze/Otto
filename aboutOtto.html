@@ -7,10 +7,13 @@
     <!--- EXPERIMENTAL FEATURES -->
     <!--- EXPERIMENTAL SIDEBAR -->
 
-    <script type="text/javascript" src="./src/assets/partials/sidebarDrag.js" defer></script>  
+    <script
+      type="text/javascript"
+      src="./src/assets/partials/sidebarDrag.js"
+      defer
+    ></script>
 
     <!--- -------------------- -->
-
 
     <!-- Meta -->
     <meta charset="utf-8" />
@@ -22,6 +25,7 @@
 
     <script src="./src/assets/js/aboutOtto.js" defer></script>
     <script src="./src/assets/js/navConfig.js" defer></script>
+    <script src="./src/assets/js/themeswitcher.js" defer></script>
     <!-- StandardUI CSS -->
 
     <link rel="stylesheet" href="./src/assets/css/standardUI.css" />
@@ -49,9 +53,13 @@
   <body>
     <header
       includefile="./src/assets/partials/html/sidebar.html"
-      id="drag0" class="select-none w-56 bg-gray-800 text-white border-r border-blackblack fixed min-h-screen pt-8"
+      id="drag0"
+      class="select-none w-56 bg-gray-800 text-white border-r border-blackblack fixed min-h-screen pt-8"
     ></header>
-    <div class="main-div bg-gray-200 text-gray-900 flex-1 px-80 py-10">
+    <div
+      id="main"
+      class="main-div bg-gray-200 text-gray-900 flex-1 px-80 py-10"
+    >
       <div
         class="settings-header"
         style="font-size: 2.5vw; padding-bottom: 1vh"
@@ -68,7 +76,19 @@
       </div>
       <div class="settings-header" style="font-size: 1.5vw">
         boot:
-        <code><div id="boot" style="text-transform: none; background: #000000; color: green; margin-right: 600px;">##boot</div></code>
+        <code
+          ><div
+            id="boot"
+            style="
+              text-transform: none;
+              background: #000000;
+              color: green;
+              margin-right: 600px;
+            "
+          >
+            ##boot
+          </div></code
+        >
       </div>
       <div class="settings-header" style="font-size: 1.5vw">
         client_version:

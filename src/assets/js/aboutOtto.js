@@ -11,6 +11,7 @@ let __drivename =
 let blazeDir = path.join(__drivename, "/Blaze/");
 const configDir = path.join(blazeDir, "/Launcher/backend/");
 const bConfig = fs.readFileSync(path.join(configDir, "bak-release"), 'utf8')
+const launcherConfig = require(path.join(blazeDir, "/Launcher/", "settings.json"));
 let backConfig = YAML.parse(bConfig);
 let repo;
 

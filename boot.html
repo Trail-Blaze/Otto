@@ -39,13 +39,14 @@
       }
     </style>
     <script src="./src/assets/js/navConfig.js" defer></script>
+    <script src="./src/assets/js/themeswitcher.js" defer></script>
   </head>
   <body class="bg-gray-200">
     <div
       includefile="./src/assets/partials/html/sidebar.html"
-      class="select-none w-56 bg-gray-800 text-white border-r border-blackblack fixed min-h-screen pt-8"
+      id="sidebar" class="select-none w-56 bg-gray-800 text-white border-r border-blackblack fixed min-h-screen pt-8"
     ></div>
-    <div class="main-div bg-gray-200 text-gray-900 flex-1 ml-56 px-20 pt-10">
+    <div id="main" class="main-div bg-gray-200 text-gray-900 flex-1 ml-56 px-20 pt-10">
       <div
       class="carousel"
       data-flickity='{ "wrapAround": true, "prevNextButtons": true,
@@ -99,7 +100,7 @@
           <div class="min-w-0 flex-auto space-y-0.5">
             <p
               id="entry"
-              class="text-lime-600 dark:text-lime-400 text-sm sm:text-base lg:text-sm xl:text-base font-semibold uppercase"
+              class="text-gray-600 dark:text-gray-400 text-sm sm:text-base lg:text-sm xl:text-base font-semibold uppercase"
             >
               ENTRY
             </p>
@@ -117,7 +118,7 @@
             <button
               id="TEMPLATE_GETID"
               onclick="sendID(this.id)"
-              class="rounded border-black pr-5 pl-5 pt-2 pb-2 bg-yellow-300 font-semibold hover:opacity-70"
+              class="text-gray-900 rounded border-black pr-5 pl-5 pt-2 pb-2 bg-yellow-300 font-semibold hover:opacity-70"
             >
               Let's Go!
             </button>
