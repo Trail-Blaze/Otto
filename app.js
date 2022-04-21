@@ -1,7 +1,8 @@
-const { app, BrowserWindow, ipcMain } = require("electron");
+const { app, ipcMain } = require("electron");
+const { BrowserWindow } = require("electron-acrylic-window")
 const ipc = ipcMain;
 const path = require("path");
-const { cpuUsage } = require("process");
+// const { cpuUsage } = require("process");
 const version = "0.0.1A-RC";
 const full_version = `BL Otto Launcher v${version}`;
 let win;
@@ -22,8 +23,14 @@ const createWindow = () => {
     height: 750,
     minWidth: 1155,
     minHeight: 750,
-    titleBarStyle: "hiddenInset",
+    frame: true,
+    // titleBarStyle: "hiddenInset",
     hasShadow: true,
+    vibrancy: {
+      theme: 'light', // (default) or 'dark' or '#rrggbbaa'
+      effect: 'acrylic', // (default) or 'blur'
+      disableOnBlur: true, // (default)
+    },
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
