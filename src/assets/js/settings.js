@@ -113,6 +113,9 @@ lightTheme.addEventListener("change", function () {
     darkTheme.checked = true;
   }
   saveSettings();
+  setTimeout(() => {
+    window.location.reload();
+  }, 950);
 });
 
 darkTheme.addEventListener("change", function () {
@@ -124,6 +127,9 @@ darkTheme.addEventListener("change", function () {
     lightTheme.checked = true;
   }
   saveSettings();
+  setTimeout(() => {
+    window.location.reload();
+  }, 950);
 });
 
 backendOnline.addEventListener("change", function () {
