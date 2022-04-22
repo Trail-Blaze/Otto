@@ -9,6 +9,7 @@ let launcherConfig;
 
 // All the checkboxes in the settings window
 
+const enableTracking = document.getElementById("enableTracking");
 const darkTheme = document.getElementById("darkTheme");
 const lightTheme = document.getElementById("lightTheme");
 const backendOnline = document.getElementById("backendOnline");
@@ -28,7 +29,7 @@ const backendUpdates = document.getElementById("backendUpdates");
 const splashDefault = document.getElementById("splashDefault");
 const splashBlaze = document.getElementById("splashBlaze");
 const errmsg = document.getElementById("errmsg");
-const sIP = document.getElementById("server-ip");
+// const sIP = document.getElementById("server-ip");
 
 defaultBypass.addEventListener("change", function () {
   if (this.checked) {
@@ -244,6 +245,10 @@ function restoreSettings() {
     otherBypass__text.value = launcherConfig.bypassMethod;
   }
 
+  if (launcherConfig.tracking === true) {
+    enableTracking.checked = true;
+  } 
+
   if (launcherConfig.theme === "light") {
     lightTheme.checked = true;
   } else if (launcherConfig.theme === "dark") {
@@ -260,7 +265,7 @@ function restoreSettings() {
     errmsg.classList.remove("hidden");
   }
 
-  sIP.value = launcherConfig.server_ip;
+  // sIP.value = launcherConfig.server_ip;
 
   if (launcherConfig.backend.debug === true) {
     backendDebug.checked = true;
@@ -311,6 +316,12 @@ function saveSettings() {
       launcherConfig.bypassMethod = otherBypass__text.value;
     }
 
+    if (enableTracking.checked === true) {
+      launcherConfig.tracking = true;
+    } else {
+      launcherConfig.tracking = false;
+    } 
+
     if (lightTheme.checked === false) {
       launcherConfig.theme = "dark";
     }
@@ -336,7 +347,7 @@ function saveSettings() {
       launcherConfig.online = false;
     }
 
-    launcherConfig.server_ip = sIP.value;
+   //  launcherConfig.server_ip = sIP.value;
 
     let navjson = JSON.stringify(launcherConfig, null, 2);
     fs.writeFileSync(path.join(configDir, "settings.json"), navjson, "utf-8");

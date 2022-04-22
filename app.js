@@ -1,5 +1,5 @@
 const { app, ipcMain } = require("electron");
-const { BrowserWindow } = require("electron-acrylic-window")
+const { BrowserWindow } = require("electron")
 const ipc = ipcMain;
 const path = require("path");
 // const { cpuUsage } = require("process");
