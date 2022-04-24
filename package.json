@@ -5,6 +5,7 @@
   "description": "My Electron application description",
   "main": "app.js",
   "scripts": {
+    "start-deskgap": "deskgap .",
     "start": "electron-forge start",
     "withoutForge": "electron app.js",
     "package": "electron-forge package",
@@ -50,6 +51,7 @@
     }
   },
   "dependencies": {
+    "deskgap": "file:src/local-deps/deskgap-0.2.0",
     "electron-acrylic-window": "^0.5.11",
     "electron-packager": "^15.4.0",
     "electron-squirrel-startup": "^1.0.0",
