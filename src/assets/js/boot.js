@@ -185,7 +185,7 @@ function sendID(clicked_id) {
   // Create new script
 
   exec(
-    `echo kickstart "${installList.InstallList[thisID].location}" eac 87a0c99d9aa3ab5bb6a36C25 ${launcherConfig.bypassMethod} ${installList.InstallList[thisID].logonAs}> runner.bat`,
+    `echo kickstart "${installList.InstallList[thisID].location}" eac 87a0c99d9aa3ab5bb6a36C25 ${launcherConfig.bypassMethod} ${installList.InstallList[thisID].logonAs || "BlazeUser"}> runner.bat`,
     exec_options,
 
     (error, stdout, stderr) => {
