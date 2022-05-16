@@ -42,6 +42,9 @@ if (fs.existsSync(path.join(userAssetsDir, "\\InstallList.json"))) {
    greetingTitle.innerText = "An Awesome Gamertag";
    greetingSubtitle.innerText =
       "Pick the username you'd like to use for this install. No Zalgo, please!";
+} else {
+   greetingTitle.innerText = "What's Your Name?";
+   greetingSubtitle.innerText = "Hi! Nice to meet you! What's your name?";
 }
 
 affirmCounter();
