@@ -12,4 +12,4 @@ setTimeout(() => {
       dropdown_c.style.height = "200px";
     }
   });
-}, 550);
+}, 2000);
