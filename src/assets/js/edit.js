@@ -4,7 +4,7 @@ setTimeout(() => {
   const dropdown = document.getElementById("dropdown");
   const dropdown_c = document.getElementById("dropdown_cont");
   edit.addEventListener("click", () => {
-    if (dropdown.classList.includes("hidden")) {
+    if (dropdown.classList.contains("hidden")) {
       dropdown.classList.remove("hidden");
       dropdown_c.style.height = "1px";
     } else {
@@ -12,4 +12,4 @@ setTimeout(() => {
       dropdown_c.style.height = "200px";
     }
   });
-}, 2000);
+}, 5000);
