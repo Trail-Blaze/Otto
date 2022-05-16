@@ -2,11 +2,14 @@
 setTimeout(() => {
   const edit = document.getElementById("edit");
   const dropdown = document.getElementById("dropdown");
+  const dropdown_c = document.getElementById("dropdown_cont");
   edit.addEventListener("click", () => {
     if (dropdown.classList.includes("hidden")) {
       dropdown.classList.remove("hidden");
+      dropdown_c.style.height = "1px";
     } else {
       dropdown.classList.add("hidden");
+      dropdown_c.style.height = "200px";
     }
   });
 }, 550);
