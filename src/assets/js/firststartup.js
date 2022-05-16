@@ -89,7 +89,7 @@ changeableIcon.addEventListener("click", async () => {
   const file = await dialog.showOpenDialog(win, {
     properties: ["openFile"],
     filters: [
-      { name: "Pictures", extensions: ["png", "jpg", "gif", "bmp", "svg"] },
+      { name: "Pictures", extensions: ["png", "jpg", "jpeg", "apng", "gif", "bmp", "svg", "webp"] },
     ],
   });
   if (!file) return;
