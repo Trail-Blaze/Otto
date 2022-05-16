@@ -144,6 +144,15 @@ function populateCatalog(
     // Set "GET" Button ID
     document.getElementById("TEMPLATE_GETID").id = `${counter}`;
 
+    // Set Edit button ID
+    changeID("edit", `edit_${counter}`);
+
+    // Set Dropdown ID
+    changeID("dropdown", `dropdown_${counter}`);
+
+    // Set Dropdown Container ID
+    changeID("dropdown_cont", `dropdown_cont_${counter}`);
+
     // Move up to the Next Package in the List
     counter++;
   }
