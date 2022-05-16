@@ -73,7 +73,12 @@ let navConfig;
 })();
 
 function setNav() {
-  populateNav();
+  try{
+    populateNav();
+  }
+  catch(error){
+    return;
+  }
 }
 
 /*
