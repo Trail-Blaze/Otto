@@ -10,6 +10,11 @@ setTimeout(() => {
         dropdown.classList.remove("hidden");
       }, 100);
       dropdown_c.style.height = "200px";
+      window.scroll({
+        top: document.documentElement.scrollTop + 180,
+        left: 0,
+        behavior: "smooth",
+      });
       return;
     }
     dropdown.classList.add("hidden");
