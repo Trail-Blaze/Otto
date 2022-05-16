@@ -3,7 +3,7 @@
 
 ## The NO Spyware, NO Adware, NO Nonsense Launcher
 
-Otto is a custom launcher for Fortnite. It does exactly as advertised and does exactly what it was intended to do. There is ZERO spyware, ZERO Ads, and ZERO malware/cryptojacking software embedded in this software compared to other alternatives such as [Neonite](https://github.com/NeoniteDev) or StormFN.
+Otto is a custom launcher for Fortnite. It does exactly as advertised and does exactly what it was intended to do. There is ZERO spyware, ZERO Ads, and ZERO malware/cryptojacking software embedded in this application when compared to other alternatives such as [Neonite](https://github.com/NeoniteDev) or StormFN.
 
 Which means that you can lay down in bed soundly knowing that your computer is not now infested with horrible, horrible malware just waiting for you to open it once more.
 
