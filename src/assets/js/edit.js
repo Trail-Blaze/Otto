@@ -6,10 +6,10 @@ setTimeout(() => {
   edit.addEventListener("click", () => {
     if (dropdown.classList.contains("hidden")) {
       dropdown.classList.remove("hidden");
-      dropdown_c.style.height = "1px";
+      dropdown_c.style.height = "200px";
     } else {
       dropdown.classList.add("hidden");
-      dropdown_c.style.height = "200px";
+      dropdown_c.style.height = "1px";
     }
   });
 }, 5000);
