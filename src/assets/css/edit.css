@@ -1,0 +1,10 @@
+.edit{
+    position: relative;
+    bottom: 7vh;
+    font-size: 35px;
+    opacity: 0.25;
+    transition: opacity 125ms ease-in;
+  }
+  .edit:hover{
+    opacity: 1;
+  }
