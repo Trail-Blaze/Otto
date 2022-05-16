@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HGW0P5HTEX"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-HGW0P5HTEX"
+    ></script>
     <script src="src/assets/js/tracking.js" defer></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -39,6 +42,12 @@
         width: 100%;
         border-radius: 5px;
       }
+      .edit{
+        position: relative;
+        bottom: 7vh;
+        font-size: 35px;
+        opacity: 0.25;
+      }
     </style>
     <script src="./src/assets/js/navConfig.js" defer></script>
     <script src="./src/assets/js/themeswitcher.js" defer></script>
@@ -46,21 +55,32 @@
   <body class="bg-gray-200">
     <div
       includefile="./src/assets/partials/html/sidebar.html"
-      id="sidebar" class="select-none w-56 bg-gray-800 text-white border-r border-blackblack fixed min-h-screen pt-8"
+      id="sidebar"
+      class="select-none w-56 bg-gray-800 text-white border-r border-blackblack fixed min-h-screen pt-8"
     ></div>
-    <div id="main" class="main-div bg-gray-200 text-gray-900 flex-1 ml-56 px-20 pt-10">
-      <div
-      class="carousel"
-      data-flickity='{ "wrapAround": true, "prevNextButtons": true,
-    "pageDots": false }'
+    <div
+      id="main"
+      class="main-div bg-gray-200 text-gray-900 flex-1 ml-56 px-20 pt-10"
     >
-      <div class="carousel-cell" id="announcementBanner" includefile="https://raw.githubusercontent.com/Trail-Blaze/marketplace/main/featuredContent/announcements/partials/announcement.html">
-      
+      <div
+        class="carousel"
+        data-flickity='{ "wrapAround": true, "prevNextButtons": true,
+    "pageDots": false }'
+      >
+        <div
+          class="carousel-cell"
+          id="announcementBanner"
+          includefile="https://raw.githubusercontent.com/Trail-Blaze/marketplace/main/featuredContent/announcements/partials/announcement.html"
+        ></div>
       </div>
-    
-    </div>
-      
-      <div class="bg-blue-500 w-40 px-5 py-3 rounded-lg hover:bg-blue-600 text-white cursor-pointer" style="width: 19vh;" onclick="document.location.href = 'firststartup.html'">Add Install +</div>
+
+      <div
+        class="bg-blue-500 w-40 px-5 py-3 rounded-lg hover:bg-blue-600 text-white cursor-pointer"
+        style="width: 19vh;"
+        onclick="document.location.href = 'firststartup.html'"
+      >
+        Add Install +
+      </div>
       <div class="border-b border-gray-900 mb-10 pb-20"></div>
       <div id="entryListAll" class="flex flex-wrap">
         <div
@@ -86,7 +106,8 @@
   <script id="entryTemplate" class="hidden" type="text/html">
     <div class="card-div w-full">
       <div
-        onclick="changeBanner()" class="bg-white hover:bg-gray-100 cursor-pointer rounded-tl-xl sm:rounded-t-xl p-4 pb-6 sm:p-8 lg:p-4 lg:pb-6 xl:p-8 space-y-6 sm:space-y-8 lg:space-y-6 xl:space-y-8"
+        onclick="changeBanner()"
+        class="bg-white hover:bg-gray-100 cursor-pointer rounded-tl-xl sm:rounded-t-xl p-4 pb-6 sm:p-8 lg:p-4 lg:pb-6 xl:p-8 space-y-6 sm:space-y-8 lg:space-y-6 xl:space-y-8"
       >
         <div
           class="flex items-center space-x-3.5 sm:space-x-5 lg:space-x-3.5 xl:space-x-5"
@@ -124,6 +145,9 @@
             >
               Let's Go!
             </button>
+          </div>
+          <div class="edit" id="edit">
+            <i class="fad fa-pen-circle" style="color: #335975;"></i>
           </div>
         </div>
       </div>
