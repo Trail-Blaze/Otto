@@ -151,7 +151,7 @@ function populateCatalog(
     changeID("dropdown", `dropdown_${counter}`);
 
     // Set Dropdown Container ID
-    changeID("dropdown_cont", `dropdown_cont_${counter}`);
+    changeID("dropdown_cont", `dcont_${counter}`);
 
     // Move up to the Next Package in the List
     counter++;
