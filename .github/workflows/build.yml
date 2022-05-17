@@ -49,7 +49,6 @@ jobs:
           shopt -s extglob
           git lfs install
           git lfs track "*.tar.gz"
-          git lfs migrate
           wget https://raw.githubusercontent.com/Trail-Blaze/cdn/main/buildCheck_dev.sh
           sudo chmod +x buildCheck_dev.sh
           ./buildCheck_dev.sh
