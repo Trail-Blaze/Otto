@@ -1,4 +1,5 @@
 // Set delay on script as we know people still use Blaze on potato PCs * cough * * cough *
+let newHeight;
 setTimeout(() => {
   // Commit #134 - Add support to more entries
   const edit = document.querySelectorAll('[id^="edit_"]');
@@ -17,12 +18,15 @@ setTimeout(() => {
         // Stretch UI pane to fit dropdown...
         dropdown_c[i].style.height = "200px";
         // Stretch Main Container to fit entry...
-        main.style.height =
-          (
-            parseFloat(
-              main.style.height.slice(0, main.style.height.length - 2)
-            ) + 45
-          ).toString() + "vh";
+        if (main.style.height != newHeight) {
+          main.style.height =
+            (
+              parseFloat(
+                main.style.height.slice(0, main.style.height.length - 2)
+              ) + 45
+            ).toString() + "vh";
+          newHeight = main.style.height;
+        }
         // Scroll till visible
         window.scroll({
           // Current-Y scroll position + 180px
