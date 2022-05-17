@@ -6,7 +6,7 @@ const { BrowserWindow } = require("electron");
 const ipc = ipcMain;
 const path = require("path");
 // const { cpuUsage } = require("process");
-const version = "0.98.1-Dev";
+const version = "0.146.3-Dev";
 const full_version = `BL Otto Launcher v${version}`;
 let win;
 
