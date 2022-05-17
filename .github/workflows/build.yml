@@ -33,6 +33,11 @@ jobs:
    #   run: npm run build-mac
     - name: Install Wine64
       run: sudo apt-get install wine64
+    - name: Configure Git LFS
+      run: |
+          git lfs install
+          git lfs track "*.tar.gz"
+          git lfs migrate
     - name: Build for Windows x64
       run: npm run build-win
    # - name: Build for Linux
