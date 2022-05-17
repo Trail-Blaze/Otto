@@ -1,5 +1,6 @@
 # Otto LIVE Build 
 # Otto
+![image](https://user-images.githubusercontent.com/34188635/168923276-823498bc-fb83-4d96-8890-27da367b91c3.png)
 
 ## The NO Spyware, NO Adware, NO Nonsense Launcher
 
