@@ -19,7 +19,9 @@ setTimeout(() => {
         // Stretch Main Container to fit entry...
         main.style.height =
           (
-            main.style.height.slice(0, main.style.height.length - 2) + 45
+            parseFloat(
+              main.style.height.slice(0, main.style.height.length - 2)
+            ) + 45
           ).toString() + "vh";
         // Scroll till visible
         window.scroll({
