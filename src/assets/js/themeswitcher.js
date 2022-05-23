@@ -61,6 +61,7 @@ function sw_theme() {
       case "custom":
         if (theme.content != undefined) {
           // Content
+          main.style.background = themeContent;
           setTimeout(() => {
             main.style.background = themeContent;
           }, 100);
