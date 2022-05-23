@@ -8,11 +8,19 @@ let themeContent;
 let themeNav;
 let themeColor;
 
-if (fs__nav.existsSync(theme)) {
-  theme = require(theme);
-  themeContent = theme.content;
-  themeNav = theme.nav;
-  themeColor = theme.text;
+function requireTheme() {
+  if (fs__nav.existsSync(theme)) {
+    try {
+      theme = require(theme);
+    } catch (error) {
+      setTimeout(() => {
+        requireTheme();
+      }, 1000);
+    }
+    themeContent = theme.content;
+    themeNav = theme.nav;
+    themeColor = theme.text;
+  }
 }
 /*
 if(fs.existsSync(theme.json)){
