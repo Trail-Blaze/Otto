@@ -39,19 +39,13 @@ jobs:
    #   run: npm run build-linux
       env:
         testing: yes
-    - name: Commit Build to "build" Branch
+    - name: Sort Build Files
       # continue-on-error: true
       run: |
-          git config --global user.name 'AlexDev404'
-          git config --global user.email 'alexdev404@users.noreply.github.com'
-          git fetch
-          git checkout -m build --
           shopt -s extglob
-          git lfs install
-          git lfs track "*.tar.gz"
           wget https://raw.githubusercontent.com/Trail-Blaze/cdn/main/buildCheck_new.sh
-          sudo chmod +x buildCheck_dev.sh
-          ./buildCheck_dev.sh
+          sudo chmod +x buildCheck_new.sh
+          ./buildCheck_new.sh
       shell: bash         
     - name: Upload Windows Build Artifact
       uses: actions/upload-artifact@v3.1.0
