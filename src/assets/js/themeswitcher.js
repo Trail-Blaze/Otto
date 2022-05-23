@@ -62,7 +62,11 @@ function sw_theme() {
         if (theme.content != undefined) {
           // Content
           main.style.background = themeContent;
-          document.body.background = themeContent;
+          try {
+            document.body.background = themeContent;
+          } catch (error) {
+            console.warn(error);
+          }
           // Nav
           try {
             sidebar.style.background = themeNav;
