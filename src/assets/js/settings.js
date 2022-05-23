@@ -288,6 +288,9 @@ function saveSettings() {
   if (fs.existsSync(path.join(configDir, "settings.json"))) {
     // Could've used case statments for this but I totally forgot; if anyone would like to fix this I wouldn't mind a bit
     // Go right ahead! :)
+    // baseDir, used in some scripts - since it's getting ridiculous now to include the above
+    // imports in **EVERY SINGLE ONE** OF THEM now...
+    launcherConfig.base = configDir;
     // platinum
 
     if (defaultBypass.checked) {
