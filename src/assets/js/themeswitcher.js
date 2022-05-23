@@ -7,7 +7,14 @@ let themeNav;
 let themeColor;
 
 function requireTheme() {
-  theme = path.join(launcherConfig.base, "/userAssets/", "theme.json");
+  try {
+    theme = path.join(launcherConfig.base, "/userAssets/", "theme.json");
+  } catch (error) {
+    console.warn(error);
+    setTimeout(() => {
+      requireTheme();
+    }, 100);
+  }
   if (fs__nav.existsSync(theme)) {
     try {
       theme = require(theme);
