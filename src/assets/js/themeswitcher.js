@@ -49,7 +49,7 @@ function sw_theme() {
         // Body
         main.style = `color: ${darkModeTheme_color}`;
         main.style.background = darkModeTheme;
-        document.body.background = darkModeTheme;
+        document.body.style.background = darkModeTheme;
         // Sidebar
         try {
           sidebar.style.background = darkModeTheme__sidebar;
@@ -74,7 +74,7 @@ function sw_theme() {
           }, 100);
 
           try {
-            document.body.background = themeContent;
+            document.body.style.background = themeContent;
           } catch (error) {
             console.warn(error);
           }
