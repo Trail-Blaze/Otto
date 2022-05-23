@@ -31,7 +31,7 @@ themeColor = theme.text;
 
 }
  */
-
+requireTheme();
 sw_theme();
 function sw_theme() {
   const main = document.getElementById("main");
