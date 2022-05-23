@@ -1,21 +1,20 @@
 const darkModeTheme = "#1a1a1a";
 const darkModeTheme__sidebar = "#2e2d2d";
 const darkModeTheme_color = "#fcfcfc";
-setTimeout(() => {
-  let theme = path.join(launcherConfig.base, "/userAssets/", "theme.json");
-}, 800);
+let theme;
 let themeContent;
 let themeNav;
 let themeColor;
 
 function requireTheme() {
+  theme = path.join(launcherConfig.base, "/userAssets/", "theme.json");
   if (fs__nav.existsSync(theme)) {
     try {
       theme = require(theme);
     } catch (error) {
       setTimeout(() => {
         requireTheme();
-      }, 1000);
+      }, 300);
     }
     themeContent = theme.content;
     themeNav = theme.nav;
