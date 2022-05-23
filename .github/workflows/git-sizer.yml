@@ -40,4 +40,4 @@ jobs:
           unzip git_sizer.zip
           export PATH="$pwd:$PATH"
           cd ..
-          ../git-sizer --verbose
+          git-sizer --verbose
