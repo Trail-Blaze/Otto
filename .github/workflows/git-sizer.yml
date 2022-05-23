@@ -37,6 +37,6 @@ jobs:
           mv git-sizer-1.5.0-linux-amd64.zip git_sizer.zip
           unzip git_sizer.zip
           cd git_sizer
-          mkdir analysis
-          cd analysis
+          export PATH="$pwd:$PATH"
+          cd ..
           ../git-sizer --verbose
