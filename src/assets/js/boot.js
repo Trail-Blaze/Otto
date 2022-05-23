@@ -1,7 +1,3 @@
-const fs = require("fs");
-const path = require("path");
-require("./modules/config.js");
-const os = require("os");
 const { exec } = require("child_process");
 let installLength;
 let installList;

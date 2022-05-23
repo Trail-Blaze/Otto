@@ -1,7 +1,3 @@
-const path = require("path");
-const fs = require("fs");
-const os = require("os");
-require("./modules/config.js");
 let status = document.getElementById("reviewStatus");
 
 if (!fs.existsSync(path.join(userAssetsDir, "\\InstallList.json"))) {
