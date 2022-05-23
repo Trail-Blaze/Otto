@@ -1,10 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 const os = require("os");
-let __drivename =
-  os.platform == "win32" ? process.cwd().split(path.sep)[0] : "/";
-let blazeDir = path.join(__drivename, "/Blaze/Launcher/");
-let userAssetsDir = path.join(blazeDir, "/userAssets/");
+require("./modules/config.js");
 let status = document.getElementById("reviewStatus");
 
 if (!fs.existsSync(path.join(userAssetsDir, "\\InstallList.json"))) {

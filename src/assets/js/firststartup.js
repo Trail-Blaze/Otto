@@ -13,10 +13,7 @@ const changeableIcon = document.getElementById("changeableIcon");
 const textPath = document.getElementById("typePath");
 const errMsg = document.getElementById("err@Warn");
 const finishUp = document.getElementById("finishUp");
-let __drivename =
-   os.platform == "win32" ? process.cwd().split(path.sep)[0] : "/";
-let blazeDir = path.join(__drivename, "/Blaze/Launcher/");
-let userAssetsDir = path.join(blazeDir, "/userAssets/");
+require("./modules/config.js");
 navConfig = require(path.join(blazeDir, "defaultNavConfig.json"));
 let logonName;
 let dirName;

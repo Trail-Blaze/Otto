@@ -1,7 +1,9 @@
 const darkModeTheme = "#1a1a1a";
 const darkModeTheme__sidebar = "#2e2d2d";
 const darkModeTheme_color = "#fcfcfc";
-let theme = path.join(launcherConfig.base, "/userAssets/", "theme.json");
+setTimeout(() => {
+  let theme = path.join(launcherConfig.base, "/userAssets/", "theme.json");
+}, 800);
 let themeContent;
 let themeNav;
 let themeColor;
