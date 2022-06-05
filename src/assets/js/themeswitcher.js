@@ -64,6 +64,10 @@ function sw_theme() {
             document.getElementById("drag0").style.background =
               darkModeTheme__sidebar;
           } catch (e) {
+            if (run_t > 100) return;
+            console.warn(error);
+
+            run++;
             sw_theme();
           }
         }
@@ -91,6 +95,10 @@ function sw_theme() {
             try {
               document.getElementById("drag0").style.background = themeNav;
             } catch (e) {
+              if (run_t > 100) return;
+              console.warn(error);
+
+              run++;
               sw_theme();
             }
           }
@@ -103,7 +111,7 @@ function sw_theme() {
         break;
     }
   } catch (error) {
-    if(run_t > 1) return;
+    if (run_t > 100) return;
     console.warn(error);
     setTimeout(() => {
       run++;
