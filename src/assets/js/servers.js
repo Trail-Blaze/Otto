@@ -12,6 +12,7 @@ function configure() {
   // templateIcon, ip, templateTitle, templateDescription, connectionID
   Object.keys(_data).forEach(async (value, index = index - 1) => {
     let x = document.createElement("div");
+    x.classList.value = "w-full";
     x.innerHTML = ref("entryTemplate").innerHTML;
     ref("entryListAll").append(x);
     // Wait for write to finish
