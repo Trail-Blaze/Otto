@@ -6,6 +6,7 @@ let themeContent;
 let themeNav;
 let themeColor;
 let run = 1;
+let run_t = 1;
 function requireTheme() {
   try {
     theme = path.join(launcherConfig.base, "/userAssets/", "theme.json");
@@ -102,7 +103,9 @@ function sw_theme() {
         break;
     }
   } catch (error) {
+    if(run_t > 1) return;
     setTimeout(() => {
+      run++;
       sw_theme();
     }, 100);
   }
