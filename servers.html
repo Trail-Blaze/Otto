@@ -103,12 +103,14 @@
       </div>
 
       <a href="addserver.html" class="text-gray-100"
-        ><div class="bg-blue-500 w-40 px-5 py-3 rounded-lg hover:bg-blue-600">
+        ><div
+          class="bg-blue-500 w-40 px-5 py-3 rounded-lg hover:bg-blue-600 text-white cursor-pointer"
+        >
           Add Server +
         </div></a
       >
-      <div class="border-b border-gray-900 mb-10 pb-20"></div>
-      <div id="entryListAll" class="flex flex-wrap">
+      <!--- <div class="border-b border-gray-900 mb-10 pb-20"></div> --->
+      <div id="entryListAll" class="flex flex-wrap pt-10">
         <!-- START OF PLACEHOLDER CONTENT-->
         <div class="w-full">
           <!-- templateIcon, ip, templateTitle, templateDescription, connectionID -->
@@ -135,7 +137,12 @@
                   >
                     SERVER
                   </p>
-                  <h2 id="templateTitle" class="text-black font-semibold text-base">Syncing With Server...</h2>
+                  <h2
+                    id="templateTitle"
+                    class="text-black font-semibold text-base"
+                  >
+                    Syncing With Server...
+                  </h2>
                   <p
                     class="skeleton inline text-xs"
                     style="color: rgb(161 161 170);"
