@@ -65,7 +65,7 @@ function sw_theme() {
               darkModeTheme__sidebar;
           } catch (e) {
             if (run_t > 100) return;
-            console.warn(error);
+            console.warn(e);
 
             run++;
             sw_theme();
@@ -96,7 +96,7 @@ function sw_theme() {
               document.getElementById("drag0").style.background = themeNav;
             } catch (e) {
               if (run_t > 100) return;
-              console.warn(error);
+              console.warn(e);
 
               run++;
               sw_theme();
