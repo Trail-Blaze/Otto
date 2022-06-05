@@ -104,6 +104,7 @@ function sw_theme() {
     }
   } catch (error) {
     if(run_t > 1) return;
+    console.warn(error);
     setTimeout(() => {
       run++;
       sw_theme();
