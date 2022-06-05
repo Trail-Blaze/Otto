@@ -8,12 +8,12 @@ setTimeout(() => {
   configure();
 }, 2000);
 function configure() {
-  ref("container").innerHTML = "";
+  ref("entryListAll").innerHTML = "";
   // templateIcon, ip, templateTitle, templateDescription, connectionID
   Object.keys(_data).forEach(async (value, index = index - 1) => {
     let x = document.createElement("div");
     x.innerHTML = ref("entryTemplate").innerHTML;
-    ref("container").append(x);
+    ref("entryListAll").append(x);
     // Wait for write to finish
     await sleep(500);
     changeID("templateTitle", `serverT_${index}`);

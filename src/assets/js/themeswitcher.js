@@ -5,14 +5,16 @@ let theme;
 let themeContent;
 let themeNav;
 let themeColor;
-
+let run = 1;
 function requireTheme() {
   try {
     theme = path.join(launcherConfig.base, "/userAssets/", "theme.json");
   } catch (error) {
     console.warn(error);
+    if (run > 250) return;
     setTimeout(() => {
       requireTheme();
+      run++;
     }, 100);
   }
   if (fs__nav.existsSync(theme)) {
@@ -20,7 +22,10 @@ function requireTheme() {
       theme = require(theme);
     } catch (error) {
       setTimeout(() => {
+        console.warn(error);
+        if (run > 250) return;
         requireTheme();
+        run++;
       }, 300);
     }
     themeContent = theme.content;
