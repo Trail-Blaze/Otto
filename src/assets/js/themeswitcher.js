@@ -11,7 +11,7 @@ function requireTheme() {
   try {
     theme = path.join(launcherConfig.base, "/userAssets/", "theme.json");
   } catch (error) {
-    if (run > 3) return;
+    if (run > 100) return;
     console.warn(error);
     setTimeout(() => {
       requireTheme();
@@ -64,10 +64,10 @@ function sw_theme() {
             document.getElementById("drag0").style.background =
               darkModeTheme__sidebar;
           } catch (e) {
-            if (run_t > 3) return;
+            if (run_t > 10) return;
             console.warn(e);
 
-            run++;
+            run_t++;
             sw_theme();
           }
         }
@@ -95,10 +95,10 @@ function sw_theme() {
             try {
               document.getElementById("drag0").style.background = themeNav;
             } catch (e) {
-              if (run_t > 3) return;
+              if (run_t > 50) return;
               console.warn(e);
 
-              run++;
+              run_t++;
               sw_theme();
             }
           }
@@ -111,10 +111,10 @@ function sw_theme() {
         break;
     }
   } catch (error) {
-    if (run_t > 3) return;
+    if (run_t > 25) return;
     console.warn(error);
     setTimeout(() => {
-      run++;
+      run_t++;
       sw_theme();
     }, 100);
   }
