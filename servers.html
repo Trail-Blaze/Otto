@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blaze Launcher | Boot</title>
     <link rel="stylesheet" href="./dist/css/tailwind.css" />
+    <script src="./src/assets/js/modules/blaze.js"></script>
     <script src="./src/assets/js/include.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -108,293 +109,291 @@
       >
       <div class="border-b border-gray-900 mb-10 pb-20"></div>
       <div id="entryListAll" class="flex flex-wrap">
-        
-          <!-- START OF PLACEHOLDER CONTENT-->
-          <div>
-            <!-- templateIcon, ip, templateTitle, templateDescription, connectionID -->
-            <div class="card-div w-full">
+        <!-- START OF PLACEHOLDER CONTENT-->
+        <div>
+          <!-- templateIcon, ip, templateTitle, templateDescription, connectionID -->
+          <div class="card-div w-full">
+            <div
+              onclick="changeBanner()"
+              class="bg-white hover:bg-gray-100 cursor-pointer rounded-tl-xl sm:rounded-t-xl p-4 pb-6 sm:p-8 lg:p-4 lg:pb-6 xl:p-8 space-y-6 sm:space-y-8 lg:space-y-6 xl:space-y-8"
+            >
               <div
-                onclick="changeBanner()"
-                class="bg-white hover:bg-gray-100 cursor-pointer rounded-tl-xl sm:rounded-t-xl p-4 pb-6 sm:p-8 lg:p-4 lg:pb-6 xl:p-8 space-y-6 sm:space-y-8 lg:space-y-6 xl:space-y-8"
+                class="flex items-center space-x-3.5 sm:space-x-5 lg:space-x-3.5 xl:space-x-5"
               >
-                <div
-                  class="flex items-center space-x-3.5 sm:space-x-5 lg:space-x-3.5 xl:space-x-5"
-                >
-                  <img
-                    id="templateIcon"
-                    src="src/assets/png/fortnite_lettermark_logo.png"
-                    alt=""
-                    width="160"
-                    height="160"
-                    class="flex-none w-20 h-20 rounded-lg bg-gray-100"
-                  />
-                  <div class="min-w-0 flex-auto space-y-0.5">
-                    <p
-                      id="entry"
-                      class="text-lime-600 dark:text-lime-400 text-sm sm:text-base lg:text-sm xl:text-base font-semibold uppercase"
+                <img
+                  id="templateIcon"
+                  src="src/assets/png/fortnite_lettermark_logo.png"
+                  alt=""
+                  width="160"
+                  height="160"
+                  class="flex-none w-20 h-20 rounded-lg bg-gray-100"
+                />
+                <div class="min-w-0 flex-auto space-y-0.5">
+                  <p
+                    id="entry"
+                    class="text-lime-600 dark:text-lime-400 text-sm sm:text-base lg:text-sm xl:text-base font-semibold uppercase"
+                  >
+                    SERVER
+                  </p>
+                  <h2 id="templateTitle" class="">Syncing With Server...</h2>
+                  <p
+                    class="skeleton inline text-xs"
+                    style="color: rgb(161 161 170);"
+                    id="ip"
+                  ></p>
+                  <p
+                    class="text-gray-500 dark:text-gray-400 text-base sm:text-lg lg:text-base xl:text-lg font-medium"
+                  >
+                    <b class="block motd" id="templateDescription"
+                      >Taking too long? Try
+                      <a
+                        class="text-blue-500 cursor-pointer"
+                        onclick="window.location.reload();"
+                        >refreshing</a
+                      ></b
                     >
-                      SERVER
-                    </p>
-                    <h2 id="templateTitle" class="">Syncing With Server...</h2>
-                    <p
-                      class="skeleton inline text-xs"
-                      style="color: rgb(161 161 170);"
-                      id="ip"
-                    ></p>
-                    <p
-                      class="text-gray-500 dark:text-gray-400 text-base sm:text-lg lg:text-base xl:text-lg font-medium"
-                    >
-                      <b class="block motd" id="templateDescription"
-                        >Taking too long? Try
-                        <a
-                          class="text-blue-500 cursor-pointer"
-                          onclick="window.location.reload();"
-                          >refreshing</a
-                        ></b
-                      >
-                    </p>
-                    <button
-                      id="connectionID"
-                      onclick="sendID(this.id)"
-                      class="rounded border-black pr-5 pl-5 pt-2 pb-2 bg-yellow-300 font-semibold hover:opacity-70"
-                    >
-                      Connect
-                    </button>
-                  </div>
+                  </p>
+                  <button
+                    id="connectionID"
+                    onclick="sendID(this.id)"
+                    class="rounded border-black pr-5 pl-5 pt-2 pb-2 bg-yellow-300 font-semibold hover:opacity-70"
+                  >
+                    Connect
+                  </button>
                 </div>
               </div>
-
-              <div
-                class="bg-white lg:rounded-b-xl py-4 px-1 mb-5 sm:px-3 lg:px-1 xl:px-3"
-              ></div>
             </div>
+
+            <div
+              class="bg-white lg:rounded-b-xl py-4 px-1 mb-5 sm:px-3 lg:px-1 xl:px-3"
+            ></div>
           </div>
-          <div>
-            <!-- templateIcon, ip, templateTitle, templateDescription, connectionID -->
-            <div class="card-div w-full">
+        </div>
+        <div>
+          <!-- templateIcon, ip, templateTitle, templateDescription, connectionID -->
+          <div class="card-div w-full">
+            <div
+              onclick="changeBanner()"
+              class="bg-white hover:bg-gray-100 cursor-pointer rounded-tl-xl sm:rounded-t-xl p-4 pb-6 sm:p-8 lg:p-4 lg:pb-6 xl:p-8 space-y-6 sm:space-y-8 lg:space-y-6 xl:space-y-8"
+            >
               <div
-                onclick="changeBanner()"
-                class="bg-white hover:bg-gray-100 cursor-pointer rounded-tl-xl sm:rounded-t-xl p-4 pb-6 sm:p-8 lg:p-4 lg:pb-6 xl:p-8 space-y-6 sm:space-y-8 lg:space-y-6 xl:space-y-8"
+                class="flex items-center space-x-3.5 sm:space-x-5 lg:space-x-3.5 xl:space-x-5"
               >
-                <div
-                  class="flex items-center space-x-3.5 sm:space-x-5 lg:space-x-3.5 xl:space-x-5"
-                >
-                  <img
-                    id="templateIcon"
-                    src="src/assets/png/fortnite_lettermark_logo.png"
-                    alt=""
-                    width="160"
-                    height="160"
-                    class="flex-none w-20 h-20 rounded-lg bg-gray-100"
-                  />
-                  <div class="min-w-0 flex-auto space-y-0.5">
-                    <p
-                      id="entry"
-                      class="text-lime-600 dark:text-lime-400 text-sm sm:text-base lg:text-sm xl:text-base font-semibold uppercase"
+                <img
+                  id="templateIcon"
+                  src="src/assets/png/fortnite_lettermark_logo.png"
+                  alt=""
+                  width="160"
+                  height="160"
+                  class="flex-none w-20 h-20 rounded-lg bg-gray-100"
+                />
+                <div class="min-w-0 flex-auto space-y-0.5">
+                  <p
+                    id="entry"
+                    class="text-lime-600 dark:text-lime-400 text-sm sm:text-base lg:text-sm xl:text-base font-semibold uppercase"
+                  >
+                    SERVER
+                  </p>
+                  <h2 id="templateTitle" class="skeleton">
+                    APPLICATION_TEMPLATE
+                  </h2>
+                  <p
+                    class="skeleton inline text-xs"
+                    style="color: rgb(161 161 170);"
+                    id="ip"
+                  ></p>
+                  <p
+                    class="text-gray-500 dark:text-gray-400 text-base sm:text-lg lg:text-base xl:text-lg font-medium"
+                  >
+                    <b class="block skeleton motd" id="templateDescription"
+                      >TEMPLATE_DESCRIPTION</b
                     >
-                      SERVER
-                    </p>
-                    <h2 id="templateTitle" class="skeleton">
-                      APPLICATION_TEMPLATE
-                    </h2>
-                    <p
-                      class="skeleton inline text-xs"
-                      style="color: rgb(161 161 170);"
-                      id="ip"
-                    ></p>
-                    <p
-                      class="text-gray-500 dark:text-gray-400 text-base sm:text-lg lg:text-base xl:text-lg font-medium"
-                    >
-                      <b class="block skeleton motd" id="templateDescription"
-                        >TEMPLATE_DESCRIPTION</b
-                      >
-                    </p>
-                    <button
-                      id="connectionID"
-                      onclick="sendID(this.id)"
-                      class="rounded border-black pr-5 pl-5 pt-2 pb-2 bg-yellow-300 font-semibold hover:opacity-70"
-                    >
-                      Connect
-                    </button>
-                  </div>
+                  </p>
+                  <button
+                    id="connectionID"
+                    onclick="sendID(this.id)"
+                    class="rounded border-black pr-5 pl-5 pt-2 pb-2 bg-yellow-300 font-semibold hover:opacity-70"
+                  >
+                    Connect
+                  </button>
                 </div>
               </div>
-
-              <div
-                class="bg-white lg:rounded-b-xl py-4 px-1 mb-5 sm:px-3 lg:px-1 xl:px-3"
-              ></div>
             </div>
+
+            <div
+              class="bg-white lg:rounded-b-xl py-4 px-1 mb-5 sm:px-3 lg:px-1 xl:px-3"
+            ></div>
           </div>
-          <div>
-            <!-- templateIcon, ip, templateTitle, templateDescription, connectionID -->
-            <div class="card-div w-full">
+        </div>
+        <div>
+          <!-- templateIcon, ip, templateTitle, templateDescription, connectionID -->
+          <div class="card-div w-full">
+            <div
+              onclick="changeBanner()"
+              class="bg-white hover:bg-gray-100 cursor-pointer rounded-tl-xl sm:rounded-t-xl p-4 pb-6 sm:p-8 lg:p-4 lg:pb-6 xl:p-8 space-y-6 sm:space-y-8 lg:space-y-6 xl:space-y-8"
+            >
               <div
-                onclick="changeBanner()"
-                class="bg-white hover:bg-gray-100 cursor-pointer rounded-tl-xl sm:rounded-t-xl p-4 pb-6 sm:p-8 lg:p-4 lg:pb-6 xl:p-8 space-y-6 sm:space-y-8 lg:space-y-6 xl:space-y-8"
+                class="flex items-center space-x-3.5 sm:space-x-5 lg:space-x-3.5 xl:space-x-5"
               >
-                <div
-                  class="flex items-center space-x-3.5 sm:space-x-5 lg:space-x-3.5 xl:space-x-5"
-                >
-                  <img
-                    id="templateIcon"
-                    src="src/assets/png/fortnite_lettermark_logo.png"
-                    alt=""
-                    width="160"
-                    height="160"
-                    class="flex-none w-20 h-20 rounded-lg bg-gray-100"
-                  />
-                  <div class="min-w-0 flex-auto space-y-0.5">
-                    <p
-                      id="entry"
-                      class="text-lime-600 dark:text-lime-400 text-sm sm:text-base lg:text-sm xl:text-base font-semibold uppercase"
+                <img
+                  id="templateIcon"
+                  src="src/assets/png/fortnite_lettermark_logo.png"
+                  alt=""
+                  width="160"
+                  height="160"
+                  class="flex-none w-20 h-20 rounded-lg bg-gray-100"
+                />
+                <div class="min-w-0 flex-auto space-y-0.5">
+                  <p
+                    id="entry"
+                    class="text-lime-600 dark:text-lime-400 text-sm sm:text-base lg:text-sm xl:text-base font-semibold uppercase"
+                  >
+                    SERVER
+                  </p>
+                  <h2 id="templateTitle" class="skeleton">
+                    APPLICATION_TEMPLATE
+                  </h2>
+                  <p
+                    class="skeleton inline text-xs"
+                    style="color: rgb(161 161 170);"
+                    id="ip"
+                  ></p>
+                  <p
+                    class="text-gray-500 dark:text-gray-400 text-base sm:text-lg lg:text-base xl:text-lg font-medium"
+                  >
+                    <b class="block skeleton motd" id="templateDescription"
+                      >TEMPLATE_DESCRIPTION</b
                     >
-                      SERVER
-                    </p>
-                    <h2 id="templateTitle" class="skeleton">
-                      APPLICATION_TEMPLATE
-                    </h2>
-                    <p
-                      class="skeleton inline text-xs"
-                      style="color: rgb(161 161 170);"
-                      id="ip"
-                    ></p>
-                    <p
-                      class="text-gray-500 dark:text-gray-400 text-base sm:text-lg lg:text-base xl:text-lg font-medium"
-                    >
-                      <b class="block skeleton motd" id="templateDescription"
-                        >TEMPLATE_DESCRIPTION</b
-                      >
-                    </p>
-                    <button
-                      id="connectionID"
-                      onclick="sendID(this.id)"
-                      class="rounded border-black pr-5 pl-5 pt-2 pb-2 bg-yellow-300 font-semibold hover:opacity-70"
-                    >
-                      Connect
-                    </button>
-                  </div>
+                  </p>
+                  <button
+                    id="connectionID"
+                    onclick="sendID(this.id)"
+                    class="rounded border-black pr-5 pl-5 pt-2 pb-2 bg-yellow-300 font-semibold hover:opacity-70"
+                  >
+                    Connect
+                  </button>
                 </div>
               </div>
-
-              <div
-                class="bg-white lg:rounded-b-xl py-4 px-1 mb-5 sm:px-3 lg:px-1 xl:px-3"
-              ></div>
             </div>
+
+            <div
+              class="bg-white lg:rounded-b-xl py-4 px-1 mb-5 sm:px-3 lg:px-1 xl:px-3"
+            ></div>
           </div>
-          <div>
-            <!-- templateIcon, ip, templateTitle, templateDescription, connectionID -->
-            <div class="card-div w-full">
+        </div>
+        <div>
+          <!-- templateIcon, ip, templateTitle, templateDescription, connectionID -->
+          <div class="card-div w-full">
+            <div
+              onclick="changeBanner()"
+              class="bg-white hover:bg-gray-100 cursor-pointer rounded-tl-xl sm:rounded-t-xl p-4 pb-6 sm:p-8 lg:p-4 lg:pb-6 xl:p-8 space-y-6 sm:space-y-8 lg:space-y-6 xl:space-y-8"
+            >
               <div
-                onclick="changeBanner()"
-                class="bg-white hover:bg-gray-100 cursor-pointer rounded-tl-xl sm:rounded-t-xl p-4 pb-6 sm:p-8 lg:p-4 lg:pb-6 xl:p-8 space-y-6 sm:space-y-8 lg:space-y-6 xl:space-y-8"
+                class="flex items-center space-x-3.5 sm:space-x-5 lg:space-x-3.5 xl:space-x-5"
               >
-                <div
-                  class="flex items-center space-x-3.5 sm:space-x-5 lg:space-x-3.5 xl:space-x-5"
-                >
-                  <img
-                    id="templateIcon"
-                    src="src/assets/png/fortnite_lettermark_logo.png"
-                    alt=""
-                    width="160"
-                    height="160"
-                    class="flex-none w-20 h-20 rounded-lg bg-gray-100"
-                  />
-                  <div class="min-w-0 flex-auto space-y-0.5">
-                    <p
-                      id="entry"
-                      class="text-lime-600 dark:text-lime-400 text-sm sm:text-base lg:text-sm xl:text-base font-semibold uppercase"
+                <img
+                  id="templateIcon"
+                  src="src/assets/png/coloricon_cornflower_blue_placeholder.png"
+                  alt=""
+                  width="160"
+                  height="160"
+                  class="flex-none w-20 h-20 rounded-lg bg-gray-100"
+                />
+                <div class="min-w-0 flex-auto space-y-0.5">
+                  <p
+                    id="entry"
+                    class="text-lime-600 dark:text-lime-400 text-sm sm:text-base lg:text-sm xl:text-base font-semibold uppercase"
+                  >
+                    SERVER
+                  </p>
+                  <h2 id="templateTitle" class="skeleton">
+                    APPLICATION_TEMPLATE
+                  </h2>
+                  <p
+                    class="skeleton inline text-xs"
+                    style="color: rgb(161 161 170);"
+                    id="ip"
+                  ></p>
+                  <p
+                    class="text-gray-500 dark:text-gray-400 text-base sm:text-lg lg:text-base xl:text-lg font-medium"
+                  >
+                    <b class="block skeleton motd" id="templateDescription"
+                      >TEMPLATE_DESCRIPTION</b
                     >
-                      SERVER
-                    </p>
-                    <h2 id="templateTitle" class="skeleton">
-                      APPLICATION_TEMPLATE
-                    </h2>
-                    <p
-                      class="skeleton inline text-xs"
-                      style="color: rgb(161 161 170);"
-                      id="ip"
-                    ></p>
-                    <p
-                      class="text-gray-500 dark:text-gray-400 text-base sm:text-lg lg:text-base xl:text-lg font-medium"
-                    >
-                      <b class="block skeleton motd" id="templateDescription"
-                        >TEMPLATE_DESCRIPTION</b
-                      >
-                    </p>
-                    <button
-                      id="connectionID"
-                      onclick="sendID(this.id)"
-                      class="rounded border-black pr-5 pl-5 pt-2 pb-2 bg-yellow-300 font-semibold hover:opacity-70"
-                    >
-                      Connect
-                    </button>
-                  </div>
+                  </p>
+                  <button
+                    id="connectionID"
+                    onclick="sendID(this.id)"
+                    class="rounded border-black pr-5 pl-5 pt-2 pb-2 bg-yellow-300 font-semibold hover:opacity-70"
+                  >
+                    Connect
+                  </button>
                 </div>
               </div>
-
-              <div
-                class="bg-white lg:rounded-b-xl py-4 px-1 mb-5 sm:px-3 lg:px-1 xl:px-3"
-              ></div>
             </div>
+
+            <div
+              class="bg-white lg:rounded-b-xl py-4 px-1 mb-5 sm:px-3 lg:px-1 xl:px-3"
+            ></div>
           </div>
-          <div>
-            <!-- templateIcon, ip, templateTitle, templateDescription, connectionID -->
-            <div class="card-div w-full">
+        </div>
+        <div>
+          <!-- templateIcon, ip, templateTitle, templateDescription, connectionID -->
+          <div class="card-div w-full">
+            <div
+              onclick="changeBanner()"
+              class="bg-white hover:bg-gray-100 cursor-pointer rounded-tl-xl sm:rounded-t-xl p-4 pb-6 sm:p-8 lg:p-4 lg:pb-6 xl:p-8 space-y-6 sm:space-y-8 lg:space-y-6 xl:space-y-8"
+            >
               <div
-                onclick="changeBanner()"
-                class="bg-white hover:bg-gray-100 cursor-pointer rounded-tl-xl sm:rounded-t-xl p-4 pb-6 sm:p-8 lg:p-4 lg:pb-6 xl:p-8 space-y-6 sm:space-y-8 lg:space-y-6 xl:space-y-8"
+                class="flex items-center space-x-3.5 sm:space-x-5 lg:space-x-3.5 xl:space-x-5"
               >
-                <div
-                  class="flex items-center space-x-3.5 sm:space-x-5 lg:space-x-3.5 xl:space-x-5"
-                >
-                  <img
-                    id="templateIcon"
-                    src="src/assets/png/fortnite_lettermark_logo.png"
-                    alt=""
-                    width="160"
-                    height="160"
-                    class="flex-none w-20 h-20 rounded-lg bg-gray-100"
-                  />
-                  <div class="min-w-0 flex-auto space-y-0.5">
-                    <p
-                      id="entry"
-                      class="text-lime-600 dark:text-lime-400 text-sm sm:text-base lg:text-sm xl:text-base font-semibold uppercase"
+                <img
+                  id="templateIcon"
+                  src="src/assets/png/fortnite_lettermark_logo.png"
+                  alt=""
+                  width="160"
+                  height="160"
+                  class="flex-none w-20 h-20 rounded-lg bg-gray-100"
+                />
+                <div class="min-w-0 flex-auto space-y-0.5">
+                  <p
+                    id="entry"
+                    class="text-lime-600 dark:text-lime-400 text-sm sm:text-base lg:text-sm xl:text-base font-semibold uppercase"
+                  >
+                    SERVER
+                  </p>
+                  <h2 id="templateTitle" class="skeleton">
+                    APPLICATION_TEMPLATE
+                  </h2>
+                  <p
+                    class="skeleton inline text-xs"
+                    style="color: rgb(161 161 170);"
+                    id="ip"
+                  ></p>
+                  <p
+                    class="text-gray-500 dark:text-gray-400 text-base sm:text-lg lg:text-base xl:text-lg font-medium"
+                  >
+                    <b class="block skeleton motd" id="templateDescription"
+                      >TEMPLATE_DESCRIPTION</b
                     >
-                      SERVER
-                    </p>
-                    <h2 id="templateTitle" class="skeleton">
-                      APPLICATION_TEMPLATE
-                    </h2>
-                    <p
-                      class="skeleton inline text-xs"
-                      style="color: rgb(161 161 170);"
-                      id="ip"
-                    ></p>
-                    <p
-                      class="text-gray-500 dark:text-gray-400 text-base sm:text-lg lg:text-base xl:text-lg font-medium"
-                    >
-                      <b class="block skeleton motd" id="templateDescription"
-                        >TEMPLATE_DESCRIPTION</b
-                      >
-                    </p>
-                    <button
-                      id="connectionID"
-                      onclick="sendID(this.id)"
-                      class="rounded border-black pr-5 pl-5 pt-2 pb-2 bg-yellow-300 font-semibold hover:opacity-70"
-                    >
-                      Connect
-                    </button>
-                  </div>
+                  </p>
+                  <button
+                    id="connectionID"
+                    onclick="sendID(this.id)"
+                    class="rounded border-black pr-5 pl-5 pt-2 pb-2 bg-yellow-300 font-semibold hover:opacity-70"
+                  >
+                    Connect
+                  </button>
                 </div>
               </div>
-
-              <div
-                class="bg-white lg:rounded-b-xl py-4 px-1 mb-5 sm:px-3 lg:px-1 xl:px-3"
-              ></div>
             </div>
+
+            <div
+              class="bg-white lg:rounded-b-xl py-4 px-1 mb-5 sm:px-3 lg:px-1 xl:px-3"
+            ></div>
           </div>
-          <!-- END PLACEHOLDER CONTENT-->
-       
+        </div>
+        <!-- END PLACEHOLDER CONTENT-->
       </div>
     </div>
   </body>
