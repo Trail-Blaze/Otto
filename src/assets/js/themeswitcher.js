@@ -10,8 +10,8 @@ function requireTheme() {
   try {
     theme = path.join(launcherConfig.base, "/userAssets/", "theme.json");
   } catch (error) {
+    if (run > 100) return;
     console.warn(error);
-    if (run > 250) return;
     setTimeout(() => {
       requireTheme();
       run++;
@@ -21,9 +21,9 @@ function requireTheme() {
     try {
       theme = require(theme);
     } catch (error) {
+      if (run > 100) return;
       setTimeout(() => {
         console.warn(error);
-        if (run > 250) return;
         requireTheme();
         run++;
       }, 300);
