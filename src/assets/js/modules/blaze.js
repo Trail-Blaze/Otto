@@ -22,6 +22,8 @@ function openILL() {
 function dropInstall(position = ref(position)) {
   // Drop install at position "position"
   delete installList[position];
+  // Remove from UI
+  entryListAll.removeChild(ref(`install__${position}`))
   const filtered = installList.filter((e) => {
     return e != null;
   });

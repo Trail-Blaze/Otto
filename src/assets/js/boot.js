@@ -85,12 +85,12 @@ function populateCatalog(
     // Create Entry
     let pakEntry = document.createElement("div");
     const entryList = entry;
-    pakEntry.setAttribute("id", `package__${counter}__${uniqueID}`);
+    pakEntry.setAttribute("id", `install__${counter}`);
     entryList.appendChild(pakEntry);
 
     // Access Newly Created Entry and Edit it To Our Needs
     const newEntry = ref(
-      `package__${counter}__${uniqueID}`
+      `install__${counter}`
     );
     const classList = classListArray;
     newEntry.classList.add(...classList);
@@ -104,31 +104,31 @@ function populateCatalog(
     }
 
     // Set Package Icon
-    changeID("templateIcon", `package__${counter}_icon__${uniqueID}`);
-    pakIcon = ref(`package__${counter}_icon__${uniqueID}`);
+    changeID("templateIcon", `install__${counter}_icon`);
+    pakIcon = ref(`install__${counter}_icon`);
 
     if (installList[`${counter}`].icon)
       pakIcon.src = installList[`${counter}`].icon;
 
     // Set Package Title
-    changeID("templateTitle", `package__${counter}_title__${uniqueID}`);
+    changeID("templateTitle", `install__${counter}_title`);
     pakTitle = ref(
-      `package__${counter}_title__${uniqueID}`
+      `install__${counter}_title`
     );
     pakTitle.innerText = installList[`${counter}`].name;
     pakTitle.classList.remove("skeleton");
     
     // Set Package Entry #
-    changeID("entry", `package__${counter}_entry__${uniqueID}`);
+    changeID("entry", `install__${counter}_entry`);
     pakEntry = ref(
-      `package__${counter}_entry__${uniqueID}`
+      `install__${counter}_entry`
     );
     pakEntry.innerText = `Entry #${counter}`;
 
     // Set Package Short Description
-    changeID("templateDesc", `package__${counter}_description__${uniqueID}`);
+    changeID("templateDesc", `install__${counter}_description`);
     pakDesc = ref(
-      `package__${counter}_description__${uniqueID}`
+      `install__${counter}_description`
     );
     pakDesc.innerText = installList[`${counter}`].logonAs;
 
