@@ -22,6 +22,11 @@ function openILL() {
 function dropInstall(position = ref(position)) {
   // Drop install at position "position"
   delete installList[position];
+  const filtered = installList.filter((e) => {
+    return e != null;
+  });
+  installList = filtered;
+
   // Save file
   let data = JSON.stringify(installList, null, 3);
   fs.writeFile(
