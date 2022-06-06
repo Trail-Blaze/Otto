@@ -13,7 +13,7 @@ const changeableIcon = document.getElementById("changeableIcon");
 const textPath = document.getElementById("typePath");
 const errMsg = document.getElementById("err@Warn");
 const finishUp = document.getElementById("finishUp");
-require("./modules/config.js");
+// require("./modules/config.js");
 navConfig = require(path.join(blazeDir, "defaultNavConfig.json"));
 let logonName;
 let dirName;
