@@ -131,7 +131,9 @@ function populateCatalog(
       `package__${counter}_description__${uniqueID}`
     );
     pakDesc.innerText = installList[`${counter}`].logonAs;
-    templateD_container.classList.remove("skeleton");
+
+    changeID("templateD_container", `tDC_${counter}`)
+    document.getElementById(`tDC_${counter}`).classList.remove("skeleton");
 
     // Set "GET" Button ID
     document.getElementById("TEMPLATE_GETID").id = `${counter}`;
