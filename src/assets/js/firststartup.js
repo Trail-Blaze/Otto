@@ -27,9 +27,7 @@ const greetingTitle = document.getElementById("greeting_T");
 const greetingSubtitle = document.getElementById("greeting_S");
 const backButton = document.getElementById("completionBack");
 
-let installList = {
-   InstallList: {},
-};
+let installList = []
 
 // We change the title, subtitle and display the back button if we've already completed setup.
 
@@ -45,7 +43,7 @@ if (fs.existsSync(path.join(userAssetsDir, "\\InstallList.json"))) {
 }
 
 affirmCounter();
-installList.InstallList[`${counter}`] = {};
+installList[`${counter}`] = {};
 
 fnPath.addEventListener("click", async () => {
    const file = await dialog.showOpenDialog(win, {
@@ -55,15 +53,15 @@ fnPath.addEventListener("click", async () => {
    if (file) dirName = file.filePaths[0];
    dirName = path.join(dirName, "\\FortniteGame\\Binaries\\Win64\\");
    console.log(dirName);
-   installList.InstallList[`${counter}`].location = dirName;
+   installList[`${counter}`].location = dirName;
    textPath.value = dirName;
 });
 
 finishUp.addEventListener("click", async () => {
    if (
-      !installList.InstallList[`${counter}`].location ||
-      !installList.InstallList[`${counter}`].name ||
-      !installList.InstallList[`${counter}`].logonAs
+      !installList[`${counter}`].location ||
+      !installList[`${counter}`].name ||
+      !installList[`${counter}`].logonAs
    ) {
       if (errCount > 0) {
          window.location.replace("index.html");
@@ -129,7 +127,7 @@ changeableIcon.addEventListener("click", async () => {
 
       console.log(`ICON: SUCCESS! [(${fileName}) --> (${destDir})]`);
       changeableIcon.src = destDir;
-      installList.InstallList[`${counter}`].icon = destDir;
+      installList[`${counter}`].icon = destDir;
    });
 });
 
@@ -142,7 +140,7 @@ logonAs.addEventListener("keyup", async () => {
    )
       return;
    console.log(`LOGON: ${logonName}`);
-   installList.InstallList[`${counter}`].logonAs = logonName;
+   installList[`${counter}`].logonAs = logonName;
    logonAs__text.innerText = logonName.toString();
 });
 
@@ -155,7 +153,7 @@ textPath.addEventListener("keyup", async () => {
       return;
    dirName = path.join(textPath.value, "\\\\");
    console.log(`PATH: ${dirName}`);
-   installList.InstallList[`${counter}`].location = dirName;
+   installList[`${counter}`].location = dirName;
 });
 
 distName.addEventListener("keyup", async () => {
@@ -167,14 +165,14 @@ distName.addEventListener("keyup", async () => {
       return;
    let distName__text = distName.value;
    console.log(`DISTNAME: ${distName__text}`);
-   installList.InstallList[`${counter}`].name = distName__text;
+   installList[`${counter}`].name = distName__text;
 });
 
 function affirmCounter() {
    if (!counterAffirmative) {
       if (
-         Object.keys(installList.InstallList).length - 1 === counter ||
-         Object.keys(installList.InstallList).length - 1 > counter
+         Object.keys(installList).length - 1 === counter ||
+         Object.keys(installList).length - 1 > counter
       ) {
          counter++;
          affirmCounter();

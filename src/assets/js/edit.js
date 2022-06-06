@@ -44,3 +44,8 @@ setTimeout(() => {
     });
   });
 }, 5000);
+
+function removeInstall(position) {
+  delete installList[position];
+  saveEntry();
+}

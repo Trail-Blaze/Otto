@@ -27,7 +27,7 @@ setTimeout(() => {
 setTimeout(function () {
   if (fs.existsSync(path.join(userAssetsDir, "\\InstallList.json"))) {
     installList = require(path.join(userAssetsDir, "\\InstallList.json"));
-    installLength = Object.keys(installList.InstallList).length - 1; // Set an offset otherwise it will cause some weird errors to appear
+    installLength = Object.keys(installList).length - 1; // Set an offset otherwise it will cause some weird errors to appear
     setContent();
   }
 }, 2000); //wait 2 seconds
@@ -107,15 +107,15 @@ function populateCatalog(
     changeID("templateIcon", `package__${counter}_icon__${uniqueID}`);
     pakIcon = document.getElementById(`package__${counter}_icon__${uniqueID}`);
 
-    if (installList.InstallList[`${counter}`].icon)
-      pakIcon.src = installList.InstallList[`${counter}`].icon;
+    if (installList[`${counter}`].icon)
+      pakIcon.src = installList[`${counter}`].icon;
 
     // Set Package Title
     changeID("templateTitle", `package__${counter}_title__${uniqueID}`);
     pakTitle = document.getElementById(
       `package__${counter}_title__${uniqueID}`
     );
-    pakTitle.innerText = installList.InstallList[`${counter}`].name;
+    pakTitle.innerText = installList[`${counter}`].name;
 
     // Set Package Entry #
     changeID("entry", `package__${counter}_entry__${uniqueID}`);
@@ -129,13 +129,16 @@ function populateCatalog(
     pakDesc = document.getElementById(
       `package__${counter}_description__${uniqueID}`
     );
-    pakDesc.innerText = installList.InstallList[`${counter}`].logonAs;
+    pakDesc.innerText = installList[`${counter}`].logonAs;
 
     // Set "GET" Button ID
     document.getElementById("TEMPLATE_GETID").id = `${counter}`;
 
     // Set Edit button ID
     changeID("edit", `edit_${counter}`);
+
+    // Set Remove button ID
+    changeID("remove", `remove_${counter}`);
 
     // Set Dropdown ID
     changeID("dropdown", `dropdown_${counter}`);
@@ -190,9 +193,9 @@ function sendID(clicked_id) {
 
   exec(
     `echo kickstart "${
-      installList.InstallList[thisID].location
+      installList[thisID].location
     }" eac 87a0c99d9aa3ab5bb6a36C25 ${launcherConfig.bypassMethod} ${
-      installList.InstallList[thisID].logonAs || "BlazeUser"
+      installList[thisID].logonAs || "BlazeUser"
     }> runner.bat`,
     exec_options,
 
