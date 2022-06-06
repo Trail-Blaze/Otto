@@ -89,9 +89,7 @@ function populateCatalog(
     entryList.appendChild(pakEntry);
 
     // Access Newly Created Entry and Edit it To Our Needs
-    const newEntry = ref(
-      `install__${counter}`
-    );
+    const newEntry = ref(`install__${counter}`);
     const classList = classListArray;
     newEntry.classList.add(...classList);
     newEntry.innerHTML = ref(entryTemplate).innerHTML;
@@ -112,27 +110,21 @@ function populateCatalog(
 
     // Set Package Title
     changeID("templateTitle", `install__${counter}_title`);
-    pakTitle = ref(
-      `install__${counter}_title`
-    );
+    pakTitle = ref(`install__${counter}_title`);
     pakTitle.innerText = installList[`${counter}`].name;
     pakTitle.classList.remove("skeleton");
-    
+
     // Set Package Entry #
     changeID("entry", `install__${counter}_entry`);
-    pakEntry = ref(
-      `install__${counter}_entry`
-    );
+    pakEntry = ref(`install__${counter}_entry`);
     pakEntry.innerText = `Entry #${counter}`;
 
     // Set Package Short Description
     changeID("templateDesc", `install__${counter}_description`);
-    pakDesc = ref(
-      `install__${counter}_description`
-    );
+    pakDesc = ref(`install__${counter}_description`);
     pakDesc.innerText = installList[`${counter}`].logonAs;
 
-    changeID("templateD_container", `tDC_${counter}`)
+    changeID("templateD_container", `tDC_${counter}`);
     ref(`tDC_${counter}`).classList.remove("skeleton");
 
     // Set "GET" Button ID
@@ -300,3 +292,10 @@ function changeBanner() {
     ranAlready = true;
   }
 }
+
+setInterval(() => {
+  if (entryListAll.innerHTML == "") {
+    entryListAll.innerHTML =
+      "<div>There are no installs to show. Start by <a class='text-blue-400' href='firststartup.html'>creating one</a>.</div>";
+  }
+}, 3000);
