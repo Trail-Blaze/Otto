@@ -12,11 +12,29 @@ let backendDir = path.join(blazeDir, "/backend/");
 let userAssetsDir = path.join(blazeDir, "/userAssets/");
 const launcherConfig = require(path.join(blazeDir, "settings.json")); // Opening settings file for readOnly
 
+ref = (id) => document.getElementById(id);
+
 function openILL() {
   const { shell } = require("electron"); // deconstructing assignment
   shell.openPath(path.join(userAssetsDir, "\\InstallList.json")); // Show the given file in a file manager. If possible, select the file.
 }
 
+function dropInstall(position = ref(position)) {
+  // Drop install at position "position"
+  delete installList[position];
+  // Save file
+  let data = JSON.stringify(installList, null, 3);
+  fs.writeFile(
+    path.join(userAssetsDir, "InstallList.json"),
+    data,
+    function (err) {
+      if (err) {
+        // Throw errors, if any
+        console.log(err);
+      }
+    }
+  );
+}
 /*
 module.exports = {
   __drivename,

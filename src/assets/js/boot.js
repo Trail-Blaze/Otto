@@ -89,15 +89,15 @@ function populateCatalog(
     entryList.appendChild(pakEntry);
 
     // Access Newly Created Entry and Edit it To Our Needs
-    const newEntry = document.getElementById(
+    const newEntry = ref(
       `package__${counter}__${uniqueID}`
     );
     const classList = classListArray;
     newEntry.classList.add(...classList);
-    newEntry.innerHTML = document.getElementById(entryTemplate).innerHTML;
+    newEntry.innerHTML = ref(entryTemplate).innerHTML;
 
     if (counterTemplateExists) {
-      counterTemplate = document.getElementById("counterTemplate");
+      counterTemplate = ref("counterTemplate");
       counterTemplate.innerText = counter;
       counterTemplate.id = "";
       // console.log(counter);
@@ -105,14 +105,14 @@ function populateCatalog(
 
     // Set Package Icon
     changeID("templateIcon", `package__${counter}_icon__${uniqueID}`);
-    pakIcon = document.getElementById(`package__${counter}_icon__${uniqueID}`);
+    pakIcon = ref(`package__${counter}_icon__${uniqueID}`);
 
     if (installList[`${counter}`].icon)
       pakIcon.src = installList[`${counter}`].icon;
 
     // Set Package Title
     changeID("templateTitle", `package__${counter}_title__${uniqueID}`);
-    pakTitle = document.getElementById(
+    pakTitle = ref(
       `package__${counter}_title__${uniqueID}`
     );
     pakTitle.innerText = installList[`${counter}`].name;
@@ -120,29 +120,29 @@ function populateCatalog(
     
     // Set Package Entry #
     changeID("entry", `package__${counter}_entry__${uniqueID}`);
-    pakEntry = document.getElementById(
+    pakEntry = ref(
       `package__${counter}_entry__${uniqueID}`
     );
     pakEntry.innerText = `Entry #${counter}`;
 
     // Set Package Short Description
     changeID("templateDesc", `package__${counter}_description__${uniqueID}`);
-    pakDesc = document.getElementById(
+    pakDesc = ref(
       `package__${counter}_description__${uniqueID}`
     );
     pakDesc.innerText = installList[`${counter}`].logonAs;
 
     changeID("templateD_container", `tDC_${counter}`)
-    document.getElementById(`tDC_${counter}`).classList.remove("skeleton");
+    ref(`tDC_${counter}`).classList.remove("skeleton");
 
     // Set "GET" Button ID
-    document.getElementById("TEMPLATE_GETID").id = `${counter}`;
+    ref("TEMPLATE_GETID").id = `${counter}`;
 
     // Set Edit button ID
     changeID("edit", `edit_${counter}`);
 
     // Set Remove button ID
-    changeID("remove", `remove_${counter}`);
+    changeID("remove", `${counter}`);
 
     // Set Dropdown ID
     changeID("dropdown", `dropdown_${counter}`);
@@ -155,19 +155,19 @@ function populateCatalog(
   }
 }
 function changeID(oldid, newID) {
-  e = document.getElementById(oldid.toString());
+  e = ref(oldid.toString());
   e.id = newID;
 }
 
 function removeID(oldid) {
-  e = document.getElementById(oldid.toString());
+  e = ref(oldid.toString());
   e.id = "";
 }
 
 function sendID(clicked_id) {
   console.log(clicked_id);
   let thisID = clicked_id;
-  let thisElement = document.getElementById(thisID);
+  let thisElement = ref(thisID);
   thisElement.classList.remove("bg-red-300");
   thisElement.classList.remove("color-white");
   thisElement.classList.add("bg-yellow-300");
