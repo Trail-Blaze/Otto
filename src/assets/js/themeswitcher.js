@@ -12,10 +12,10 @@ function requireTheme() {
     theme = path.join(launcherConfig.base, "/userAssets/", "theme.json");
   } catch (error) {
     if (run > 100) return;
-    console.warn(error);
     setTimeout(() => {
-      requireTheme();
       run++;
+      console.warn(error);
+      requireTheme();
     }, 100);
   }
   if (fs__nav.existsSync(theme)) {
@@ -24,9 +24,9 @@ function requireTheme() {
     } catch (error) {
       if (run > 100) return;
       setTimeout(() => {
+        run++;
         console.warn(error);
         requireTheme();
-        run++;
       }, 300);
     }
     themeContent = theme.content;
@@ -66,7 +66,6 @@ function sw_theme() {
           } catch (e) {
             if (run_t > 75) return;
             console.warn(e);
-
             run_t++;
             sw_theme();
           }
@@ -97,7 +96,6 @@ function sw_theme() {
             } catch (e) {
               if (run_t > 50) return;
               console.warn(e);
-
               run_t++;
               sw_theme();
             }
