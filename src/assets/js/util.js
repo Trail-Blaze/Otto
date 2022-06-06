@@ -23,3 +23,11 @@ function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 }
+function unTruncate(id) {
+  id = ref(id);
+  if (id.classList.contains("truncate")) {
+    id.classList.remove("truncate");
+  } else {
+    id.classList.add("truncate");
+  }
+}
