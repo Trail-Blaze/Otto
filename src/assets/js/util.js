@@ -31,3 +31,8 @@ function unTruncate(id) {
     id.classList.add("truncate");
   }
 }
+
+function openILL() {
+  const { shell } = require("electron"); // deconstructing assignment
+  shell.openPath(path.join(userAssetsDir, "\\InstallList.json")); // Show the given file in a file manager. If possible, select the file.
+}
