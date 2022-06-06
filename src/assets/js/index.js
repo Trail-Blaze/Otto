@@ -233,18 +233,3 @@ function populateCatalog(
     counter++;
   }
 }
-function changeID(oldid, newID) {
-  e = document.getElementById(oldid.toString());
-  e.id = newID;
-}
-
-function removeID(oldid) {
-  e = document.getElementById(oldid.toString());
-  e.id = "";
-}
-
-function sendID(clicked_id) {
-  console.log(clicked_id);
-  ipc.send("sendState", clicked_id);
-  ipc.send("reqPageSwitch", "package_viewer.html");
-}
