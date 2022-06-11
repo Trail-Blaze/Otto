@@ -199,7 +199,7 @@ function sendID(clicked_id) {
   exec(
     `echo ${script} "${
       installList[thisID].location
-    }" eac 87a0c99d9aa3ab5bb6a36C25 ${launcherConfig.bypassMethod} ${
+    }" eac 87a0c99d9aa3ab5bb6a36C25 ${"DLL\\" + launcherConfig.bypassMethod} ${
       installList[thisID].logonAs || "BlazeUser"
     } 54 > runner.bat`, // Timeout based upon the average time Fortnite takes to launch
     exec_options,
