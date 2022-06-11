@@ -1,14 +1,22 @@
 // const { app, ipcMain } = require("deskgap");
 // const { BrowserWindow } = require("deskgap")
-const { app, ipcMain } = require("electron");
-const { BrowserWindow } = require("electron");
-
+const { app, ipcMain, BrowserWindow, session } = require("electron");
 const ipc = ipcMain;
 const path = require("path");
 // const { cpuUsage } = require("process");
 const version = "1.0.1-Dev";
 const full_version = `BL Otto Launcher v${version}`;
+const ses = session.defaultSession
+const urlToBlock = /^https:\/\/trail-blaze\.github\.io\/Otto(\/(.*)?(\?.*)?)?$/;
 let win;
+
+// Prevent "other" requests
+ses.webRequest.onBeforeRequest((details, callback) => {
+if (!urlToBlock.test(details.url)) // cancel the request
+  callback({ cancel: true })
+else // let the request happen
+  callback({})
+})
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require("electron-squirrel-startup")) {
