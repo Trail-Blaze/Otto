@@ -3,6 +3,7 @@ let installLength;
 let installList;
 let counter = 0;
 let script;
+let bypass;
 
 const exec_options = {
   timeout: 0,
@@ -187,19 +188,21 @@ function sendID(clicked_id) {
   );
 
   // Create new script
-  // For backwards compatibility 
+  // For backwards compatibility
   // Try catch for kickstart, if no kickstart do rocket
 
   if (fs.existsSync(path.join(helpersDir, "/kickstart.bat"))) {
     script = "kickstart";
+    bypass = launcherConfig.bypassMethod;
   } else {
     script = "rocket";
+    bypass = "DLL\\" + launcherConfig.bypassMethod;
   }
 
   exec(
     `echo ${script} "${
       installList[thisID].location
-    }" eac 87a0c99d9aa3ab5bb6a36C25 ${"DLL\\" + launcherConfig.bypassMethod} ${
+    }" eac 87a0c99d9aa3ab5bb6a36C25 ${bypass} ${
       installList[thisID].logonAs || "BlazeUser"
     } 54 > runner.bat`, // Timeout based upon the average time Fortnite takes to launch
     exec_options,
