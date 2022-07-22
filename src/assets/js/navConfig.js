@@ -21,7 +21,7 @@ let navConfig;
         console.log("Created New Blaze/Launcher Dir!");
 
         fetch(
-          "https://trail-blaze.github.io/marketplace/config/defaultNavConfig.json"
+          "https://synergyfn.github.io/res/config/defaultNavConfig.json"
         )
           .then((response) => response.json())
           .then((data) => {
@@ -49,7 +49,7 @@ let navConfig;
         !fs__nav.existsSync(path__nav.join(configPath, "defaultNavConfig.json"))
       ) {
         fetch(
-          "https://trail-blaze.github.io/marketplace/config/defaultNavConfig.json"
+          "https://synergyfn.github.io/res/config/defaultNavConfig.json"
         )
           .then((response) => response.json())
           .then((data) => {

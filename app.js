@@ -1,22 +1,13 @@
 // const { app, ipcMain } = require("deskgap");
 // const { BrowserWindow } = require("deskgap")
 const { app, ipcMain, BrowserWindow, session } = require("electron");
+require('@electron/remote/main').initialize()
 const ipc = ipcMain;
 const path = require("path");
 // const { cpuUsage } = require("process");
 const version = "1.0.1-Dev";
 const full_version = `BL Otto Launcher v${version}`;
-const ses = session.defaultSession
-const urlToBlock = /^https:\/\/trail-blaze\.github\.io\/Otto(\/(.*)?(\?.*)?)?$/;
 let win;
-
-// Prevent "other" requests
-ses.webRequest.onBeforeRequest((details, callback) => {
-if (!urlToBlock.test(details.url)) // cancel the request
-  callback({ cancel: true })
-else // let the request happen
-  callback({})
-})
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require("electron-squirrel-startup")) {
@@ -38,8 +29,8 @@ const createWindow = () => {
     // titleBarStyle: "hiddenInset",
     hasShadow: true,
     vibrancy: {
-      theme: 'light', // (default) or 'dark' or '#rrggbbaa'
-      effect: 'acrylic', // (default) or 'blur'
+      theme: "light", // (default) or 'dark' or '#rrggbbaa'
+      effect: "acrylic", // (default) or 'blur'
       disableOnBlur: true, // (default)
     },
     webPreferences: {
@@ -51,11 +42,26 @@ const createWindow = () => {
     },
   });
 
+  // Disable live-build blocking feature
+
+  // const ses = session.defaultSession;
+  // const urlToBlock =
+  //   /^https:\/\/trail-blaze\.github\.io\/Otto(\/(.*)?(\?.*)?)?$/;
+
+  // // Prevent "other" requests
+  // ses.webRequest.onBeforeRequest((details, callback) => {
+  //   if (!urlToBlock.test(details.url))
+  //     // cancel the request
+  //     callback({ cancel: true });
+  //   // let the request happen
+  //   else callback({});
+  // });
+
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, "index.html"));
-
+  require("@electron/remote/main").enable(mainWindow.webContents)
   // Open the DevTools.
- // mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
   mainWindow.setOpacity(0.95);
   win = mainWindow;
 };
