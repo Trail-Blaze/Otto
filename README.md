@@ -16,3 +16,6 @@ Which means that you can lay down in bed soundly knowing that your computer is *
 > **NOTE** That this is a [live build](https://trail-blaze.github.io/Otto/) (Don't click on that link, it won't work in your browser). The development client build will refresh as that magic page updates.
 > This means that whatever changes are posted on this branch will be reflected in the client
 The Otto Launcher
+
+
+You can obtain the latest build from [here](https://nightly.link/Trail-Blaze/Otto/workflows/build/dev/build_win-latest.tar.gz.zip)
