@@ -73,6 +73,7 @@ function sw_theme() {
         break;
       case "light":
         // main.style.background = "blue";
+        main.style = `color: black`;
         break;
       case "custom":
         if (theme.content != undefined) {
