@@ -182,9 +182,5 @@
   
   a {
     text-decoration: none;
-    color: inherit;
-    transition: all 0.25s linear;
-  }
-  a:hover {
-    color: rebeccapurple;
+    color: #ececec;
   }
