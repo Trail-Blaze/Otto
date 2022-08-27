@@ -179,17 +179,17 @@ function affirmCounter() {
 
 function writeNav() {
   if (counter > 0) return;
-  navConfig.navElements.nlink1.displayText = "Boot";
-  navConfig.navElements.nlink1.icon = "fas fa-play";
-  let navjson = JSON.stringify(navConfig, null, 2);
+  // navConfig.navElements.nlink1.displayText = "Boot";
+  // navConfig.navElements.nlink1.icon = "fas fa-play";
+  // let navjson = JSON.stringify(navConfig, null, 2);
 
-  fs.writeFile(
-    path.join(configDir, "defaultNavConfig.json"),
-    navjson,
-    function (err) {
-      if (err) {
-        console.log(err);
-      }
-    }
-  );
+  // fs.writeFile(
+  //   path.join(configDir, "defaultNavConfig.json"),
+  //   navjson,
+  //   function (err) {
+  //     if (err) {
+  //       console.log(err);
+  //     }
+  //   }
+  // );
 }
