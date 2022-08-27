@@ -8,10 +8,9 @@ const path = require("path");
 const YAML = require('yaml');
 let __drivename =
   os_2.platform == "win32" ? process.cwd().split(path.sep)[0] : "/";
-let blazeDir = path.join(__drivename, "/Blaze/");
-const configDir = path.join(blazeDir, "/Launcher/backend/");
-const bConfig = fs.readFileSync(path.join(configDir, "bak-release"), 'utf8')
-const launcherConfig = require(path.join(blazeDir, "/Launcher/", "settings.json"));
+const bDir = path.join(baseDir, "/Launcher/backend/");
+const bConfig = fs.readFileSync(path.join(bDir, "bak-release"), 'utf8')
+const launcherConfig = require(path.join(configDir, "settings.json"));
 let backConfig = YAML.parse(bConfig);
 let repo;
 

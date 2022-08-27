@@ -3,8 +3,6 @@ const path = require("path");
 const fs = require("fs");
 let __drivename =
   os.platform == "win32" ? process.cwd().split(path.sep)[0] : "/";
-let blazeDir = path.join(__drivename, "/Blaze/");
-const configDir = path.join(blazeDir, "/Launcher/");
 let launcherConfig;
 
 // All the checkboxes in the settings window
@@ -179,9 +177,9 @@ splashBlaze.addEventListener("change", function () {
 //TODO FSACCESS NAVJSON. IF NOT FOUND, CREATE FILE
 
 (function createConfig() {
-  fs.access(blazeDir, function (error) {
+  fs.access(baseDir, function (error) {
     if (error) {
-      fs.mkdirSync(blazeDir);
+      fs.mkdirSync(baseDir);
       console.log("Created New Blaze Dir!");
       createRepoDir();
     }
