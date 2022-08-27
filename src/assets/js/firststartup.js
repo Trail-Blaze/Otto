@@ -15,7 +15,7 @@ const textPath = document.getElementById("typePath");
 const errMsg = document.getElementById("err@Warn");
 const finishUp = document.getElementById("finishUp");
 // require("./modules/config.js");
-navConfig = require(path.join(blazeDir, "defaultNavConfig.json"));
+navConfig = require(path.join(configDir, "defaultNavConfig.json"));
 let logonName;
 let dirName;
 let fileName;
@@ -191,7 +191,7 @@ function writeNav() {
    let navjson = JSON.stringify(navConfig, null, 2);
 
    fs.writeFile(
-      path.join(blazeDir, "defaultNavConfig.json"),
+      path.join(configDir, "defaultNavConfig.json"),
       navjson,
       function (err) {
          if (err) {

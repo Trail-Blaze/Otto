@@ -53,6 +53,7 @@
   "dependencies": {
     "@electron/remote": "^2.0.8",
     "deskgap": "file:src/local-deps/deskgap-0.2.0",
+    "download": "^8.0.0",
     "electron-acrylic-window": "^0.5.11",
     "electron-packager": "^15.4.0",
     "electron-squirrel-startup": "^1.0.0",
