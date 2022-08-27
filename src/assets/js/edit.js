@@ -18,17 +18,17 @@ setTimeout(() => {
         // Stretch UI pane to fit dropdown...
         dropdown_c[i].style.height = "200px";
         // Stretch Main Container to fit entry...
-        if (main.style.height != newHeight) {
-          main.style.height =
+        if (document.getElementsByTagName("main")[0].style.height != newHeight) {
+          document.getElementsByTagName("main")[0].style.height =
             (
               parseFloat(
-                main.style.height.slice(0, main.style.height.length - 2)
+                document.getElementsByTagName("main")[0].style.height.slice(0, main.style.height.length - 2)
               ) + 45
             ).toString() + "vh";
-          newHeight = main.style.height;
+          newHeight = document.getElementsByTagName("main")[0].style.height;
         }
         // Scroll till visible
-        window.scroll({
+        document.getElementsByTagName("main")[0].scroll({
           // Current-Y scroll position + 180px
           top: document.documentElement.scrollTop + 180,
           left: 0,

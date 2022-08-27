@@ -1,9 +1,9 @@
-const os = require("os");
-const path = require("path");
-const fs = require("fs");
-let __drivename =
-  os.platform == "win32" ? process.cwd().split(path.sep)[0] : "/";
-let launcherConfig;
+// const os = require("os");
+// const path = require("path");
+// const fs = require("fs");
+// let __drivename =
+//   os.platform == "win32" ? process.cwd().split(path.sep)[0] : "/";
+// let launcherConfig;
 
 // All the checkboxes in the settings window
 
@@ -229,7 +229,7 @@ splashBlaze.addEventListener("change", function () {
 function restoreSettings() {
   // Restore all of the settings in the window
   console.log(launcherConfig);
-  document.body.classList.remove("pointer-events-none");
+  document.getElementsByTagName("main")[0].classList.remove("pointer-events-none");
 
   if (launcherConfig.bypassMethod === "platinum") {
     platinumBypass.checked = true;

@@ -1,68 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
-  <!-- Head -->
+<html lang="en">
   <head>
     <!-- Titlebar -->
     <link rel="stylesheet" href="./src/assets/css/titlebar.css" />
     <script src="./src/assets/js/titlebar.js"></script>
     <!-- End titlebar -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-HGW0P5HTEX"
-    ></script>
-    <script src="src/assets/js/tracking.js" defer></script>
-    <title>About Otto Launcher | The Blaze Catalyst Launcher</title>
-
-    <!--- EXPERIMENTAL FEATURES -->
-    <!--- EXPERIMENTAL SIDEBAR -->
-
-    <script
-      type="text/javascript"
-      src="./src/assets/partials/sidebarDrag.js"
-      defer
-    ></script>
-
-    <!--- -------------------- -->
-
-    <!-- Meta -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <script src="./src/assets/js/modules/blaze.js"></script>
-    <script src="./src/assets/js/navConfig.js" defer></script>
-    <script src="./src/assets/js/themeswitcher.js" defer></script>
-    <!-- StandardUI CSS -->
-
-    <link rel="stylesheet" href="./src/assets/css/standardUI.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./dist/css/tailwind.css" />
-    <script src="./src/assets/js/include.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css"
-    />
+    <title>Document</title>
     <style>
       body {
-        font-family: "Manrope", sans-serif;
+        background: url("./src/assets/jpg/banned.jpg") no-repeat;
       }
-      .preview_img_dk {
-        width: 50vw;
+      color-red {
+        color: red;
       }
     </style>
   </head>
-  <body>
+  <body class="select-none">
     <header id="titlebar" class="bg-gray-800">
       <div id="drag-region">
         <div id="window-title">
-          <span id="_titlebar">Blaze</span>
+          <span id="_titlebar">Voltaic</span>
         </div>
 
         <div id="window-controls">
@@ -137,34 +98,28 @@
         </div>
       </div>
     </header>
+
     <main>
-      <header
-        includefile="./src/assets/partials/html/sidebar.html"
-        id="drag0"
-        class="select-none w-fit bg-gray-800 text-white border-r border-blackblack fixed min-h-screen pt-8"
-      ></header>
-      <div id="main" class="main-div bg-gray-200 text-gray-900 flex-1">
-        <iframe
-          src="https://trail-blaze.github.io/credits_launcher.html"
-          frameborder="0"
-          style="
-            position: absolute;
-            top: 0;
-            left: 10;
-            bottom: 0;
-            right: 0;
-            width: 90%;
-            height: 100%;
-            border: none;
-            overflow: hidden;
-            z-index: -1;
-          "
-        ></iframe>
+      <div
+        class="main w-full h-screen flex justify-center items-center flex-wrap text-white"
+      >
+        <div class="notice bg-black opacity-50 px-10 py-10">
+          <div class="message text-4xl font-bold">
+            <color-red>GUARD</color-red> CHECK <color-red>FAILED</color-red>
+          </div>
+          <div
+            class="subtitle pt-2 basis-full font-light"
+            style="flex-basis: 100%"
+          >
+            The guard check has failed. In order to protect you from malicious
+            code, the launcher has been deactivated.
+          </div>
+        </div>
       </div>
-      <script>
-        Include();
-      </script>
-      <!-- End Body -->
     </main>
   </body>
+  <script>
+    // Immediately after loading, change the titlebar
+    document.getElementById("_titlebar").innerHTML = document.title;
+  </script>
 </html>

@@ -1,7 +1,7 @@
 {
   "name": "blaze-marketplace",
   "productName": "blaze-marketplace",
-  "version": "1.0.0",
+  "version": "1.0.0A",
   "description": "My Electron application description",
   "main": "app.js",
   "scripts": {

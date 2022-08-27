@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Titlebar -->
+    <link rel="stylesheet" href="../../src/assets/css/titlebar.css" />
+    <script src="../../src/assets/js/titlebar.js"></script>
+    <!-- End titlebar -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../dist/css/tailwind.css" />
+    <title>Document</title>
+    <style>
+      main{
+        overflow: hidden;
+      }
+      html{
+        background: black;
+      }
+      body {
+        background: url("../../src/assets/png/update_required.png") no-repeat;
+        background-size: cover;
+      }
+      color-red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body class="select-none">
+    <header id="titlebar" class="bg-gray-800">
+      <div id="drag-region">
+        <div id="window-title">
+          <span id="_titlebar">Voltaic</span>
+        </div>
+
+        <div id="window-controls">
+          <div class="button" id="min-button">
+            <img
+              class="icon"
+              srcset="
+                ../../src/assets/icons/min-w-10.png 1x,
+                ../../src/assets/icons/min-w-12.png 1.25x,
+                ../../src/assets/icons/min-w-15.png 1.5x,
+                ../../src/assets/icons/min-w-15.png 1.75x,
+                ../../src/assets/icons/min-w-20.png 2x,
+                ../../src/assets/icons/min-w-20.png 2.25x,
+                ../../src/assets/icons/min-w-24.png 2.5x,
+                ../../src/assets/icons/min-w-30.png 3x,
+                ../../src/assets/icons/min-w-30.png 3.5x
+              "
+              draggable="false"
+            />
+          </div>
+          <div class="button" id="max-button">
+            <img
+              class="icon"
+              srcset="
+                ../../src/assets/icons/max-w-10.png 1x,
+                ../../src/assets/icons/max-w-12.png 1.25x,
+                ../../src/assets/icons/max-w-15.png 1.5x,
+                ../../src/assets/icons/max-w-15.png 1.75x,
+                ../../src/assets/icons/max-w-20.png 2x,
+                ../../src/assets/icons/max-w-20.png 2.25x,
+                ../../src/assets/icons/max-w-24.png 2.5x,
+                ../../src/assets/icons/max-w-30.png 3x,
+                ../../src/assets/icons/max-w-30.png 3.5x
+              "
+              draggable="false"
+            />
+          </div>
+          <div class="button" id="restore-button">
+            <img
+              class="icon"
+              srcset="
+                ../../src/assets/icons/restore-w-10.png 1x,
+                ../../src/assets/icons/restore-w-12.png 1.25x,
+                ../../src/assets/icons/restore-w-15.png 1.5x,
+                ../../src/assets/icons/restore-w-15.png 1.75x,
+                ../../src/assets/icons/restore-w-20.png 2x,
+                ../../src/assets/icons/restore-w-20.png 2.25x,
+                ../../src/assets/icons/restore-w-24.png 2.5x,
+                ../../src/assets/icons/restore-w-30.png 3x,
+                ../../src/assets/icons/restore-w-30.png 3.5x
+              "
+              draggable="false"
+            />
+          </div>
+          <div class="button" id="close-button">
+            <img
+              class="icon"
+              srcset="
+                ../../src/assets/icons/close-w-10.png 1x,
+                ../../src/assets/icons/close-w-12.png 1.25x,
+                ../../src/assets/icons/close-w-15.png 1.5x,
+                ../../src/assets/icons/close-w-15.png 1.75x,
+                ../../src/assets/icons/close-w-20.png 2x,
+                ../../src/assets/icons/close-w-20.png 2.25x,
+                ../../src/assets/icons/close-w-24.png 2.5x,
+                ../../src/assets/icons/close-w-30.png 3x,
+                ../../src/assets/icons/close-w-30.png 3.5x
+              "
+              draggable="false"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div
+        class="main w-full h-screen flex justify-center items-center flex-wrap text-white"
+      >
+        <div class="notice bg-black opacity-75 px-10 py-10">
+          <div class="message text-4xl font-bold">
+            <color-red>YOU</color-red> REQUIRE AN <color-red>UPDATE</color-red>
+          </div>
+          <div
+            class="subtitle pt-2 basis-full font-light"
+            style="flex-basis: 100%"
+          >
+            In order to continue, you are going to have to install an update.
+            You can download it by visiting
+            <a
+              href="https://blazefactory.jfrog.io/"
+              target="__blank"
+              class="text-blue-300 hover:opacity-90"
+              >here</a
+            >
+            <br />
+            <div class="font-semibold">Good Luck!</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script>
+    // Immediately after loading, change the titlebar
+    document.getElementById("_titlebar").innerHTML = document.title;
+  </script>
+</html>

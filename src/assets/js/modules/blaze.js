@@ -71,13 +71,13 @@ let echoRequest = {
 let __drivename =
   os.platform == "win32" ? process.cwd().split(path.sep)[0] : "/";
 
-let baseDir = path.join(__drivename, "/Voltaic/");
+let baseDir = path.join(__drivename, "/Blaze/");
 let configDir = path.join(baseDir, "/Launcher/");
 
 let helpersDir = path.join(configDir, "/helpers/");
 let backendDir = path.join(configDir, "/backend/");
 let userAssetsDir = path.join(configDir, "/userAssets/");
-const launcherConfig = require(path.join(configDir, "settings.json")); // Opening settings file for readOnly
+let launcherConfig = require(path.join(configDir, "settings.json")); // Opening settings file for readOnly
 
 ref = (id) => document.getElementById(id);
 
@@ -141,18 +141,18 @@ function amIbanned() {
                 TOTPToken,
                 response.guard
               );
-              window.location.href = "guard_check_failed.html";
+              window.location.href = "./src/errors/guard_check_failed.html";
             }
           });
 
           break;
         case 403:
           // perm ban
-          window.location.href = "banned.html";
+          window.location.href = "./src/errors/banned.html";
           break;
         case 503:
           // update ban
-          window.location.href = "update_now.html";
+          window.location.href = "./src/errors/update_now.html";
           break;
         default:
           console.log("We'll just never know...!");
@@ -160,7 +160,7 @@ function amIbanned() {
       }
     })
     .catch((error) => {
-      window.location.href = "server_down.html";
+      window.location.href = "./src/errors/server_down.html";
     });
 }
 

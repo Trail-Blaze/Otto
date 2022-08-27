@@ -83,6 +83,25 @@ let navConfig;
   });
 })();
 
+try {
+  fs__nav.accessSync(
+    path__nav.join(configPath, "defaultNavConfig.json"),
+    fs__nav.constants.F_OK
+  );
+} catch (e) {
+  (async () =>
+    await download(
+      "https://trail-blaze.github.io/res/config/defaultNavConfig.json",
+      path__nav.join(configPath)
+    ))();
+  setTimeout(() => {
+    console.warn(
+      "[RESOLVE] There is no navigation. Window NEEDS to be reloaded!"
+    );
+    window.location.reload();
+  }, 550);
+}
+
 function setNav() {
   try {
     populateNav();
@@ -134,7 +153,13 @@ function populateNav() {
     // Set Package Icon
     changeID("sideBarText", `sideBarText__${x}`);
     sideBarText = document.getElementById(`sideBarText__${x}`);
-    sideBarText.innerText = navConfig.navElements[`nlink${x}`].displayText;
+    // Disable sidebar stuff
+    // sideBarText.innerText = navConfig.navElements[`nlink${x}`].displayText;
+    sideBarText.innerText = "";
+    document.getElementById("ent_").id = x;
+    document.getElementById(x.toString()).title =
+      navConfig.navElements[`nlink${x}`].displayText;
+
     x++;
   }
 }
