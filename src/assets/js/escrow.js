@@ -7,5 +7,5 @@ if (!fs.existsSync(path.join(userAssetsDir, "\\InstallList.json"))) {
   setTimeout(()=>{window.location.replace("firststartup.html")}, 4500);
 } else {
   status_.innerText = "ROUTING..."
-  setTimeout(()=>{window.location.replace("index.html")}, 4500);
+  setTimeout(()=>{window.location.replace("boot.html")}, 4500);
 }

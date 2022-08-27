@@ -25,7 +25,7 @@ const createWindow = () => {
     height: 750,
     minWidth: 1155,
     minHeight: 750,
-    frame: true,
+    frame: false,
     // titleBarStyle: "hiddenInset",
     hasShadow: true,
     vibrancy: {
