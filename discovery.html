@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HGW0P5HTEX"></script>
+    <!-- Titlebar -->
+    <link rel="stylesheet" href="./src/assets/css/titlebar.css" />
+    <script src="./src/assets/js/titlebar.js"></script>
+    <!-- End titlebar -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-HGW0P5HTEX"
+    ></script>
     <script src="src/assets/js/tracking.js" defer></script>
     <!--- EXPERIMENTAL FEATURES -->
     <!--- EXPERIMENTAL SIDEBAR DRAG -->
 
-    <script type="text/javascript" src="./src/assets/partials/sidebarDrag.js" defer></script>  
+    <script
+      type="text/javascript"
+      src="./src/assets/partials/sidebarDrag.js"
+      defer
+    ></script>
 
     <!--- -------------------- -->
-
 
     <meta charset="UTF-8" />
     <title>Blaze Launcher | Home</title>
@@ -49,131 +59,217 @@
       border-radius: 5px;
     }
   </style>
+  <body>
+    <header id="titlebar" class="bg-gray-800">
+      <div id="drag-region">
+        <div id="window-title">
+          <span id="_titlebar">Voltaic</span>
+        </div>
 
-  <body class="bg-black">
-    <div
-      includefile="./src/assets/partials/html/sidebar.html"
-      id="drag0" class="select-none w-fit bg-gray-800 text-white border-r border-blackblack fixed min-h-screen pt-8"
-    ></div>
-    <div class="bg-black text-white flex-1 ml-56">
-      <div
-        class="carousel"
-        data-flickity='{ "wrapAround": true, "prevNextButtons": true,
-      "pageDots": false }'
-      >
-        <div class="carousel-cell">
-          <div
-            id="1"
-            class="w-full vignette discover-banner max-w-full text-white px-8 rounded-b-lg pt-12 mb-10"
-          >
-            <div id="t1" class="uppercase mb-4"></div>
-            <h1 id="c1" class="font-normal mb-4"></h1>
-            <p id="c1-2" class="w-64 leading-normal text-gray-lighter"></p>
-          </div>
-        </div>
-        <div class="carousel-cell">
-          <div
-            id="2"
-            class="w-full vignette discover-banner max-w-full text-white px-8 rounded-b-lg pt-12 mb-10"
-          >
-            <div id="t2" class="mb-4"></div>
-            <h1 id="c2" class="font-normal mb-4"></h1>
-            <p id="c2-2" class="w-64 leading-normal text-gray-lighter"></p>
-          </div>
-        </div>
-        <div class="carousel-cell">
-          <div
-            id="3"
-            class="w-full vignette discover-banner max-w-full text-white px-8 rounded-b-lg pt-12 mb-10"
-          >
-            <div id="t3" class="uppercase mb-4"></div>
-            <h1 id="c3" class="font-normal mb-4"></h1>
-            <p id="c3-2" class="w-64 leading-normal text-gray-lighter"></p>
-          </div>
-        </div>
-        <div class="carousel-cell">
-          <div
-            id="4"
-            class="w-full vignette discover-banner max-w-full text-white px-8 rounded-b-lg pt-12 mb-10"
-          >
-            <div id="t4" class="uppercase mb-4"></div>
-            <h1 id="c4" class="font-normal mb-4"></h1>
-            <p id="c4-2" class="w-64 leading-normal text-gray-lighter"></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex mb-10 px-10">
-        <div class="w-1/2 mr-4 bg-gray-darkest rounded-lg flex px-8 py-6">
-          <div class="flex-1">
-            <div
-              id="featured-app"
-              class="uppercase text-gray-light text-xs mb-1"
-            ></div>
-            <h1 id="featured-app__title" class="font-normal text-2xl mb-4"></h1>
-            <p
-              id="featured-app__desc"
-              class="text-gray-light text-xs leading-normal"
-            ></p>
-          </div>
-          <div class="text-right">
+        <div id="window-controls">
+          <div class="button" id="min-button">
             <img
-              id="featured-app__icon"
-              src=""
-              alt="image"
-              class="rounded-full w-40"
+              class="icon"
+              srcset="
+                ./src/assets/icons/min-w-10.png 1x,
+                ./src/assets/icons/min-w-12.png 1.25x,
+                ./src/assets/icons/min-w-15.png 1.5x,
+                ./src/assets/icons/min-w-15.png 1.75x,
+                ./src/assets/icons/min-w-20.png 2x,
+                ./src/assets/icons/min-w-20.png 2.25x,
+                ./src/assets/icons/min-w-24.png 2.5x,
+                ./src/assets/icons/min-w-30.png 3x,
+                ./src/assets/icons/min-w-30.png 3.5x
+              "
+              draggable="false"
+            />
+          </div>
+          <div class="button" id="max-button">
+            <img
+              class="icon"
+              srcset="
+                ./src/assets/icons/max-w-10.png 1x,
+                ./src/assets/icons/max-w-12.png 1.25x,
+                ./src/assets/icons/max-w-15.png 1.5x,
+                ./src/assets/icons/max-w-15.png 1.75x,
+                ./src/assets/icons/max-w-20.png 2x,
+                ./src/assets/icons/max-w-20.png 2.25x,
+                ./src/assets/icons/max-w-24.png 2.5x,
+                ./src/assets/icons/max-w-30.png 3x,
+                ./src/assets/icons/max-w-30.png 3.5x
+              "
+              draggable="false"
+            />
+          </div>
+          <div class="button" id="restore-button">
+            <img
+              class="icon"
+              srcset="
+                ./src/assets/icons/restore-w-10.png 1x,
+                ./src/assets/icons/restore-w-12.png 1.25x,
+                ./src/assets/icons/restore-w-15.png 1.5x,
+                ./src/assets/icons/restore-w-15.png 1.75x,
+                ./src/assets/icons/restore-w-20.png 2x,
+                ./src/assets/icons/restore-w-20.png 2.25x,
+                ./src/assets/icons/restore-w-24.png 2.5x,
+                ./src/assets/icons/restore-w-30.png 3x,
+                ./src/assets/icons/restore-w-30.png 3.5x
+              "
+              draggable="false"
+            />
+          </div>
+          <div class="button" id="close-button">
+            <img
+              class="icon"
+              srcset="
+                ./src/assets/icons/close-w-10.png 1x,
+                ./src/assets/icons/close-w-12.png 1.25x,
+                ./src/assets/icons/close-w-15.png 1.5x,
+                ./src/assets/icons/close-w-15.png 1.75x,
+                ./src/assets/icons/close-w-20.png 2x,
+                ./src/assets/icons/close-w-20.png 2.25x,
+                ./src/assets/icons/close-w-24.png 2.5x,
+                ./src/assets/icons/close-w-30.png 3x,
+                ./src/assets/icons/close-w-30.png 3.5x
+              "
+              draggable="false"
             />
           </div>
         </div>
-
-        <div class="w-1/2 ml-4 bg-gray-darkest rounded-lg px-8 py-6 hidden">
-          <div
-            id="collection"
-            class="uppercase text-gray-light text-xs mb-1"
-          ></div>
-          <h1 id="collection__subtitle" class="font-normal text-2xl mb-4"></h1>
-          <p
-            id="collection__subtitle2"
-            class="text-gray-light text-xs leading-normal mb-4"
-          ></p>
-          <img id="collection__subtitle__icon" src="" alt="icons" />
-        </div>
       </div>
-
-      <div class="border-b border-gray-600 mb-10 mx-10"></div>
-
-      <div class="apps-games-we-love text-white px-10">
-        <div class="flex justify-between">
-          <h2 id="sectionOneTitle" class="font-normal mb-8"></h2>
-          <a href="#" id="viewAll" class="text-blue-400 no-underline"
-            >See All</a
-          >
+    </header>
+    <main class="bg-black">
+      <div
+        includefile="./src/assets/partials/html/sidebar.html"
+        id="drag0"
+        class="select-none w-fit bg-gray-800 text-white border-r border-blackblack fixed min-h-screen pt-8"
+      ></div>
+      <div class="bg-black text-white flex-1 ml-56">
+        <div
+          class="carousel"
+          data-flickity='{ "wrapAround": true, "prevNextButtons": true,
+      "pageDots": false }'
+        >
+          <div class="carousel-cell">
+            <div
+              id="1"
+              class="w-full vignette discover-banner max-w-full text-white px-8 rounded-b-lg pt-12 mb-10"
+            >
+              <div id="t1" class="uppercase mb-4"></div>
+              <h1 id="c1" class="font-normal mb-4"></h1>
+              <p id="c1-2" class="w-64 leading-normal text-gray-lighter"></p>
+            </div>
+          </div>
+          <div class="carousel-cell">
+            <div
+              id="2"
+              class="w-full vignette discover-banner max-w-full text-white px-8 rounded-b-lg pt-12 mb-10"
+            >
+              <div id="t2" class="mb-4"></div>
+              <h1 id="c2" class="font-normal mb-4"></h1>
+              <p id="c2-2" class="w-64 leading-normal text-gray-lighter"></p>
+            </div>
+          </div>
+          <div class="carousel-cell">
+            <div
+              id="3"
+              class="w-full vignette discover-banner max-w-full text-white px-8 rounded-b-lg pt-12 mb-10"
+            >
+              <div id="t3" class="uppercase mb-4"></div>
+              <h1 id="c3" class="font-normal mb-4"></h1>
+              <p id="c3-2" class="w-64 leading-normal text-gray-lighter"></p>
+            </div>
+          </div>
+          <div class="carousel-cell">
+            <div
+              id="4"
+              class="w-full vignette discover-banner max-w-full text-white px-8 rounded-b-lg pt-12 mb-10"
+            >
+              <div id="t4" class="uppercase mb-4"></div>
+              <h1 id="c4" class="font-normal mb-4"></h1>
+              <p id="c4-2" class="w-64 leading-normal text-gray-lighter"></p>
+            </div>
+          </div>
         </div>
 
-        <div id="sectionOne" class="flex flex-wrap mb-4"></div>
+        <div class="flex mb-10 px-10">
+          <div class="w-1/2 mr-4 bg-gray-darkest rounded-lg flex px-8 py-6">
+            <div class="flex-1">
+              <div
+                id="featured-app"
+                class="uppercase text-gray-light text-xs mb-1"
+              ></div>
+              <h1
+                id="featured-app__title"
+                class="font-normal text-2xl mb-4"
+              ></h1>
+              <p
+                id="featured-app__desc"
+                class="text-gray-light text-xs leading-normal"
+              ></p>
+            </div>
+            <div class="text-right">
+              <img
+                id="featured-app__icon"
+                src=""
+                alt="image"
+                class="rounded-full w-40"
+              />
+            </div>
+          </div>
+
+          <div class="w-1/2 ml-4 bg-gray-darkest rounded-lg px-8 py-6 hidden">
+            <div
+              id="collection"
+              class="uppercase text-gray-light text-xs mb-1"
+            ></div>
+            <h1
+              id="collection__subtitle"
+              class="font-normal text-2xl mb-4"
+            ></h1>
+            <p
+              id="collection__subtitle2"
+              class="text-gray-light text-xs leading-normal mb-4"
+            ></p>
+            <img id="collection__subtitle__icon" src="" alt="icons" />
+          </div>
+        </div>
+
+        <div class="border-b border-gray-600 mb-10 mx-10"></div>
+
+        <div class="apps-games-we-love text-white px-10">
+          <div class="flex justify-between">
+            <h2 id="sectionOneTitle" class="font-normal mb-8"></h2>
+            <a href="#" id="viewAll" class="text-blue-400 no-underline"
+              >See All</a
+            >
+          </div>
+
+          <div id="sectionOne" class="flex flex-wrap mb-4"></div>
+        </div>
+        <!-- end apps-games-we-love -->
+
+        <div class="border-b border-gray-600 mb-10 mx-10"></div>
+
+        <div class="top-paid text-white px-10">
+          <div class="flex justify-between">
+            <h2 id="sectionTwoTitle" class="font-normal mb-8"></h2>
+            <a href="#" id="viewAll2" class="text-blue-400 no-underline"
+              >See All</a
+            >
+          </div>
+
+          <div>
+            <div id="sectionTwo" class="flex flex-wrap"></div>
+          </div>
+        </div>
+        <!-- end top-paid -->
+
+        <div class="border-b border-gray-600 mb-10 mx-10"></div>
+
+        <div class="text-gray mb-10 px-10">Terms & Conditions</div>
       </div>
-      <!-- end apps-games-we-love -->
-
-      <div class="border-b border-gray-600 mb-10 mx-10"></div>
-
-      <div class="top-paid text-white px-10">
-        <div class="flex justify-between">
-          <h2 id="sectionTwoTitle" class="font-normal mb-8"></h2>
-          <a href="#" id="viewAll2" class="text-blue-400 no-underline"
-            >See All</a
-          >
-        </div>
-
-        <div>
-          <div id="sectionTwo" class="flex flex-wrap"></div>
-        </div>
-      </div>
-      <!-- end top-paid -->
-
-      <div class="border-b border-gray-600 mb-10 mx-10"></div>
-
-      <div class="text-gray mb-10 px-10">Terms & Conditions</div>
-    </div>
+    </main>
   </body>
   <script>
     Include();

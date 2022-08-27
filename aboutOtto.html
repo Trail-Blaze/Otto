@@ -2,7 +2,14 @@
 <html lang="en" class="no-js">
   <!-- Head -->
   <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HGW0P5HTEX"></script>
+    <!-- Titlebar -->
+    <link rel="stylesheet" href="./src/assets/css/titlebar.css" />
+    <script src="./src/assets/js/titlebar.js"></script>
+    <!-- End titlebar -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-HGW0P5HTEX"
+    ></script>
     <script src="src/assets/js/tracking.js" defer></script>
     <title>About Otto Launcher | The Blaze Catalyst Launcher</title>
 
@@ -53,83 +60,167 @@
     </style>
   </head>
   <body>
-    <header
-      includefile="./src/assets/partials/html/sidebar.html"
-      id="drag0"
-      class="select-none w-fit bg-gray-800 text-white border-r border-blackblack fixed min-h-screen pt-8"
-    ></header>
-    <div
-      id="main"
-      class="main-div bg-gray-200 text-gray-900 flex-1 px-80 py-10"
-    >
-      <div
-        class="settings-header"
-        style="font-size: 2.5vw; padding-bottom: 1vh"
-      >
-        <b>About Otto Launcher</b>
-      </div>
-      <div class="settings-header" style="font-size: 1.5vw">
-        backend:
-        <b><div id="bac-ver">##bac-ver</div></b>
-      </div>
-      <div class="settings-header" style="font-size: 1.5vw">
-        backend type:
-        <b><div id="bac-type">##bac-type</div></b>
-      </div>
-      <div class="settings-header" style="font-size: 1.5vw">
-        boot:
-        <code
-          ><div
-            id="boot"
-            style="
-              text-transform: none;
-              background: #000000;
-              color: green;
-              margin-right: 600px;
-            "
-          >
-            ##boot
-          </div></code
-        >
-      </div>
-      <div class="settings-header" style="font-size: 1.5vw">
-        client_version:
-        <b><div id="cli-ver">##cli-ver</div></b>
-      </div>
-      <div class="settings-header" style="font-size: 1.5vw">
-        os_type:
-        <b><div id="os-type">##os-type</div></b>
-      </div>
-      <div class="settings-header" style="font-size: 1.5vw">
-        client_type:
-        <b><div id="chrome-version">##chrome-version</div></b>
-        <b><div id="node-version">##node-version</div></b>
-        <b><div id="electron-version">##electron-version</div></b>
-      </div>
-      <div class="settings-header" style="font-size: 1.5vw">
-        Total Plugins Installed:
-        <b> <div id="tot-plugins">##tot-plugins</div></b>
-      </div>
-      <div class="settings-header" style="font-size: 1.5vw">
-        Total Plugins Available on Repository:
-        <b> <div id="rep-tot-able">##rep-tot-able</div></b>
-      </div>
-      <br />
-      <br />
-      <div class="settings-header" style="font-size: 1.85vw">
-        Made with ❤️ by BlazeOrg
-      </div>
-      <div class="settings-header" style="font-size: 1.5vw">
-        &copy <script>document.write(new Date().getFullYear());</script> The TrailBlaze Authors
-      </div>
-      <div class="settings-header" style="font-size: 1.5vw">
-        All Rights Reserved.
-      </div>
-    </div>
+    <header id="titlebar" class="bg-gray-800">
+      <div id="drag-region">
+        <div id="window-title">
+          <span id="_titlebar">Voltaic</span>
+        </div>
 
-    <script>
-      Include();
-    </script>
-    <!-- End Body -->
+        <div id="window-controls">
+          <div class="button" id="min-button">
+            <img
+              class="icon"
+              srcset="
+                ./src/assets/icons/min-w-10.png 1x,
+                ./src/assets/icons/min-w-12.png 1.25x,
+                ./src/assets/icons/min-w-15.png 1.5x,
+                ./src/assets/icons/min-w-15.png 1.75x,
+                ./src/assets/icons/min-w-20.png 2x,
+                ./src/assets/icons/min-w-20.png 2.25x,
+                ./src/assets/icons/min-w-24.png 2.5x,
+                ./src/assets/icons/min-w-30.png 3x,
+                ./src/assets/icons/min-w-30.png 3.5x
+              "
+              draggable="false"
+            />
+          </div>
+          <div class="button" id="max-button">
+            <img
+              class="icon"
+              srcset="
+                ./src/assets/icons/max-w-10.png 1x,
+                ./src/assets/icons/max-w-12.png 1.25x,
+                ./src/assets/icons/max-w-15.png 1.5x,
+                ./src/assets/icons/max-w-15.png 1.75x,
+                ./src/assets/icons/max-w-20.png 2x,
+                ./src/assets/icons/max-w-20.png 2.25x,
+                ./src/assets/icons/max-w-24.png 2.5x,
+                ./src/assets/icons/max-w-30.png 3x,
+                ./src/assets/icons/max-w-30.png 3.5x
+              "
+              draggable="false"
+            />
+          </div>
+          <div class="button" id="restore-button">
+            <img
+              class="icon"
+              srcset="
+                ./src/assets/icons/restore-w-10.png 1x,
+                ./src/assets/icons/restore-w-12.png 1.25x,
+                ./src/assets/icons/restore-w-15.png 1.5x,
+                ./src/assets/icons/restore-w-15.png 1.75x,
+                ./src/assets/icons/restore-w-20.png 2x,
+                ./src/assets/icons/restore-w-20.png 2.25x,
+                ./src/assets/icons/restore-w-24.png 2.5x,
+                ./src/assets/icons/restore-w-30.png 3x,
+                ./src/assets/icons/restore-w-30.png 3.5x
+              "
+              draggable="false"
+            />
+          </div>
+          <div class="button" id="close-button">
+            <img
+              class="icon"
+              srcset="
+                ./src/assets/icons/close-w-10.png 1x,
+                ./src/assets/icons/close-w-12.png 1.25x,
+                ./src/assets/icons/close-w-15.png 1.5x,
+                ./src/assets/icons/close-w-15.png 1.75x,
+                ./src/assets/icons/close-w-20.png 2x,
+                ./src/assets/icons/close-w-20.png 2.25x,
+                ./src/assets/icons/close-w-24.png 2.5x,
+                ./src/assets/icons/close-w-30.png 3x,
+                ./src/assets/icons/close-w-30.png 3.5x
+              "
+              draggable="false"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <header
+        includefile="./src/assets/partials/html/sidebar.html"
+        id="drag0"
+        class="select-none w-fit bg-gray-800 text-white border-r border-blackblack fixed min-h-screen pt-8"
+      ></header>
+      <div
+        id="main"
+        class="main-div bg-gray-200 text-gray-900 flex-1 px-80 py-10"
+      >
+        <div
+          class="settings-header"
+          style="font-size: 2.5vw; padding-bottom: 1vh"
+        >
+          <b>About Otto Launcher</b>
+        </div>
+        <div class="settings-header" style="font-size: 1.5vw">
+          backend:
+          <b><div id="bac-ver">##bac-ver</div></b>
+        </div>
+        <div class="settings-header" style="font-size: 1.5vw">
+          backend type:
+          <b><div id="bac-type">##bac-type</div></b>
+        </div>
+        <div class="settings-header" style="font-size: 1.5vw">
+          boot:
+          <code
+            ><div
+              id="boot"
+              style="
+                text-transform: none;
+                background: #000000;
+                color: green;
+                margin-right: 600px;
+              "
+            >
+              ##boot
+            </div></code
+          >
+        </div>
+        <div class="settings-header" style="font-size: 1.5vw">
+          client_version:
+          <b><div id="cli-ver">##cli-ver</div></b>
+        </div>
+        <div class="settings-header" style="font-size: 1.5vw">
+          os_type:
+          <b><div id="os-type">##os-type</div></b>
+        </div>
+        <div class="settings-header" style="font-size: 1.5vw">
+          client_type:
+          <b><div id="chrome-version">##chrome-version</div></b>
+          <b><div id="node-version">##node-version</div></b>
+          <b><div id="electron-version">##electron-version</div></b>
+        </div>
+        <div class="settings-header" style="font-size: 1.5vw">
+          Total Plugins Installed:
+          <b> <div id="tot-plugins">##tot-plugins</div></b>
+        </div>
+        <div class="settings-header" style="font-size: 1.5vw">
+          Total Plugins Available on Repository:
+          <b> <div id="rep-tot-able">##rep-tot-able</div></b>
+        </div>
+        <br />
+        <br />
+        <div class="settings-header" style="font-size: 1.85vw">
+          Made with ❤️ by BlazeOrg
+        </div>
+        <div class="settings-header" style="font-size: 1.5vw">
+          &copy
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          The TrailBlaze Authors
+        </div>
+        <div class="settings-header" style="font-size: 1.5vw">
+          All Rights Reserved.
+        </div>
+      </div>
+
+      <script>
+        Include();
+      </script>
+      <!-- End Body -->
+    </main>
   </body>
 </html>

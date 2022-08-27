@@ -2,17 +2,27 @@
 <html lang="en" class="no-js">
   <!-- Head -->
   <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HGW0P5HTEX"></script>
+    <!-- Titlebar -->
+    <link rel="stylesheet" href="./src/assets/css/titlebar.css" />
+    <script src="./src/assets/js/titlebar.js"></script>
+    <!-- End titlebar -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-HGW0P5HTEX"
+    ></script>
     <script src="src/assets/js/tracking.js" defer></script>
     <title>About Otto Launcher | The Blaze Catalyst Launcher</title>
 
     <!--- EXPERIMENTAL FEATURES -->
     <!--- EXPERIMENTAL SIDEBAR -->
 
-    <script type="text/javascript" src="./src/assets/partials/sidebarDrag.js" defer></script>  
+    <script
+      type="text/javascript"
+      src="./src/assets/partials/sidebarDrag.js"
+      defer
+    ></script>
 
     <!--- -------------------- -->
-
 
     <!-- Meta -->
     <meta charset="utf-8" />
@@ -48,17 +58,112 @@
     </style>
   </head>
   <body>
-    <header
-      includefile="./src/assets/partials/html/sidebar.html"
-      id="drag0" class="select-none w-fit bg-gray-800 text-white border-r border-blackblack fixed min-h-screen pt-8"
-    ></header>
-    <div id="main" class="main-div bg-gray-200 text-gray-900 flex-1">
-      <iframe src="https://trail-blaze.github.io/credits_launcher.html" frameborder="0" style="position:absolute; top:0; left:10; bottom:0; right:0; width:90%; height:100%; border:none; overflow:hidden; z-index: -1;"></iframe>
+    <header id="titlebar" class="bg-gray-800">
+      <div id="drag-region">
+        <div id="window-title">
+          <span id="_titlebar">Voltaic</span>
+        </div>
 
-</div>
-    <script>
-      Include();
-    </script>
-    <!-- End Body -->
+        <div id="window-controls">
+          <div class="button" id="min-button">
+            <img
+              class="icon"
+              srcset="
+                ./src/assets/icons/min-w-10.png 1x,
+                ./src/assets/icons/min-w-12.png 1.25x,
+                ./src/assets/icons/min-w-15.png 1.5x,
+                ./src/assets/icons/min-w-15.png 1.75x,
+                ./src/assets/icons/min-w-20.png 2x,
+                ./src/assets/icons/min-w-20.png 2.25x,
+                ./src/assets/icons/min-w-24.png 2.5x,
+                ./src/assets/icons/min-w-30.png 3x,
+                ./src/assets/icons/min-w-30.png 3.5x
+              "
+              draggable="false"
+            />
+          </div>
+          <div class="button" id="max-button">
+            <img
+              class="icon"
+              srcset="
+                ./src/assets/icons/max-w-10.png 1x,
+                ./src/assets/icons/max-w-12.png 1.25x,
+                ./src/assets/icons/max-w-15.png 1.5x,
+                ./src/assets/icons/max-w-15.png 1.75x,
+                ./src/assets/icons/max-w-20.png 2x,
+                ./src/assets/icons/max-w-20.png 2.25x,
+                ./src/assets/icons/max-w-24.png 2.5x,
+                ./src/assets/icons/max-w-30.png 3x,
+                ./src/assets/icons/max-w-30.png 3.5x
+              "
+              draggable="false"
+            />
+          </div>
+          <div class="button" id="restore-button">
+            <img
+              class="icon"
+              srcset="
+                ./src/assets/icons/restore-w-10.png 1x,
+                ./src/assets/icons/restore-w-12.png 1.25x,
+                ./src/assets/icons/restore-w-15.png 1.5x,
+                ./src/assets/icons/restore-w-15.png 1.75x,
+                ./src/assets/icons/restore-w-20.png 2x,
+                ./src/assets/icons/restore-w-20.png 2.25x,
+                ./src/assets/icons/restore-w-24.png 2.5x,
+                ./src/assets/icons/restore-w-30.png 3x,
+                ./src/assets/icons/restore-w-30.png 3.5x
+              "
+              draggable="false"
+            />
+          </div>
+          <div class="button" id="close-button">
+            <img
+              class="icon"
+              srcset="
+                ./src/assets/icons/close-w-10.png 1x,
+                ./src/assets/icons/close-w-12.png 1.25x,
+                ./src/assets/icons/close-w-15.png 1.5x,
+                ./src/assets/icons/close-w-15.png 1.75x,
+                ./src/assets/icons/close-w-20.png 2x,
+                ./src/assets/icons/close-w-20.png 2.25x,
+                ./src/assets/icons/close-w-24.png 2.5x,
+                ./src/assets/icons/close-w-30.png 3x,
+                ./src/assets/icons/close-w-30.png 3.5x
+              "
+              draggable="false"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <header
+        includefile="./src/assets/partials/html/sidebar.html"
+        id="drag0"
+        class="select-none w-fit bg-gray-800 text-white border-r border-blackblack fixed min-h-screen pt-8"
+      ></header>
+      <div id="main" class="main-div bg-gray-200 text-gray-900 flex-1">
+        <iframe
+          src="https://trail-blaze.github.io/credits_launcher.html"
+          frameborder="0"
+          style="
+            position: absolute;
+            top: 0;
+            left: 10;
+            bottom: 0;
+            right: 0;
+            width: 90%;
+            height: 100%;
+            border: none;
+            overflow: hidden;
+            z-index: -1;
+          "
+        ></iframe>
+      </div>
+      <script>
+        Include();
+      </script>
+      <!-- End Body -->
+    </main>
   </body>
 </html>

@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HGW0P5HTEX"></script>
+    <!-- Titlebar -->
+    <link rel="stylesheet" href="./src/assets/css/titlebar.css" />
+    <script src="./src/assets/js/titlebar.js"></script>
+    <!-- End titlebar -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-HGW0P5HTEX"
+    ></script>
     <script src="src/assets/js/tracking.js" defer></script>
     <!--- EXPERIMENTAL FEATURES -->
     <!--- EXPERIMENTAL SIDEBAR -->
 
-    <script type="text/javascript" src="./src/assets/partials/sidebarDrag.js" defer></script>  
+    <script
+      type="text/javascript"
+      src="./src/assets/partials/sidebarDrag.js"
+      defer
+    ></script>
 
     <!--- -------------------- -->
 
@@ -41,107 +52,194 @@
     <script src="./src/assets/js/navConfig.js" defer></script>
     <script src="./src/assets/js/themeswitcher.js" defer></script>
   </head>
-  <body class="bg-gray-300 pointer-events-none">
-    <div
-      includefile="./src/assets/partials/html/sidebar.html"
-      class="select-none w-fit bg-gray-800 text-white border-r border-blackblack fixed min-h-screen pt-8"
-    ></div>
-    <div id="main" class="main-div bg-gray-200 text-gray-900 flex-1 px-80 py-10">
-      <div
-        class="settings-header"
-        style="font-size: 2.5vw; padding-bottom: 1vh"
-      >
-        <b>SPLASH IMAGE SETTINGS</b>
-        <br/>
-        <b id="errmsg" class="hidden" style="color: red">INVALID CONFIG FILE! PLEASE REVIEW SETTINGS.JSON TO CORRECT!</b>
+  <body>
+    <header id="titlebar" class="bg-gray-800">
+      <div id="drag-region">
+        <div id="window-title">
+          <span id="_titlebar">Voltaic</span>
+        </div>
+
+        <div id="window-controls">
+          <div class="button" id="min-button">
+            <img
+              class="icon"
+              srcset="
+                ./src/assets/icons/min-w-10.png 1x,
+                ./src/assets/icons/min-w-12.png 1.25x,
+                ./src/assets/icons/min-w-15.png 1.5x,
+                ./src/assets/icons/min-w-15.png 1.75x,
+                ./src/assets/icons/min-w-20.png 2x,
+                ./src/assets/icons/min-w-20.png 2.25x,
+                ./src/assets/icons/min-w-24.png 2.5x,
+                ./src/assets/icons/min-w-30.png 3x,
+                ./src/assets/icons/min-w-30.png 3.5x
+              "
+              draggable="false"
+            />
+          </div>
+          <div class="button" id="max-button">
+            <img
+              class="icon"
+              srcset="
+                ./src/assets/icons/max-w-10.png 1x,
+                ./src/assets/icons/max-w-12.png 1.25x,
+                ./src/assets/icons/max-w-15.png 1.5x,
+                ./src/assets/icons/max-w-15.png 1.75x,
+                ./src/assets/icons/max-w-20.png 2x,
+                ./src/assets/icons/max-w-20.png 2.25x,
+                ./src/assets/icons/max-w-24.png 2.5x,
+                ./src/assets/icons/max-w-30.png 3x,
+                ./src/assets/icons/max-w-30.png 3.5x
+              "
+              draggable="false"
+            />
+          </div>
+          <div class="button" id="restore-button">
+            <img
+              class="icon"
+              srcset="
+                ./src/assets/icons/restore-w-10.png 1x,
+                ./src/assets/icons/restore-w-12.png 1.25x,
+                ./src/assets/icons/restore-w-15.png 1.5x,
+                ./src/assets/icons/restore-w-15.png 1.75x,
+                ./src/assets/icons/restore-w-20.png 2x,
+                ./src/assets/icons/restore-w-20.png 2.25x,
+                ./src/assets/icons/restore-w-24.png 2.5x,
+                ./src/assets/icons/restore-w-30.png 3x,
+                ./src/assets/icons/restore-w-30.png 3.5x
+              "
+              draggable="false"
+            />
+          </div>
+          <div class="button" id="close-button">
+            <img
+              class="icon"
+              srcset="
+                ./src/assets/icons/close-w-10.png 1x,
+                ./src/assets/icons/close-w-12.png 1.25x,
+                ./src/assets/icons/close-w-15.png 1.5x,
+                ./src/assets/icons/close-w-15.png 1.75x,
+                ./src/assets/icons/close-w-20.png 2x,
+                ./src/assets/icons/close-w-20.png 2.25x,
+                ./src/assets/icons/close-w-24.png 2.5x,
+                ./src/assets/icons/close-w-30.png 3x,
+                ./src/assets/icons/close-w-30.png 3.5x
+              "
+              draggable="false"
+            />
+          </div>
+        </div>
       </div>
-      <label class="flex items-center">
-        <input
-          type="checkbox"
-          class="form-checkbox h-6 w-6 text-indigo-600"
-          id="splashDefault"
-        />
-        <span class="ml-3 border-none" style="font-size: 22px">Default</span>
-      </label>
-      <label class="flex items-center">
-        <input
-          type="checkbox"
-          class="form-checkbox h-6 w-6 text-indigo-600"
-          id="splashBlaze"
-        />
-        <span class="ml-3 border-none" style="font-size: 22px"
-          >Blaze Splash</span
-        >
-      </label>
-      <label class="flex items-center">
-        <input
-          type="checkbox"
-          class="form-checkbox h-6 w-6 text-indigo-600"
-          id="splashCustom"
-        />
-        <span id="splashCustomText" class="ml-3 border-none" style="font-size: 22px"
-          >Custom</span
-        >
-      </label>
-      <br />
-      <div class="settings-header"><b>CUSTOM SPLASH</b></div>
-      <br />
-      <div class="settings-header">PREVIEW (Gamesplash)</div>
+    </header>
+    <main class="bg-gray-300 pointer-events-none">
       <div
-        class="center-img"
-        style="
-          position: relative;
-          width: 50vw;
-          height: 50vh;
-          background: url('./src/assets/png/preview_with_desktop.png');
-          background-position: center;
-          background-size: cover;
-          vertical-align: middle;
-        "
-      >
-        <img
-          src="./src/assets/bmp/SplashBlaze.bmp"
-          style="
-            position: absolute;
-            left: 30%;
-            top: 15%;
-            width: 40%;
-            height: auto;
-            margin: auto;
-          "
-          alt="Custom Splash"
-          id="customSplash"
-        />
-      </div>
-    
-      <br />
-      <div class="settings-header">PREVIEW (EAC)</div>
+        includefile="./src/assets/partials/html/sidebar.html"
+        class="select-none w-fit bg-gray-800 text-white border-r border-blackblack fixed min-h-screen pt-8"
+      ></div>
       <div
-        class="center-img"
-        style="
-          position: relative;
-          width: 50vw;
-          height: 50vh;
-          background: url('./src/assets/png/preview_with_desktop.png');
-          background-position: center;
-          background-size: cover;
-          vertical-align: middle;
-        "
+        id="main"
+        class="main-div bg-gray-200 text-gray-900 flex-1 px-80 py-10"
       >
-        <img
-          src="./src/assets/png/SplashScreenBlaze.png"
+        <div
+          class="settings-header"
+          style="font-size: 2.5vw; padding-bottom: 1vh"
+        >
+          <b>SPLASH IMAGE SETTINGS</b>
+          <br />
+          <b id="errmsg" class="hidden" style="color: red"
+            >INVALID CONFIG FILE! PLEASE REVIEW SETTINGS.JSON TO CORRECT!</b
+          >
+        </div>
+        <label class="flex items-center">
+          <input
+            type="checkbox"
+            class="form-checkbox h-6 w-6 text-indigo-600"
+            id="splashDefault"
+          />
+          <span class="ml-3 border-none" style="font-size: 22px">Default</span>
+        </label>
+        <label class="flex items-center">
+          <input
+            type="checkbox"
+            class="form-checkbox h-6 w-6 text-indigo-600"
+            id="splashBlaze"
+          />
+          <span class="ml-3 border-none" style="font-size: 22px"
+            >Blaze Splash</span
+          >
+        </label>
+        <label class="flex items-center">
+          <input
+            type="checkbox"
+            class="form-checkbox h-6 w-6 text-indigo-600"
+            id="splashCustom"
+          />
+          <span
+            id="splashCustomText"
+            class="ml-3 border-none"
+            style="font-size: 22px"
+            >Custom</span
+          >
+        </label>
+        <br />
+        <div class="settings-header"><b>CUSTOM SPLASH</b></div>
+        <br />
+        <div class="settings-header">PREVIEW (Gamesplash)</div>
+        <div
+          class="center-img"
           style="
-            position: absolute;
-            left: 30%;
-            top: 35%;
-            width: 40%;
-            height: auto;
-            margin: auto;
+            position: relative;
+            width: 50vw;
+            height: 50vh;
+            background: url('./src/assets/png/preview_with_desktop.png');
+            background-position: center;
+            background-size: cover;
+            vertical-align: middle;
           "
-          alt="Custom Splash"
-          id="customSplash"
-        />
-        <!--  style="
+        >
+          <img
+            src="./src/assets/bmp/SplashBlaze.bmp"
+            style="
+              position: absolute;
+              left: 30%;
+              top: 15%;
+              width: 40%;
+              height: auto;
+              margin: auto;
+            "
+            alt="Custom Splash"
+            id="customSplash"
+          />
+        </div>
+
+        <br />
+        <div class="settings-header">PREVIEW (EAC)</div>
+        <div
+          class="center-img"
+          style="
+            position: relative;
+            width: 50vw;
+            height: 50vh;
+            background: url('./src/assets/png/preview_with_desktop.png');
+            background-position: center;
+            background-size: cover;
+            vertical-align: middle;
+          "
+        >
+          <img
+            src="./src/assets/png/SplashScreenBlaze.png"
+            style="
+              position: absolute;
+              left: 30%;
+              top: 35%;
+              width: 40%;
+              height: auto;
+              margin: auto;
+            "
+            alt="Custom Splash"
+            id="customSplash"
+          />
+          <!--  style="
               position: absolute;
               width: 23.5%;
               display: block;
@@ -150,20 +248,20 @@
             "
             alt="Custom Splash"
             id="customSplash" -->
-        <img
-          src="./src/assets/png/eac.png"
-          style="
-            position: absolute;
-            left: 31%;
-            top: 37%;
-            width: 14%;
-            height: auto;
-            margin: auto;
-          "
-          alt="Custom Splash"
-          id="customSplash"
-        />
-        <!--
+          <img
+            src="./src/assets/png/eac.png"
+            style="
+              position: absolute;
+              left: 31%;
+              top: 37%;
+              width: 14%;
+              height: auto;
+              margin: auto;
+            "
+            alt="Custom Splash"
+            id="customSplash"
+          />
+          <!--
     
                 style="
             position: absolute;
@@ -173,7 +271,7 @@
             left: 16.5%;
           "
         -->
-        <!-- div
+          <!-- div
           class="eac_loader"
           style="
             position: absolute;
@@ -185,9 +283,9 @@
             background: #00000070;
           "
         ></div -->
-      </div>
-    
-      <!--- <div class="settings-header">LAUNCHER CONFIG</div>
+        </div>
+
+        <!--- <div class="settings-header">LAUNCHER CONFIG</div>
     <h3>Fortnite Path =</h3>
     <input type="text" /><br />
     
@@ -196,11 +294,12 @@
     <input type="checkbox" />
     <span class="checkmark"></span> 
     </label> -->
-      <!-- <button class="button-sharp-red">Test</button>
+        <!-- <button class="button-sharp-red">Test</button>
     <button class="button-round-blue">Test</button> -->
-      <div class="border-b border-gray-900 mt-20 mb-10"></div>
-      <div class="text-gray-900 text-xl">&copy; 2021 The Blaze Authors</div>
-    </div>
+        <div class="border-b border-gray-900 mt-20 mb-10"></div>
+        <div class="text-gray-900 text-xl">&copy; 2021 The Blaze Authors</div>
+      </div>
+    </main>
   </body>
   <script>
     Include();
