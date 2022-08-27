@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Titlebar -->
+    <link rel="stylesheet" href="./src/assets/css/titlebar.css" />
+    <script src="./src/assets/js/titlebar.js"></script>
+    <!-- End titlebar -->
+    <script src="./src/assets/js/modules/blaze.js"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-HGW0P5HTEX"
+    ></script>
+    <script src="src/assets/js/tracking.js" defer></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blaze Launcher | Server Listings</title>
+    <script src="./src/assets/js/util.js"></script>
+    <link rel="stylesheet" href="./dist/css/tailwind.css" />
+    <script src="./src/assets/js/include.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css"
+    />
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+    />
+    <style>
+      body {
+        font-family: "Manrope", sans-serif;
+      }
+      .banner-test {
+        background: #14ce4228;
+        background: url("./src/assets/jpg/discover1.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 300px;
+      }
+      .carousel-cell {
+        width: 100%;
+        border-radius: 5px;
+      }
+    </style>
+    <script src="./src/assets/js/navConfig.js" defer></script>
+  </head>
+  <body>
+    <header id="titlebar" class="bg-gray-800">
+      <div id="drag-region">
+        <div id="window-title">
+          <span id="_titlebar">Blaze</span>
+        </div>
+
+        <div id="window-controls">
+          <div class="button" id="min-button">
+            <img
+              class="icon"
+              srcset="
+                ./src/assets/icons/min-w-10.png 1x,
+                ./src/assets/icons/min-w-12.png 1.25x,
+                ./src/assets/icons/min-w-15.png 1.5x,
+                ./src/assets/icons/min-w-15.png 1.75x,
+                ./src/assets/icons/min-w-20.png 2x,
+                ./src/assets/icons/min-w-20.png 2.25x,
+                ./src/assets/icons/min-w-24.png 2.5x,
+                ./src/assets/icons/min-w-30.png 3x,
+                ./src/assets/icons/min-w-30.png 3.5x
+              "
+              draggable="false"
+            />
+          </div>
+          <div class="button" id="max-button">
+            <img
+              class="icon"
+              srcset="
+                ./src/assets/icons/max-w-10.png 1x,
+                ./src/assets/icons/max-w-12.png 1.25x,
+                ./src/assets/icons/max-w-15.png 1.5x,
+                ./src/assets/icons/max-w-15.png 1.75x,
+                ./src/assets/icons/max-w-20.png 2x,
+                ./src/assets/icons/max-w-20.png 2.25x,
+                ./src/assets/icons/max-w-24.png 2.5x,
+                ./src/assets/icons/max-w-30.png 3x,
+                ./src/assets/icons/max-w-30.png 3.5x
+              "
+              draggable="false"
+            />
+          </div>
+          <div class="button" id="restore-button">
+            <img
+              class="icon"
+              srcset="
+                ./src/assets/icons/restore-w-10.png 1x,
+                ./src/assets/icons/restore-w-12.png 1.25x,
+                ./src/assets/icons/restore-w-15.png 1.5x,
+                ./src/assets/icons/restore-w-15.png 1.75x,
+                ./src/assets/icons/restore-w-20.png 2x,
+                ./src/assets/icons/restore-w-20.png 2.25x,
+                ./src/assets/icons/restore-w-24.png 2.5x,
+                ./src/assets/icons/restore-w-30.png 3x,
+                ./src/assets/icons/restore-w-30.png 3.5x
+              "
+              draggable="false"
+            />
+          </div>
+          <div class="button" id="close-button">
+            <img
+              class="icon"
+              srcset="
+                ./src/assets/icons/close-w-10.png 1x,
+                ./src/assets/icons/close-w-12.png 1.25x,
+                ./src/assets/icons/close-w-15.png 1.5x,
+                ./src/assets/icons/close-w-15.png 1.75x,
+                ./src/assets/icons/close-w-20.png 2x,
+                ./src/assets/icons/close-w-20.png 2.25x,
+                ./src/assets/icons/close-w-24.png 2.5x,
+                ./src/assets/icons/close-w-30.png 3x,
+                ./src/assets/icons/close-w-30.png 3.5x
+              "
+              draggable="false"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="bg-gray-200">
+      <div
+      includefile="./src/assets/partials/html/sidebar.html"
+      id="sidebar"
+      class="select-none fit-content bg-gray-800 text-white border-r border-blackblack fixed min-h-screen pt-8"
+    ></div>
+      <div
+        class="main-div text-gray-200 flex-1 px-20 pt-10 text-align: center;"
+        style="height: 100vh; background: #0c0c0c"
+      >
+        <div
+          class="square text-white bg-gray-900"
+          style="
+            width: 300px;
+            height: 200px;
+            margin-bottom: 10vh;
+            margin-left: 30%;
+          "
+        >
+          <div
+            style="
+              position: relative;
+              text-align: center;
+              font-size: 2vw;
+              top: 35%;
+            "
+          >
+            <b id="add_in">ADDIN</b> add-in is disabled
+          </div>
+        </div>
+        <div
+          class="square text-white bg-gray-900"
+          style="
+            width: 125px;
+            height: 50px;
+            text-align: center;
+            font-weight: bold;
+            margin-left: 10%;
+          "
+        >
+          <p style="position: relative; top: 30%">REASON</p>
+        </div>
+        <code id="reason" style="padding-top: 4vh; margin-left: 10%"
+          >Reason</code
+        >
+      </div>
+    </main>
+  </body>
+  <script>
+    Include();
+  </script>
+  <script>
+    function errormsg(addin, reason) {
+      document.getElementById("add_in").innerText = addin;
+      document.getElementById("reason").innerHTML = reason;
+    }
+  </script>
+  <script>
+    errormsg(
+      "'Discover'",
+      "Discovery is undergoing construction. <a class='text-green-500' href='https://github.com/Trail-Blaze/.github/blob/main/profile/README.md#Blaze' target='__blank'>Stay Tuned</a> for updates! It might just appear in a future version of the launcher! 😜"
+    );
+  </script>
+</html>
