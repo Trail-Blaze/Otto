@@ -1,6 +1,7 @@
 const os__nav = require("os");
 const path__nav = require("path");
 const fs__nav = require("fs");
+const { ENGINE_METHOD_ALL } = require("constants");
 let __drivename___nav =
   os__nav.platform == "win32" ? process.cwd().split(path__nav.sep)[0] : "/";
 let blazeDir__nav = path__nav.join(__drivename___nav, "/Blaze/");
@@ -20,9 +21,7 @@ let navConfig;
         fs__nav.mkdirSync(configPath);
         console.log("Created New Blaze/Launcher Dir!");
 
-        fetch(
-          "https://trail-blaze.github.io/res/config/defaultNavConfig.json"
-        )
+        fetch("https://trail-blaze.github.io/res/config/defaultNavConfig.json")
           .then((response) => response.json())
           .then((data) => {
             navConfig = data;
@@ -48,9 +47,7 @@ let navConfig;
       if (
         !fs__nav.existsSync(path__nav.join(configPath, "defaultNavConfig.json"))
       ) {
-        fetch(
-          "https://trail-blaze.github.io/res/config/defaultNavConfig.json"
-        )
+        fetch("https://trail-blaze.github.io/res/config/defaultNavConfig.json")
           .then((response) => response.json())
           .then((data) => {
             navConfig = data;
@@ -73,10 +70,9 @@ let navConfig;
 })();
 
 function setNav() {
-  try{
+  try {
     populateNav();
-  }
-  catch(error){
+  } catch (error) {
     return;
   }
 }
@@ -116,7 +112,10 @@ function populateNav() {
     // Set Package Icon
     changeID("sideBarText", `sideBarText__${x}`);
     sideBarText = document.getElementById(`sideBarText__${x}`);
-    sideBarText.innerText = navConfig.navElements[`nlink${x}`].displayText;
+    // Disable sidebarText
+    sideBarText.innerHTML = "";
+    document.getElementById("ent_").id = x;
+    document.getElementById(x.toString()).title = navConfig.navElements[`nlink${x}`].displayText;
     x++;
   }
 }
