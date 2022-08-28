@@ -4,7 +4,6 @@ const yaml = require("yaml");
 const { userAssetsDir, backendActive } = require("./environment");
 const { localPDB } = require("./pdb");
 const { register } = require("./extensions");
-const distinfo = yaml.parse(fs.readFileSync(path.join(backendActive, "dist-info.yml"), "utf8"));
 
 function downloadTheme(package) {
   download(
@@ -23,7 +22,7 @@ function installTheme(package, source = source.toString()) {
     package.version,
     package.type,
     backendActive,
-    distinfo.entrypoint
+    "theme.json"
   );
   return;
 }
