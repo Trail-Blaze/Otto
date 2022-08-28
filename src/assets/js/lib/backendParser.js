@@ -8,7 +8,7 @@ const {
   backendsDir,
   backendDir,
 } = require("./environment");
-const { register } = require("./extensions");
+const { register, progress } = require("./extensions");
 const { localPDB } = require("./pdb");
 let distinfo;
 try {
@@ -27,7 +27,11 @@ function downloadBackend(package) {
     filename: "RobinHood",
   }).then(() => {
     try {
-      fse.renameSync(backendActive, path.join(backendsDir, `INACTIVE__${removeSpecial(distinfo.name)}`));
+      progress(10);
+      fse.renameSync(
+        backendActive,
+        path.join(backendsDir, `INACTIVE__${removeSpecial(distinfo.name)}`)
+      );
 
       localPDB(
         "update",
@@ -35,6 +39,7 @@ function downloadBackend(package) {
         "installLocation",
         path.join(backendsDir, `INACTIVE__${distinfo.name}`)
       );
+      progress(20);
     } catch (e) {
       console.info('[LPDB] No "ACTIVE" backend currently.');
     }
@@ -48,7 +53,10 @@ function downloadBackend(package) {
 
 function installBackend(package, source = source.toString()) {
   fse.rename(source, backendActive, (error) => {
-    if (error) throw error;
+    if (error) {
+      progress(-50);
+      throw error;
+    }
     fse.rename(package.name, "ACTIVE");
     try {
       distinfo = yaml.parse(
@@ -61,6 +69,7 @@ function installBackend(package, source = source.toString()) {
         backendActive,
         distinfo.entrypoint
       );
+      progress(50);
     } catch (error) {
       // Find subdirs(if any), rename, move and try again
       if (fse.readdirSync(path.join(backendDir, "/ACTIVE")).length === 1) {
@@ -68,16 +77,19 @@ function installBackend(package, source = source.toString()) {
           path.join(backendActive, fse.readdirSync(backendActive)[0]),
           path.join(backendDir, "/ACTIVE/ACTIVE")
         );
+        progress(20);
         fse.moveSync(
           path.join(backendDir, "/ACTIVE/ACTIVE"),
           path.join(backendDir, "/ACTIVE_")
         );
+
         // Remove old backend
         fse.removeSync(backendActive);
         // Make new active backend
         fse.rename(
           path.join(backendDir, "ACTIVE_"),
           path.join(backendActive),
+
           (error) => {
             if (error) throw error;
             try {
@@ -89,7 +101,6 @@ function installBackend(package, source = source.toString()) {
                     "utf8"
                   )
                 );
-
                 register(
                   package.name,
                   package.version,
@@ -97,12 +108,15 @@ function installBackend(package, source = source.toString()) {
                   backendActive,
                   distinfo.entrypoint
                 );
+                progress(20);
               }, 10000);
+              progress(40);
             } catch (error) {
               console.warn(
                 "[LPDB_REGISTER] Unable to register backend with LPBD",
                 error
               );
+              progress(-100);
             }
           }
         );

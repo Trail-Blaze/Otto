@@ -58,6 +58,9 @@
         width: 100%;
         border-radius: 5px;
       }
+      #lpdb_progression {
+        transition: all linear 0.5s;
+      }
     </style>
     <script src="./src/assets/js/navConfig.js" defer></script>
     <script src="./src/assets/js/themeswitcher.js" defer></script>
@@ -146,33 +149,56 @@
         includefile="./src/assets/partials/html/sidebar.html"
         class="select-none w-fit bg-gray-800 text-white border-r border-blackblack fixed min-h-screen pt-8"
       ></div>
-      <div id="main" class="main-div bg-gray-200 text-white flex-1 px-20 pt-10">
-        <div class="flex text-black">
-          <div class="flex-initial rounded-full">
+      <div id="main" class="main-div bg-gray-200 flex-1 px-20 pt-10">
+        <div class="flex flex-wrap justify-center items-center">
+          <div
+            class="flex flex-wrap items-center rounded-md bg-gray-300"
+            style="width: 100%"
+          >
             <img
-              class="rounded-full"
-              src="./src/assets/png/icon_magnet.png"
-              width="200rem"
+              class="rounded-md ml-5 mr-10"
+              src="./src/assets/png/coloricon_cornflower_blue_placeholder.png"
+              width="100rem"
               alt="PACKAGE_ICON"
               id="icon"
             />
+            <div class="text-5xl font-semibold pt-4 pb-6" id="name">
+              Iceberg 🧊
+            </div>
           </div>
-          <div class="info-container flex-1 pl-3">
-            <div
-              class="text-5xl font-semibold text-gray-800 pt-4 pb-6"
-              id="name"
-            ></div>
+          <div class="info-container flex-1 pl-3 flex-wrap">
             <div class="font-medium" id="desc_shrt"></div>
             <div class="font-medium" id="pub"></div>
           </div>
           <div class="flex flex-initial px-5 py-20 justify-center" id="install">
-            <select name="download" id="download_rel" class="px-5" onchange="">
-              <option value="download">Download</option>
-              <option value="update">Update</option>
-            </select>
+            <button
+              name="download"
+              id="download_rel"
+              class="px-5 py-2 bg-green-700 text-white"
+              onclick="downloadButton(setup)"
+            >
+              Download Now
+            </button>
+          </div>
+          <div
+            class="progression flex flex-wrap items-center justify-center w-full hidden"
+            id="progress_indicator"
+          >
+            <div class="text-2xl">Progression...</div>
+            <div
+              id="lpdb_container"
+              class="w-full bg-white rounded-md my-10 h-1"
+              style="flex-basis: 100%"
+            >
+              <div
+                id="lpdb_progression"
+                class="bg-green-600 rounded-md h-1"
+                style="flex-basis: 100%; width: 0%"
+              ></div>
+            </div>
           </div>
         </div>
-        <div class="text-black pt-10 text-lg font-medium">
+        <div class="pt-10 text-lg font-medium">
           <div id="cV">CURRENT_VERSION [INSTALLED] = 1.0.0A</div>
           <div id="LVc"></div>
           <div id="cat">Category = Backend</div>
