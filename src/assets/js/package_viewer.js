@@ -57,11 +57,11 @@ function setContent() {
   desc_shrt.innerText = package.desc_shrt;
   desc_long.innerHTML = parseMD(package.desc_long);
   publisher.innerText = `Pub: ${package.pub}`;
-  cloudLatestVersion.innerText = `Latest Version [Cloud] - ${package.version}`;
+  cloudLatestVersion.innerText = package.version;
   if (package.cat != undefined) {
-    cat.innerText = `Category = ${package.cat}`;
+    cat.innerText = package.cat;
   } else {
-    cat.innerText = "Category = Uncategorized";
+    cat.innerText = "Uncategorized";
   }
 
   // Slide One
@@ -84,20 +84,20 @@ function setDownload() {
   switch (setup.type) {
     case "backend/binary":
       console.log("BINARY FILE");
-      category.innerHTML = "<b>Category</b> - Backend";
+      category.innerHTML = "Backend";
       break;
     case "backend/bundle":
       console.log("BUNDLE FILE");
-      category.innerHTML = "<b>Category</b> - Backend";
+      category.innerHTML = "Backend";
       break;
     case "PAKCHUNK":
       console.log("PAKCHUNK FILE");
-      category.innerHTML = "<b>Category</b> - RiftMods (Pakfile)";
+      category.innerHTML = "RiftMods (Pakfile)";
 
       break;
     case "DLL":
       console.log("DLL FILE");
-      category.innerHTML = "<b>Category</b> - Server Bypass Mechanism (DLL)";
+      category.innerHTML = "Server Bypass Mechanism (DLL)";
       break;
     default:
       console.error("UNKNOWN TYPE!");

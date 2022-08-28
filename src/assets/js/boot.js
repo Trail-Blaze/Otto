@@ -17,7 +17,7 @@ const exec_options2 = {
   timeout: 0,
   maxBuffer: 200 * 1024,
   killSignal: "SIGTERM",
-  cwd: backendDir,
+  cwd: packageStore.packageList[launcherConfig.backend.uses].INSTALLLOCATION, // Active backend Dir
   env: null,
 };
 
@@ -261,7 +261,7 @@ function sendID(clicked_id) {
 
   // Run the thang...
 
-  exec("legacyBoot.lnk", exec_options, (error, stdout, stderr) => {
+  exec(packageStore.packageList[launcherConfig.backend.uses].ENTRYPOINT, exec_options, (error, stdout, stderr) => {
     if (error) {
       console.log(`error: ${error.message}`);
       thisElement.innerText = "Failed. 😢";

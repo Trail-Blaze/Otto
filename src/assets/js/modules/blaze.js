@@ -75,9 +75,10 @@ let baseDir = path.join(__drivename, "/Blaze/");
 let configDir = path.join(baseDir, "/Launcher/");
 
 let helpersDir = path.join(configDir, "/helpers/");
-let backendDir = path.join(configDir, "/backend/");
+let backendDir = path.join(configDir, "/backend/ACTIVE/");
 let userAssetsDir = path.join(configDir, "/userAssets/");
 let launcherConfig = require(path.join(configDir, "settings.json")); // Opening settings file for readOnly
+let packageStore = require(path.join(userAssetsDir, "packageStore.json")); // Opening settings file for readOnly
 
 ref = (id) => document.getElementById(id);
 

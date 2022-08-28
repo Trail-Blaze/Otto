@@ -152,7 +152,7 @@
       <div id="main" class="main-div bg-gray-200 flex-1 px-20 pt-10">
         <div class="flex flex-wrap justify-center items-center">
           <div
-            class="flex flex-wrap items-center rounded-md bg-gray-300"
+            class="headline flex flex-wrap items-center rounded-md bg-gray-300"
             style="width: 100%"
           >
             <img
@@ -162,9 +162,25 @@
               alt="PACKAGE_ICON"
               id="icon"
             />
-            <div class="text-5xl font-semibold pt-4 pb-6" id="name">
+            <div
+              class="initial text-5xl font-semibold pt-4 pb-6"
+              style="font-family: sans-serif"
+              id="name"
+            >
               Iceberg 🧊
             </div>
+            <span
+              class="v_compare flex flex-wrap px-2 py-2 mb-10 mx-2 bg-red-500 text-white text-sm"
+            >
+              <div id="cV">1.0.0A</div>
+              /
+              <div id="LVc"></div>
+            </span>
+            <span
+              class="category flex flex-wrap px-2 py-2 mb-10 mx-2 bg-blue-500 text-white text-sm"
+            >
+              <div id="cat">Uncategorized</div>
+            </span>
           </div>
           <div class="info-container flex-1 pl-3 flex-wrap">
             <div class="font-medium" id="desc_shrt"></div>
@@ -198,11 +214,7 @@
             </div>
           </div>
         </div>
-        <div class="pt-10 text-lg font-medium">
-          <div id="cV">CURRENT_VERSION [INSTALLED] = 1.0.0A</div>
-          <div id="LVc"></div>
-          <div id="cat">Category = Backend</div>
-        </div>
+
         <div
           class="carousel py-20"
           data-flickity='{ "wrapAround": true, "prevNextButtons": true,
