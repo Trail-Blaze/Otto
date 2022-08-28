@@ -10,7 +10,9 @@ const {
 } = require("./environment");
 const { register } = require("./extensions");
 const { localPDB } = require("./pdb");
-let distinfo = yaml.parse(fs.readFileSync(path.join(backendActive, "dist-info.yml"), "utf8"));
+let distinfo = yaml.parse(
+  fs.readFileSync(path.join(backendActive, "dist-info.yml"), "utf8")
+);
 
 /**
  * @brief Downloads a private server, installs it and creates some metadata in the Local Package Database
@@ -46,7 +48,9 @@ function installBackend(package, source = source.toString()) {
     if (error) throw error;
     fse.rename(package.name, "ACTIVE");
     try {
-      distinfo = yaml.parse(fs.readFileSync(path.join(backendActive, "dist-info.yml"), "utf8"));
+      distinfo = yaml.parse(
+        fs.readFileSync(path.join(backendActive, "dist-info.yml"), "utf8")
+      );
       register(
         package.name,
         package.version,
@@ -76,9 +80,13 @@ function installBackend(package, source = source.toString()) {
             try {
               // Wait a reasonable time for move to finish
               setTimeout(() => {
-                distinfo = yaml.parse(fs.readFileSync(path.join(backendActive, "dist-info.yml"), "utf8"));
-                  path.join(backendActive, "dist-info.yml")
+                distinfo = yaml.parse(
+                  fs.readFileSync(
+                    path.join(backendActive, "dist-info.yml"),
+                    "utf8"
+                  )
                 );
+
                 register(
                   package.name,
                   package.version,
