@@ -3,22 +3,21 @@ const fse = require("fs-extra");
 const path = require("path");
 const { userAssetsDir, userAssetsPackages } = require("./environment");
 const { register } = require("./extensions");
-const { package } = require("./package");
 
-function downloadOther(url = url.toString()) {
-  download(url, path.join(userAssetsDir, `packages/.staging/${package.name}`), {
+function downloadOther(package) {
+  download(package.URL, path.join(userAssetsDir, `packages/.staging/${package.name}`), {
     extract: true,
-    name: "CURRENT",
+    filename: "CURRENT",
   }).then(() => {
     installOther(
-      package.name,
+      package,
       path.join(userAssetsDir, `packages/.staging/${package.name}`)
     );
   });
   return;
 }
 
-function installOther(name = name.toString(), source = source.toString()) {
+function installOther(package, source = source.toString()) {
   // Move up one directory
   // Rename source to package.name
   // Register

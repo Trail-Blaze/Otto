@@ -1,7 +1,6 @@
 const path = require("path");
 const fse = require("fs-extra");
 const { userAssetsDir } = require("./environment");
-const { package } = require("./package");
 
 /**
  * @name LocalPDB

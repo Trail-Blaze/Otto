@@ -1,24 +1,22 @@
 const download = require("download");
 const path = require("path");
 const yaml = require("yaml");
-const distinfo = yaml.parse(path.join(backendActive, "dist-info.yml"));
-const { userAssetsDir } = require("./environment");
+const { userAssetsDir, backendActive } = require("./environment");
 const { localPDB } = require("./pdb");
-require("./environment");
 const { register } = require("./extensions");
-const { package } = require("./package");
+const distinfo = yaml.parse(fs.readFileSync(path.join(backendActive, "dist-info.yml"), "utf8"));
 
-function downloadTheme(url = url.toString()) {
+function downloadTheme(package) {
   download(
-    url,
+    package.URL,
     path.join(userAssetsDir, "theme.json", { name: "theme.json" })
   ).then(() => {
-    installTheme(package.name, path.join(userAssetsDir, "theme.json"));
+    installTheme(package, path.join(userAssetsDir, "theme.json"));
   });
   return;
 }
 
-function installTheme(name = name.toString(), source = source.toString()) {
+function installTheme(package, source = source.toString()) {
   localPDB("new", package.name, "VERSION", package.version);
   register(
     package.name,

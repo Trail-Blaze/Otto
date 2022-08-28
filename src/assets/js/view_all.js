@@ -1,4 +1,4 @@
-const { app, remote, electron, ipcRenderer } = require("electron");
+const { ipcRenderer } = require("electron");
 const ipc = ipcRenderer;
 let repo;
 let counter = 1;

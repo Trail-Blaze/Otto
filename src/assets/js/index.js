@@ -1,4 +1,4 @@
-const { app, remote, electron, ipcRenderer } = require("electron");
+const { ipcRenderer } = require("electron");
 const ipc = ipcRenderer;
 
 let repo;
@@ -68,7 +68,7 @@ fetch("https://trail-blaze.github.io/scoop/scoop_repo.json")
     setContent();
   })
   .catch((err) => console.error(err));
-fetch("https://trail-blaze.github.io/marketplace/catalog.json")
+fetch(`${launcherConfig.shopEndpoint}/catalog.json`)
   .then((response) => response.json())
   .then(async (data) => {
     catalog = data;

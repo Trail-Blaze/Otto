@@ -1,33 +1,29 @@
 const { ref } = require("./extensions");
-
-require("./extensions");
 const { downloadBackend } = require("./backendParser");
 const { downloadTheme } = require("./themeParser");
 const { downloadOther } = require("./other");
-let pkg = require("./package");
 
-function downloadButton() {
-  pkg.package = package;
+function downloadButton(package) {
   switch ((package.type = package.type.toString().toUpperCase())) {
     case "BACKEND/BUNDLE":
-      downloadBackend(package.URL);
+      downloadBackend(package);
       break;
     case "BACKEND/BINARY":
-      downloadOther(package.URL);
+      downloadOther(package);
       break;
     case "PAKCHUNK":
-      downloadOther(package.URL);
+      downloadOther(package);
       break;
     case "THEMEPACK":
-      downloadTheme(package.URL);
+      downloadTheme(package);
       break;
     default:
       break;
   }
 
   // Finish up + exit
-  ref("downloadButton").style.display = "none";
-  ref("status").innerText = "INSTALLED";
+  ref("download_rel").style.display = "none";
+  ref("name").innerText = "INSTALLED";
   return;
 }
 

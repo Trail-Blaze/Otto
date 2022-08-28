@@ -129,7 +129,7 @@
         </div>
       </div>
     </header>
-    <main class="bg-gray-200">
+    <main id="main">
       <div
       includefile="./src/assets/partials/html/sidebar.html"
       id="sidebar"

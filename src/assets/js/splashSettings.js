@@ -63,7 +63,7 @@ splashCustom.addEventListener("change", function () {
         fs.mkdirSync(configDir);
         console.log("Created New Blaze/Launcher Dir!");
 
-        fetch("https://trail-blaze.github.io/marketplace/config/settings.json")
+        fetch(`${launcherConfig.shopEndpoint}/config/settings.json`)
           .then((response) => response.json())
           .then((data) => {
             launcherConfig = data;
@@ -82,7 +82,7 @@ splashCustom.addEventListener("change", function () {
         restoreSettings();
       }
       if (!fs.existsSync(path.join(configDir, "settings.json"))) {
-        fetch("https://trail-blaze.github.io/marketplace/config/settings.json")
+        fetch(`${launcherConfig.shopEndpoint}/config/settings.json`)
           .then((response) => response.json())
           .then((data) => {
             launcherConfig = data;
