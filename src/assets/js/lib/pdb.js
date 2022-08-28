@@ -23,11 +23,12 @@ function localPDB(
   let pdb_;
   const packageStore = path.join(userAssetsDir, "/packageStore.json");
   // Check for PDB's existense
-  if (fse.accessSync(path.join(packageStore), fse.constants.F_OK)) {
+  try {
+    fse.accessSync(path.join(packageStore), fse.constants.F_OK);
     pdb_ = require(path.join(packageStore));
     pdb = pdb_.packageList;
-  } // If not, we generate one
-  else {
+  } catch (error) {
+    // If not, we generate one
     pdb_ = {
       localProps: {
         name: "LocalDB for logging info",
@@ -57,7 +58,7 @@ function localPDB(
       // Increase
       pdb_.localProps.pak_count = parseInt(pdb_.localProps.pak_count) + 1;
       // Write
-      fse.writeFileSync(packageStore, JSON.parse(pdb_), "utf8");
+      fse.writeFileSync(packageStore, JSON.stringify(pdb_, false, 3), "utf8");
       console.log("[LPDB] Created NEW " + name + " package.");
       break;
     case "update":
@@ -92,7 +93,7 @@ function localPDB(
     //   break;
   }
   // Write
-  fse.writeFileSync(packageStore, JSON.parse(pdb_), "utf8");
+  fse.writeFileSync(packageStore, JSON.stringify(pdb_, false, 3), "utf8");
   return;
 }
 

@@ -27,7 +27,7 @@ function downloadBackend(package) {
     filename: "RobinHood",
   }).then(() => {
     try {
-      fse.renameSync(backendActive, `INACTIVE_${removeSpecial(distinfo.name)}`);
+      fse.renameSync(backendActive, path.join(backendsDir, `INACTIVE_${removeSpecial(distinfo.name)}`));
 
       localPDB(
         "update",
@@ -118,7 +118,8 @@ function installBackend(package, source = source.toString()) {
  * @returns Sanitized string
  */
 function removeSpecial(str = str.toString()) {
-  return str.replace(/[^a-zA-Z ]/g, "").replace(/\s/g, "_");
+  str = str.replace(/[^a-zA-Z ]/g, "");
+  return str.replace(/\s/g, "_");
 }
 
 // Expose only downloadBackend
