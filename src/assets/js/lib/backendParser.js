@@ -4,11 +4,12 @@ const yaml = require("yaml");
 const distinfo = yaml.parse(path.join(backendActive, "dist-info.yml"));
 const fse = require("fs-extra");
 require("./environment");
-
+const { register } = require("./extensions");
 const backendsDir = backendDir;
 const stagingDirectory = path.join(backendsDir, "/.staging/");
 const backendActive = path.join(backendsDir, "ACTIVE");
-require("./pdb");
+const { localPDB } = require("./pdb");
+const { package } = require("./package");
 
 /**
  * @brief Downloads a private server, installs it and creates some metadata in the Local Package Database
@@ -34,16 +35,13 @@ function installBackend(name = name.toString(), source = source.toString()) {
   fse.move(source, backendsDir, (error) => {
     if (error) throw error;
     fse.rename(name, "ACTIVE");
-    // Register package
-    // localPDB(method, name, key, value)
-    // Version
-    localPDB("new", package.name, "VERSION", package.version);
-    // Type
-    localPDB("update", package.name, "TYPE", package.type);
-    // InstallLocation
-    localPDB("update", package.name, "INSTALLLOCATION", backendActive);
-    // EntryPoint
-    localPDB("update", package.name, "ENTRYPOINT", distinfo.entrypoint);
+    register(
+      package.name,
+      package.version,
+      package.type,
+      backendActive,
+      distinfo.entrypoint
+    );
     return;
   });
 }

@@ -1,11 +1,7 @@
-const download = require("download");
 const path = require("path");
-const yaml = require("yaml");
-const distinfo = yaml.parse(path.join(backendActive, "dist-info.yml"));
 const fse = require("fs-extra");
 const { userAssetsDir } = require("./environment");
-const { defaultApp } = require("process");
-require("./environment");
+const { package } = require("./package");
 
 /**
  * @name LocalPDB

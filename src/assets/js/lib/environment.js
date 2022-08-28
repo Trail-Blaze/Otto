@@ -9,6 +9,7 @@ let configDir = path.join(baseDir, "/Launcher/");
 let helpersDir = path.join(configDir, "/helpers/");
 let backendDir = path.join(configDir, "/backend/");
 let userAssetsDir = path.join(configDir, "/userAssets/");
+let userAssetsPackages = path.join(userAssetsDir, "/packages");
 /************************************************************** */
 
 module.exports = {
@@ -18,4 +19,5 @@ module.exports = {
   helpersDir,
   backendDir,
   userAssetsDir,
+  userAssetsPackages,
 };
