@@ -7,10 +7,10 @@ const getmac = require("getmac");
 // Guard Filter
 const OTPAuth = require("otpauth");
 const networkServer = "https://express-ban.vercel.app/launcher/echo";
-const _SF5 = '2xe66432';
-const _DER2 = "26JMC"
+const _SF5 = "2xe66432";
+const _DER2 = "26JMC";
 const _AE1 = "7ad";
-const _f3_ = 'p625kp';
+const _f3_ = "p625kp";
 
 // Create a new TOTP object.
 let totp = new OTPAuth.TOTP({
@@ -78,7 +78,12 @@ let helpersDir = path.join(configDir, "/helpers/");
 let backendDir = path.join(configDir, "/backend/ACTIVE/");
 let userAssetsDir = path.join(configDir, "/userAssets/");
 let launcherConfig = require(path.join(configDir, "settings.json")); // Opening settings file for readOnly
-let packageStore = require(path.join(userAssetsDir, "packageStore.json")); // Opening settings file for readOnly
+let packageStore = null;
+try {
+  packageStore = require(path.join(userAssetsDir, "packageStore.json")); // Opening packageStore for readOnly
+} catch (error) {
+  console.warn("[BLAZEJS] No packageStore Detected!");
+}
 
 ref = (id) => document.getElementById(id);
 
@@ -164,7 +169,6 @@ function amIbanned() {
       window.location.href = "./src/errors/server_down.html";
     });
 }
-
 
 /*
 module.exports = {
