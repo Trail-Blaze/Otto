@@ -27,13 +27,13 @@ function downloadBackend(package) {
     filename: "RobinHood",
   }).then(() => {
     try {
-      fse.renameSync(backendActive, path.join(backendsDir, `INACTIVE_${removeSpecial(distinfo.name)}`));
+      fse.renameSync(backendActive, path.join(backendsDir, `INACTIVE__${removeSpecial(distinfo.name)}`));
 
       localPDB(
         "update",
         distinfo.name,
         "installLocation",
-        path.join(backendsDir, `INACTIVE_${distinfo.name}`)
+        path.join(backendsDir, `INACTIVE__${distinfo.name}`)
       );
     } catch (e) {
       console.info('[LPDB] No "ACTIVE" backend currently.');
