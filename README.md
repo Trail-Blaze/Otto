@@ -6,6 +6,7 @@
 ![image](https://user-images.githubusercontent.com/34188635/168923276-823498bc-fb83-4d96-8890-27da367b91c3.png)
 
 ## The NO Spyware, NO Adware, NO Nonsense Launcher
+> This is a Fortnite Launcher built using Electron
 
 Otto is a custom launcher for Fortnite. It does exactly as advertised and does exactly what it was intended to do. There is **ZERO spyware, ZERO Ads, and ZERO malware/cryptojacking software** embedded in this application when compared to other alternatives such as [Neonite](https://github.com/NeoniteDev) or StormFN.
 
