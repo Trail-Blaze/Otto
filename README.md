@@ -1,4 +1,10 @@
-# Otto LIVE Build 
+# Otto LIVE Build - [ARCHIVED DUE TO SECURITY, SPEED AND BINARY SIZE CONCERNS]
+> **NOTE** This launcher is now being rewritten and refactored since the builds are getting too big, the
+> security is of a concern, and I don't like the idea of having people snoop around in my ASAR file.
+> There is no set date on when this all will be released, but it will be released.
+
+
+
 ![image](https://github.com/trail-blaze/otto/actions/workflows/codeql-analysis.yml/badge.svg)
 ![image](https://github.com/trail-blaze/otto/actions/workflows/build.yml/badge.svg)
 ![image](https://github.com/trail-blaze/otto/actions/workflows/build-css.yml/badge.svg)
