@@ -17,7 +17,7 @@ let navConfig;
       fs__nav.mkdirSync(configPath, { recursive: true });
       console.log("Created New Base Dir!");
       greeting_S.innerHTML = "DOWNLOADING NAVIGATION";
-      fetch("https://trail-blaze.github.io/res/config/defaultNavConfig.json")
+      fetch("https://trail-blaze.github.io/catalog/config/defaultNavConfig.json")
         .then((response) => response.json())
         .then((data) => {
           navConfig = data;
@@ -35,7 +35,7 @@ let navConfig;
         .catch((err) => console.error(err));
 
       greeting_S.innerHTML = "DOWNLOADING SETTINGS";
-      fetch("https://trail-blaze.github.io/res/config/settings.json")
+      fetch("https://trail-blaze.github.io/catalog/config/settings.json")
         .then((response) => response.json())
         .then((data) => {
           _lC = data;
@@ -91,7 +91,7 @@ try {
 } catch (e) {
   (async () =>
     await download(
-      "https://trail-blaze.github.io/res/config/defaultNavConfig.json",
+      "https://trail-blaze.github.io/catalog/config/defaultNavConfig.json",
       path__nav.join(configPath)
     ))();
   setTimeout(() => {
